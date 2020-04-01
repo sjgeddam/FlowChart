@@ -26,6 +26,8 @@
 		180804312435540A00A6AADA /* TrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808042B2435540A00A6AADA /* TrackerViewController.swift */; };
 		180804322435540A00A6AADA /* popoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808042C2435540A00A6AADA /* popoverViewController.swift */; };
 		180804332435540A00A6AADA /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808042D2435540A00A6AADA /* CustomTableViewCell.swift */; };
+		18080435243558F500A6AADA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18080434243558F400A6AADA /* MainViewController.swift */; };
+		1808043724355B6D00A6AADA /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 1808043624355B6D00A6AADA /* fonts */; };
 		18577D902418562A0091DFD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18577D8F2418562A0091DFD6 /* AppDelegate.swift */; };
 		18577D922418562A0091DFD6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18577D912418562A0091DFD6 /* SceneDelegate.swift */; };
 		18577D942418562A0091DFD6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18577D932418562A0091DFD6 /* ViewController.swift */; };
@@ -55,6 +57,8 @@
 		1808042B2435540A00A6AADA /* TrackerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerViewController.swift; sourceTree = "<group>"; };
 		1808042C2435540A00A6AADA /* popoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = popoverViewController.swift; sourceTree = "<group>"; };
 		1808042D2435540A00A6AADA /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		18080434243558F400A6AADA /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		1808043624355B6D00A6AADA /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		18577D8C2418562A0091DFD6 /* FlowChart-iOSProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FlowChart-iOSProject.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18577D8F2418562A0091DFD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18577D912418562A0091DFD6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +109,8 @@
 				18577D912418562A0091DFD6 /* SceneDelegate.swift */,
 				18577D932418562A0091DFD6 /* ViewController.swift */,
 				18577D952418562A0091DFD6 /* Main.storyboard */,
+				1808043624355B6D00A6AADA /* fonts */,
+				18080434243558F400A6AADA /* MainViewController.swift */,
 				1808042D2435540A00A6AADA /* CustomTableViewCell.swift */,
 				1808042A2435540A00A6AADA /* FlowViewController.swift */,
 				180804292435540A00A6AADA /* MoodViewController.swift */,
@@ -191,6 +197,7 @@
 				18577D99241856340091DFD6 /* Assets.xcassets in Resources */,
 				18577D972418562A0091DFD6 /* Main.storyboard in Resources */,
 				0F3A1E3A2434537C00E7AE35 /* ReemKufi-Regular.ttf in Resources */,
+				1808043724355B6D00A6AADA /* fonts in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +213,7 @@
 				180804322435540A00A6AADA /* popoverViewController.swift in Sources */,
 				180804312435540A00A6AADA /* TrackerViewController.swift in Sources */,
 				0F3A1E3624343D0600E7AE35 /* DayOverviewViewController.swift in Sources */,
+				18080435243558F500A6AADA /* MainViewController.swift in Sources */,
 				180804302435540A00A6AADA /* FlowViewController.swift in Sources */,
 				0F3A1E3C2434559B00E7AE35 /* DayOverviewTableViewCell.swift in Sources */,
 				1808042F2435540A00A6AADA /* MoodViewController.swift in Sources */,
