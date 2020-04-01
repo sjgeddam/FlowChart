@@ -15,7 +15,7 @@ class CalendarCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var markDate: UIImageView!
     @IBOutlet weak var topRect: UIImageView!
     @IBOutlet weak var bottomRect: UIImageView!
-    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var button: CalendarCellButton!
     
     var month = 1
     var year = 1
@@ -26,11 +26,13 @@ class CalendarCollectionViewCell: UICollectionViewCell {
     let symptomDateColor = UIColor(red: 243/255, green: 248/255, blue: 10/255, alpha: 1.0)
 
     
-    func setDate(date: String, currentDate: Bool, period: Bool, ovulation: Bool, symptom: Bool) {
+    func setDate(date: String, currentDate: Bool, period: Bool, ovulation: Bool, symptom: Bool, indexPath: IndexPath) {
         if date != "0" {
             dateLabel.text = date
             button.isEnabled = true
             button.tag = Int(date) ?? 0
+            button.indexPath = indexPath
+            
         } else {
             button.isEnabled = false
             dateLabel.text = " "

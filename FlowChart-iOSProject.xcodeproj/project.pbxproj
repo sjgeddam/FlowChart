@@ -10,6 +10,7 @@
 		0F3A1E3624343D0600E7AE35 /* DayOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3A1E3524343D0600E7AE35 /* DayOverviewViewController.swift */; };
 		0F3A1E3A2434537C00E7AE35 /* ReemKufi-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0F3A1E392434537C00E7AE35 /* ReemKufi-Regular.ttf */; };
 		0F3A1E3C2434559B00E7AE35 /* DayOverviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3A1E3B2434559B00E7AE35 /* DayOverviewTableViewCell.swift */; };
+		0F7A76AB2435446300C48312 /* CalendarCellButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A76AA2435446300C48312 /* CalendarCellButton.swift */; };
 		0FA5831D2432E38D0048BC3B /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FA5831C2432E38D0048BC3B /* Calendar.storyboard */; };
 		0FA5831F2432E5C90048BC3B /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA5831E2432E5C90048BC3B /* CalendarViewController.swift */; };
 		0FA583212432EC710048BC3B /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA583202432EC710048BC3B /* CalendarCollectionViewCell.swift */; };
@@ -26,6 +27,7 @@
 		0F3A1E3524343D0600E7AE35 /* DayOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOverviewViewController.swift; sourceTree = "<group>"; };
 		0F3A1E392434537C00E7AE35 /* ReemKufi-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ReemKufi-Regular.ttf"; sourceTree = "<group>"; };
 		0F3A1E3B2434559B00E7AE35 /* DayOverviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOverviewTableViewCell.swift; sourceTree = "<group>"; };
+		0F7A76AA2435446300C48312 /* CalendarCellButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCellButton.swift; sourceTree = "<group>"; };
 		0FA5831C2432E38D0048BC3B /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		0FA5831E2432E5C90048BC3B /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		0FA583202432EC710048BC3B /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				0F3A1E3524343D0600E7AE35 /* DayOverviewViewController.swift */,
 				0FA5831E2432E5C90048BC3B /* CalendarViewController.swift */,
 				0FA583202432EC710048BC3B /* CalendarCollectionViewCell.swift */,
+				0F7A76AA2435446300C48312 /* CalendarCellButton.swift */,
 				0FA5831C2432E38D0048BC3B /* Calendar.storyboard */,
 				18577D8F2418562A0091DFD6 /* AppDelegate.swift */,
 				18577D912418562A0091DFD6 /* SceneDelegate.swift */,
@@ -161,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F3A1E3624343D0600E7AE35 /* DayOverviewViewController.swift in Sources */,
+				0F7A76AB2435446300C48312 /* CalendarCellButton.swift in Sources */,
 				0F3A1E3C2434559B00E7AE35 /* DayOverviewTableViewCell.swift in Sources */,
 				0FA5831F2432E5C90048BC3B /* CalendarViewController.swift in Sources */,
 				18577D942418562A0091DFD6 /* ViewController.swift in Sources */,

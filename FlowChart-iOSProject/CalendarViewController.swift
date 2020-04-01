@@ -22,7 +22,7 @@ var curMonth = 1
 var curYear = 2020
 var curDay = 1
 
-
+var curIndexPath: IndexPath!
 
 class CalendarViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var monthYearLabel: UILabel!
@@ -30,6 +30,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     
     @IBOutlet weak var layout: UICollectionViewFlowLayout!
     
+
     
     func fillDates() {
         dates.removeAll()
@@ -83,7 +84,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
             curDate = true
         }
         let markedDay = markedDates[indexPath.section][indexPath.row]
-        cell.setDate(date: "\(dates[indexPath.section][indexPath.row])", currentDate: curDate, period: markedDay.period, ovulation: markedDay.ovulation, symptom: markedDay.symptoms)
+        cell.setDate(date: "\(dates[indexPath.section][indexPath.row])", currentDate: curDate, period: markedDay.period, ovulation: markedDay.ovulation, symptom: markedDay.symptoms, indexPath: indexPath)
         return cell
     }
     
@@ -177,8 +178,8 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     @IBAction func onDateClick(_ sender: Any) {
-        curDay = Int((sender as! UIButton).tag)
-        
+        curDay = Int((sender as! CalendarCellButton).tag)
+        curIndexPath = (sender as! CalendarCellButton).indexPath
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -188,15 +189,11 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
             nextVC?.month = curMonth
             nextVC?.day = curDay
             nextVC?.year = curYear
-            let section = dates.firstIndex(where: { $0.contains(curDay) })
-            let row = dates[section!].firstIndex(of: curDay)
-            let indexPath = IndexPath(item: row!, section: section!)
-            let cell = collectionView.cellForItem(at: indexPath) as! CalendarCollectionViewCell
+            let indexPath = curIndexPath
+            let cell = collectionView.cellForItem(at: indexPath!) as! CalendarCollectionViewCell
             nextVC?.prevColor = cell.markDate.tintColor
             cell.markDate.tintColor = .red
             nextVC?.markedDate = cell.markDate
- 
-            
         }
     }
 
