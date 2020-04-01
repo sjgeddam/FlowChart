@@ -11,6 +11,8 @@
 		1808041124315E7B00A6AADA /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808041024315E7B00A6AADA /* ChecklistViewController.swift */; };
 		18080413243160C200A6AADA /* CheckableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18080412243160C200A6AADA /* CheckableTableViewCell.swift */; };
 		1808041524316C5A00A6AADA /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808041424316C5A00A6AADA /* LocationViewController.swift */; };
+		180804172434117500A6AADA /* RecentNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180804162434117500A6AADA /* RecentNewsViewController.swift */; };
+		1808041924341D1A00A6AADA /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808041824341D1A00A6AADA /* ArticleTableViewCell.swift */; };
 		18577D902418562A0091DFD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18577D8F2418562A0091DFD6 /* AppDelegate.swift */; };
 		18577D922418562A0091DFD6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18577D912418562A0091DFD6 /* SceneDelegate.swift */; };
 		18577D942418562A0091DFD6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18577D932418562A0091DFD6 /* ViewController.swift */; };
@@ -25,6 +27,8 @@
 		1808041024315E7B00A6AADA /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewController.swift; sourceTree = "<group>"; };
 		18080412243160C200A6AADA /* CheckableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckableTableViewCell.swift; sourceTree = "<group>"; };
 		1808041424316C5A00A6AADA /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		180804162434117500A6AADA /* RecentNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentNewsViewController.swift; sourceTree = "<group>"; };
+		1808041824341D1A00A6AADA /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		18577D8C2418562A0091DFD6 /* FlowChart-iOSProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FlowChart-iOSProject.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18577D8F2418562A0091DFD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18577D912418562A0091DFD6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +77,8 @@
 				18577D952418562A0091DFD6 /* Main.storyboard */,
 				1808041424316C5A00A6AADA /* LocationViewController.swift */,
 				18577DA324185B890091DFD6 /* Resources.storyboard */,
+				1808041824341D1A00A6AADA /* ArticleTableViewCell.swift */,
+				180804162434117500A6AADA /* RecentNewsViewController.swift */,
 				18080412243160C200A6AADA /* CheckableTableViewCell.swift */,
 				1808040A243052F700A6AADA /* ResourcesViewController.swift */,
 				18577D98241856340091DFD6 /* Assets.xcassets */,
@@ -155,11 +161,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1808041524316C5A00A6AADA /* LocationViewController.swift in Sources */,
+				1808041924341D1A00A6AADA /* ArticleTableViewCell.swift in Sources */,
 				18080413243160C200A6AADA /* CheckableTableViewCell.swift in Sources */,
 				18577D942418562A0091DFD6 /* ViewController.swift in Sources */,
 				18577D902418562A0091DFD6 /* AppDelegate.swift in Sources */,
 				1808040B243052F700A6AADA /* ResourcesViewController.swift in Sources */,
 				1808041124315E7B00A6AADA /* ChecklistViewController.swift in Sources */,
+				180804172434117500A6AADA /* RecentNewsViewController.swift in Sources */,
 				18577D922418562A0091DFD6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

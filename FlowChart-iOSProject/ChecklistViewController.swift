@@ -33,8 +33,20 @@ class ChecklistViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.itemText.text = checklist[row]
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            checklist.remove(at: indexPath.row)
+            self.tableView.reloadData()
+        }
+    }
+    
     @IBAction func addItem(_ sender: Any) {
-        let ac = UIAlertController(title: "Enter answer", message: nil, preferredStyle: .alert)
+        let ac = UIAlertController(title: "Add to Checklist", message: nil, preferredStyle: .alert)
         ac.addTextField()
 
         let submitAction = UIAlertAction(title: "Submit", style: .default) { [unowned ac] _ in

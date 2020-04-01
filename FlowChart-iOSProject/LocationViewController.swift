@@ -8,20 +8,51 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class LocationViewController: UIViewController {
     let locationManager = CLLocationManager()
     
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var mapKit: MKMapView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
-
+        
         // Do any additional setup after loading the view.
+    }
+    
+    func plotClinicPoints() {
+        var count = 0
+        let request = MKLocalSearch.Request()
+        request.naturalLanguageQuery = "Women Clinic"
+        request.region = mapKit.region
+        
+        let search = MKLocalSearch(request: request)
+        search.start { response, error in
+            guard let response = response else {
+                return
+            }
+            for item in response.mapItems.prefix(3) {
+                let label = UILabel(frame: CGRect(x: 20, y: 160 + count * 40, width: 375, height: 35))
+                label.textAlignment = .left
+                label.text = item.name
+                self.view.addSubview(label)
+                count += 1
+                let placemark = item.placemark
+                let lat = placemark.location?.coordinate.latitude
+                let lon = placemark.location?.coordinate.longitude
+                let annotation = MKPointAnnotation()
+                annotation.title = item.name
+                annotation.coordinate = CLLocationCoordinate2D(latitude: lat!, longitude: lon!)
+                self.mapKit.addAnnotation(annotation)
+            }
+        }
     }
     
 
@@ -48,14 +79,11 @@ extension LocationViewController : CLLocationManagerDelegate {
         }
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(location!) { (placemarksArray, error) in
-
             if (placemarksArray?.count)! > 0 {
-
                 let placemark = placemarksArray?.first
-                
                 self.locationLabel.text = placemark?.locality
             }
         }
-
+        plotClinicPoints()
     }
 }
