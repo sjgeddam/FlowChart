@@ -8,21 +8,36 @@
 
 import UIKit
 
-//let monthDict = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
+var symptoms = ["bloating", "lower back pain", "mood swings", "low energy", "cramping"]
 
-class DayOverviewViewController: UIViewController {
+class DayOverviewViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var tableView: UITableView!
+
     var month = 1
     var year = 2020
     var day = 1
     var delegate: UIViewController!
     
-    @IBOutlet weak var waves: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        symptoms.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! DayOverviewTableViewCell
+        cell.setLabel(text: symptoms[indexPath.row])
+        return cell
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
         dateLabel.text = "\(monthDict[month]) \(day), \(year)"
     }
+    
     
 
     /*
