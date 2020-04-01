@@ -41,6 +41,7 @@ class LocationViewController: UIViewController {
             for item in response.mapItems.prefix(3) {
                 let label = UILabel(frame: CGRect(x: 20, y: 160 + count * 40, width: 375, height: 35))
                 label.textAlignment = .left
+                label.font = UIFont (name: "ReemKufi-Regular", size: 25)
                 label.text = item.name
                 self.view.addSubview(label)
                 count += 1
