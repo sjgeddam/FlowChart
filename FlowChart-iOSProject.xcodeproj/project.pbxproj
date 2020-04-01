@@ -13,6 +13,8 @@
 		18577D972418562A0091DFD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18577D952418562A0091DFD6 /* Main.storyboard */; };
 		18577D99241856340091DFD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18577D98241856340091DFD6 /* Assets.xcassets */; };
 		18577D9C241856340091DFD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18577D9A241856340091DFD6 /* LaunchScreen.storyboard */; };
+		1D41C8E9243548A900B68A76 /* Tracker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D41C8E8243548A900B68A76 /* Tracker.storyboard */; };
+		1D41C8EB2435491E00B68A76 /* TrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D41C8EA2435491E00B68A76 /* TrackerViewController.swift */; };
 		1D96B9822434EB290030537E /* popoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D96B9812434EB290030537E /* popoverViewController.swift */; };
 		1D96B9842434EB490030537E /* FlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D96B9832434EB490030537E /* FlowViewController.swift */; };
 		1D96B9862434EB5B0030537E /* MoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D96B9852434EB5B0030537E /* MoodViewController.swift */; };
@@ -28,6 +30,8 @@
 		18577D98241856340091DFD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18577D9B241856340091DFD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18577D9D241856340091DFD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D41C8E8243548A900B68A76 /* Tracker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tracker.storyboard; sourceTree = "<group>"; };
+		1D41C8EA2435491E00B68A76 /* TrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerViewController.swift; sourceTree = "<group>"; };
 		1D96B9812434EB290030537E /* popoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popoverViewController.swift; sourceTree = "<group>"; };
 		1D96B9832434EB490030537E /* FlowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowViewController.swift; sourceTree = "<group>"; };
 		1D96B9852434EB5B0030537E /* MoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodViewController.swift; sourceTree = "<group>"; };
@@ -71,10 +75,12 @@
 				1D96B9852434EB5B0030537E /* MoodViewController.swift */,
 				1D96B9832434EB490030537E /* FlowViewController.swift */,
 				18577D952418562A0091DFD6 /* Main.storyboard */,
+				1D41C8E8243548A900B68A76 /* Tracker.storyboard */,
 				18577D98241856340091DFD6 /* Assets.xcassets */,
 				18577D9A241856340091DFD6 /* LaunchScreen.storyboard */,
 				18577D9D241856340091DFD6 /* Info.plist */,
 				1D96B9872434F6E80030537E /* CustomTableViewCell.swift */,
+				1D41C8EA2435491E00B68A76 /* TrackerViewController.swift */,
 			);
 			path = "FlowChart-iOSProject";
 			sourceTree = "<group>";
@@ -138,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18577D9C241856340091DFD6 /* LaunchScreen.storyboard in Resources */,
+				1D41C8E9243548A900B68A76 /* Tracker.storyboard in Resources */,
 				18577D99241856340091DFD6 /* Assets.xcassets in Resources */,
 				18577D972418562A0091DFD6 /* Main.storyboard in Resources */,
 			);
@@ -151,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D96B9822434EB290030537E /* popoverViewController.swift in Sources */,
+				1D41C8EB2435491E00B68A76 /* TrackerViewController.swift in Sources */,
 				18577D942418562A0091DFD6 /* ViewController.swift in Sources */,
 				1D96B9842434EB490030537E /* FlowViewController.swift in Sources */,
 				1D96B9882434F6E80030537E /* CustomTableViewCell.swift in Sources */,
