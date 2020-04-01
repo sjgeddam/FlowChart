@@ -45,6 +45,9 @@ class DayOverviewViewController: UIViewController, UITableViewDelegate, UITableV
         markedDate.tintColor = prevColor
     }
 
+    @IBAction func onClick(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
 
 }

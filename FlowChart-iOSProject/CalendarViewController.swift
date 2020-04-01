@@ -144,18 +144,16 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         
         
     }
-
+    @IBAction func onClick(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+        self.navigationController!.setNavigationBarHidden(false,animated:false)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         layout.minimumInteritemSpacing = 12
-        // Move navigation bar to bottom of screen
-        self.navigationController!.navigationBar.frame = CGRect(
-            origin: CGPoint(
-                x: 0,
-                y: UIScreen.main.fixedCoordinateSpace.bounds.height - navigationController!.navigationBar.frame.height),
-            size: CGSize(
-                width: navigationController!.navigationBar.frame.width,
-                height: navigationController!.navigationBar.frame.height))
+        self.navigationController!.setNavigationBarHidden(true,animated:false)
         
         curMonth = Calendar.current.component(.month, from: NSDate() as Date)
         curYear = Calendar.current.component(.year, from: NSDate() as Date)

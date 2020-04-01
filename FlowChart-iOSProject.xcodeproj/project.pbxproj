@@ -50,18 +50,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0F7A76A9243527DF00C48312 /* Calendar */ = {
-			isa = PBXGroup;
-			children = (
-				0F3A1E3B2434559B00E7AE35 /* DayOverviewTableViewCell.swift */,
-				0F3A1E3524343D0600E7AE35 /* DayOverviewViewController.swift */,
-				0FA5831E2432E5C90048BC3B /* CalendarViewController.swift */,
-				0FA583202432EC710048BC3B /* CalendarCollectionViewCell.swift */,
-				0FA5831C2432E38D0048BC3B /* Calendar.storyboard */,
-			);
-			path = Calendar;
-			sourceTree = "<group>";
-		};
 		18577D832418562A0091DFD6 = {
 			isa = PBXGroup;
 			children = (
@@ -82,7 +70,11 @@
 		18577D8E2418562A0091DFD6 /* FlowChart-iOSProject */ = {
 			isa = PBXGroup;
 			children = (
-				0F7A76A9243527DF00C48312 /* Calendar */,
+				0F3A1E3B2434559B00E7AE35 /* DayOverviewTableViewCell.swift */,
+				0F3A1E3524343D0600E7AE35 /* DayOverviewViewController.swift */,
+				0FA5831E2432E5C90048BC3B /* CalendarViewController.swift */,
+				0FA583202432EC710048BC3B /* CalendarCollectionViewCell.swift */,
+				0FA5831C2432E38D0048BC3B /* Calendar.storyboard */,
 				18577D8F2418562A0091DFD6 /* AppDelegate.swift */,
 				18577D912418562A0091DFD6 /* SceneDelegate.swift */,
 				18577D932418562A0091DFD6 /* ViewController.swift */,
