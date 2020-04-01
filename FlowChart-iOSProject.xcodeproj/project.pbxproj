@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F3A1E3624343D0600E7AE35 /* DayOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3A1E3524343D0600E7AE35 /* DayOverviewViewController.swift */; };
 		0FA5831D2432E38D0048BC3B /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FA5831C2432E38D0048BC3B /* Calendar.storyboard */; };
 		0FA5831F2432E5C90048BC3B /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA5831E2432E5C90048BC3B /* CalendarViewController.swift */; };
 		0FA583212432EC710048BC3B /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA583202432EC710048BC3B /* CalendarCollectionViewCell.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		0F0C2E412433FA4000B37C34 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fonts; path = "/Users/shannonradey/Documents/FlowChart/FlowChart-iOSProject/fonts"; sourceTree = "<absolute>"; };
+		0F3A1E3524343D0600E7AE35 /* DayOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOverviewViewController.swift; sourceTree = "<group>"; };
 		0FA5831C2432E38D0048BC3B /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		0FA5831E2432E5C90048BC3B /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		0FA583202432EC710048BC3B /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				0FA5831C2432E38D0048BC3B /* Calendar.storyboard */,
 				0FA583202432EC710048BC3B /* CalendarCollectionViewCell.swift */,
 				0FA5831E2432E5C90048BC3B /* CalendarViewController.swift */,
+				0F3A1E3524343D0600E7AE35 /* DayOverviewViewController.swift */,
 				18577D8F2418562A0091DFD6 /* AppDelegate.swift */,
 				18577D912418562A0091DFD6 /* SceneDelegate.swift */,
 				18577D932418562A0091DFD6 /* ViewController.swift */,
@@ -154,6 +157,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F3A1E3624343D0600E7AE35 /* DayOverviewViewController.swift in Sources */,
 				0FA5831F2432E5C90048BC3B /* CalendarViewController.swift in Sources */,
 				18577D942418562A0091DFD6 /* ViewController.swift in Sources */,
 				18577D902418562A0091DFD6 /* AppDelegate.swift in Sources */,

@@ -10,6 +10,7 @@ import UIKit
 
 let reuseIdentifier = "Cell"
 var dates = [[Int]]()
+var markedDates:[[(period: Bool, ovulation: Bool, symptoms: Bool)]] = []
 
 var monthDict = ["none", "january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
 
@@ -19,6 +20,7 @@ var realDay = 1
 
 var curMonth = 1
 var curYear = 2020
+var curDay = 1
 
 
 
@@ -26,7 +28,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     @IBOutlet weak var monthYearLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let monthYearLabelColor = UIColor(red: 245/255, green: 157/255, blue: 53/255, alpha: 1)
     
     
     func fillDates() {
@@ -78,13 +79,14 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
             && curYear == realYear) {
             curDate = true
         }
-        cell.setDate(date: "\(dates[indexPath.section][indexPath.row])", currentDate: curDate)
+        let markedDay = markedDates[indexPath.section][indexPath.row]
+        cell.setDate(date: "\(dates[indexPath.section][indexPath.row])", currentDate: curDate, period: markedDay.period, ovulation: markedDay.ovulation, symptom: markedDay.symptoms)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
-       return CGSize(width: 43, height: 70.0)
+       return CGSize(width: 43, height: 65)
     }
     
     @objc func swipeRightDetected(_ sender: UIGestureRecognizer) {
@@ -110,6 +112,34 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     func setCalendar() {
         fillDates()
         monthYearLabel.text = "\(monthDict[curMonth]) \(curYear)"
+        markedDates.removeAll()
+        // Period/ovulation/symptom dates hard coded in
+        let periodStart = 27
+        let periodLen = 5
+        let ovulationStart = 13
+        let ovulationLen = 5
+        let symptomDates = [4, 5, 10, 18, 20]
+        
+        //var markedDates:[[(period: Bool, ovulation: Bool, symptoms: Bool)]] = []
+        for week in 0...5 {
+            var row:[(period: Bool, ovulation: Bool, symptoms: Bool)] = []
+            for day in 0...6 {
+                var markedDay = (period: false, ovulation: false, symptoms: false)
+                if dates[week][day] >= periodStart && dates[week][day] <= periodStart + periodLen {
+                    markedDay.period = true
+                }
+                if dates[week][day] >= ovulationStart && dates[week][day] <= ovulationStart + ovulationLen {
+                    markedDay.ovulation = true
+                }
+                if symptomDates.contains(dates[week][day]) {
+                    markedDay.symptoms = true
+                }
+                row.append(markedDay)
+            }
+            markedDates.append(row)
+        }
+        
+        
     }
 
     override func viewDidLoad() {
@@ -130,8 +160,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         realYear = curYear
         realDay = Calendar.current.component(.day, from: NSDate() as Date)
         
-        monthYearLabel.textColor = monthYearLabelColor
-        
         setCalendar()
         
         collectionView.delegate = self
@@ -147,5 +175,19 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
 
     }
     
+    @IBAction func onDateClick(_ sender: Any) {
+        curDay = Int((sender as! UIButton).tag)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "dateSegue") {
+            let nextVC = segue.destination as? DayOverviewViewController
+            nextVC?.delegate = self
+            nextVC?.month = curMonth
+            nextVC?.day = curDay
+            nextVC?.year = curYear
+            
+        }
+    }
 
 }
