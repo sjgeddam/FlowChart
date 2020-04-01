@@ -16,6 +16,7 @@ class DayOverviewViewController: UIViewController {
     var day = 1
     var delegate: UIViewController!
     
+    @IBOutlet weak var waves: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
     
     override func viewDidLoad() {
