@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		142BE05F2432EE4700E1E885 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18577D9D241856340091DFD6 /* Info.plist */; };
+		142BE0632432F08600E1E885 /* MajorMonoDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 142BE0622432F08600E1E885 /* MajorMonoDisplay-Regular.ttf */; };
+		14D4C48424342D94006A4F19 /* ReemKufi-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14D4C48324342D93006A4F19 /* ReemKufi-Regular.ttf */; };
+		14D4C4862434365D006A4F19 /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14D4C4852434365D006A4F19 /* Raleway-Regular.ttf */; };
 		18577D902418562A0091DFD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18577D8F2418562A0091DFD6 /* AppDelegate.swift */; };
 		18577D922418562A0091DFD6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18577D912418562A0091DFD6 /* SceneDelegate.swift */; };
 		18577D942418562A0091DFD6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18577D932418562A0091DFD6 /* ViewController.swift */; };
@@ -16,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		142BE0622432F08600E1E885 /* MajorMonoDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MajorMonoDisplay-Regular.ttf"; sourceTree = SOURCE_ROOT; };
+		14D4C48324342D93006A4F19 /* ReemKufi-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ReemKufi-Regular.ttf"; path = "reem-kufi/ReemKufi-Regular.ttf"; sourceTree = SOURCE_ROOT; };
+		14D4C4852434365D006A4F19 /* Raleway-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Raleway-Regular.ttf"; path = "raleway/Raleway-Regular.ttf"; sourceTree = SOURCE_ROOT; };
 		18577D8C2418562A0091DFD6 /* FlowChart-iOSProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FlowChart-iOSProject.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18577D8F2418562A0091DFD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18577D912418562A0091DFD6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +63,9 @@
 		18577D8E2418562A0091DFD6 /* FlowChart-iOSProject */ = {
 			isa = PBXGroup;
 			children = (
+				14D4C4852434365D006A4F19 /* Raleway-Regular.ttf */,
+				14D4C48324342D93006A4F19 /* ReemKufi-Regular.ttf */,
+				142BE0622432F08600E1E885 /* MajorMonoDisplay-Regular.ttf */,
 				18577D8F2418562A0091DFD6 /* AppDelegate.swift */,
 				18577D912418562A0091DFD6 /* SceneDelegate.swift */,
 				18577D932418562A0091DFD6 /* ViewController.swift */,
@@ -126,8 +136,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				18577D9C241856340091DFD6 /* LaunchScreen.storyboard in Resources */,
+				142BE0632432F08600E1E885 /* MajorMonoDisplay-Regular.ttf in Resources */,
 				18577D99241856340091DFD6 /* Assets.xcassets in Resources */,
+				14D4C4862434365D006A4F19 /* Raleway-Regular.ttf in Resources */,
 				18577D972418562A0091DFD6 /* Main.storyboard in Resources */,
+				142BE05F2432EE4700E1E885 /* Info.plist in Resources */,
+				14D4C48424342D94006A4F19 /* ReemKufi-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
