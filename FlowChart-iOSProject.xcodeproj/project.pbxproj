@@ -7,28 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1808040B243052F700A6AADA /* ResourcesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808040A243052F700A6AADA /* ResourcesViewController.swift */; };
-		1808041124315E7B00A6AADA /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808041024315E7B00A6AADA /* ChecklistViewController.swift */; };
-		18080413243160C200A6AADA /* CheckableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18080412243160C200A6AADA /* CheckableTableViewCell.swift */; };
-		1808041524316C5A00A6AADA /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808041424316C5A00A6AADA /* LocationViewController.swift */; };
-		180804172434117500A6AADA /* RecentNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180804162434117500A6AADA /* RecentNewsViewController.swift */; };
-		1808041924341D1A00A6AADA /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808041824341D1A00A6AADA /* ArticleTableViewCell.swift */; };
+		0F3A1E3624343D0600E7AE35 /* DayOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3A1E3524343D0600E7AE35 /* DayOverviewViewController.swift */; };
+		0F3A1E3A2434537C00E7AE35 /* ReemKufi-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0F3A1E392434537C00E7AE35 /* ReemKufi-Regular.ttf */; };
+		0F3A1E3C2434559B00E7AE35 /* DayOverviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3A1E3B2434559B00E7AE35 /* DayOverviewTableViewCell.swift */; };
+		0FA5831D2432E38D0048BC3B /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FA5831C2432E38D0048BC3B /* Calendar.storyboard */; };
+		0FA5831F2432E5C90048BC3B /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA5831E2432E5C90048BC3B /* CalendarViewController.swift */; };
+		0FA583212432EC710048BC3B /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA583202432EC710048BC3B /* CalendarCollectionViewCell.swift */; };
+		1808042124354C4000A6AADA /* CheckableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808041A24354C3F00A6AADA /* CheckableTableViewCell.swift */; };
+		1808042224354C4000A6AADA /* ResourcesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808041B24354C3F00A6AADA /* ResourcesViewController.swift */; };
+		1808042324354C4000A6AADA /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808041C24354C3F00A6AADA /* ArticleTableViewCell.swift */; };
+		1808042424354C4000A6AADA /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808041D24354C3F00A6AADA /* ChecklistViewController.swift */; };
+		1808042524354C4000A6AADA /* Resources.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1808041E24354C4000A6AADA /* Resources.storyboard */; };
+		1808042624354C4000A6AADA /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808041F24354C4000A6AADA /* LocationViewController.swift */; };
+		1808042724354C4000A6AADA /* RecentNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808042024354C4000A6AADA /* RecentNewsViewController.swift */; };
 		18577D902418562A0091DFD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18577D8F2418562A0091DFD6 /* AppDelegate.swift */; };
 		18577D922418562A0091DFD6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18577D912418562A0091DFD6 /* SceneDelegate.swift */; };
 		18577D942418562A0091DFD6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18577D932418562A0091DFD6 /* ViewController.swift */; };
 		18577D972418562A0091DFD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18577D952418562A0091DFD6 /* Main.storyboard */; };
 		18577D99241856340091DFD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18577D98241856340091DFD6 /* Assets.xcassets */; };
 		18577D9C241856340091DFD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18577D9A241856340091DFD6 /* LaunchScreen.storyboard */; };
-		18577DA424185B890091DFD6 /* Resources.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18577DA324185B890091DFD6 /* Resources.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1808040A243052F700A6AADA /* ResourcesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesViewController.swift; sourceTree = "<group>"; };
-		1808041024315E7B00A6AADA /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewController.swift; sourceTree = "<group>"; };
-		18080412243160C200A6AADA /* CheckableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckableTableViewCell.swift; sourceTree = "<group>"; };
-		1808041424316C5A00A6AADA /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
-		180804162434117500A6AADA /* RecentNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentNewsViewController.swift; sourceTree = "<group>"; };
-		1808041824341D1A00A6AADA /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
+		0F0C2E412433FA4000B37C34 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fonts; path = "/Users/shannonradey/Documents/FlowChart/FlowChart-iOSProject/fonts"; sourceTree = "<absolute>"; };
+		0F3A1E3524343D0600E7AE35 /* DayOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOverviewViewController.swift; sourceTree = "<group>"; };
+		0F3A1E392434537C00E7AE35 /* ReemKufi-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ReemKufi-Regular.ttf"; sourceTree = "<group>"; };
+		0F3A1E3B2434559B00E7AE35 /* DayOverviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOverviewTableViewCell.swift; sourceTree = "<group>"; };
+		0FA5831C2432E38D0048BC3B /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
+		0FA5831E2432E5C90048BC3B /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		0FA583202432EC710048BC3B /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
+		1808041A24354C3F00A6AADA /* CheckableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckableTableViewCell.swift; sourceTree = "<group>"; };
+		1808041B24354C3F00A6AADA /* ResourcesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourcesViewController.swift; sourceTree = "<group>"; };
+		1808041C24354C3F00A6AADA /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
+		1808041D24354C3F00A6AADA /* ChecklistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChecklistViewController.swift; sourceTree = "<group>"; };
+		1808041E24354C4000A6AADA /* Resources.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Resources.storyboard; sourceTree = "<group>"; };
+		1808041F24354C4000A6AADA /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		1808042024354C4000A6AADA /* RecentNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentNewsViewController.swift; sourceTree = "<group>"; };
 		18577D8C2418562A0091DFD6 /* FlowChart-iOSProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FlowChart-iOSProject.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18577D8F2418562A0091DFD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18577D912418562A0091DFD6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,7 +51,6 @@
 		18577D98241856340091DFD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18577D9B241856340091DFD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18577D9D241856340091DFD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		18577DA324185B890091DFD6 /* Resources.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Resources.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +67,7 @@
 		18577D832418562A0091DFD6 = {
 			isa = PBXGroup;
 			children = (
+				0F3A1E392434537C00E7AE35 /* ReemKufi-Regular.ttf */,
 				18577D8E2418562A0091DFD6 /* FlowChart-iOSProject */,
 				18577D8D2418562A0091DFD6 /* Products */,
 			);
@@ -70,20 +84,26 @@
 		18577D8E2418562A0091DFD6 /* FlowChart-iOSProject */ = {
 			isa = PBXGroup;
 			children = (
+				0F3A1E3B2434559B00E7AE35 /* DayOverviewTableViewCell.swift */,
+				0F3A1E3524343D0600E7AE35 /* DayOverviewViewController.swift */,
+				0FA5831E2432E5C90048BC3B /* CalendarViewController.swift */,
+				0FA583202432EC710048BC3B /* CalendarCollectionViewCell.swift */,
+				0FA5831C2432E38D0048BC3B /* Calendar.storyboard */,
 				18577D8F2418562A0091DFD6 /* AppDelegate.swift */,
 				18577D912418562A0091DFD6 /* SceneDelegate.swift */,
-				1808041024315E7B00A6AADA /* ChecklistViewController.swift */,
 				18577D932418562A0091DFD6 /* ViewController.swift */,
 				18577D952418562A0091DFD6 /* Main.storyboard */,
-				1808041424316C5A00A6AADA /* LocationViewController.swift */,
-				18577DA324185B890091DFD6 /* Resources.storyboard */,
-				1808041824341D1A00A6AADA /* ArticleTableViewCell.swift */,
-				180804162434117500A6AADA /* RecentNewsViewController.swift */,
-				18080412243160C200A6AADA /* CheckableTableViewCell.swift */,
-				1808040A243052F700A6AADA /* ResourcesViewController.swift */,
+				1808041C24354C3F00A6AADA /* ArticleTableViewCell.swift */,
+				1808041A24354C3F00A6AADA /* CheckableTableViewCell.swift */,
+				1808041D24354C3F00A6AADA /* ChecklistViewController.swift */,
+				1808041F24354C4000A6AADA /* LocationViewController.swift */,
+				1808042024354C4000A6AADA /* RecentNewsViewController.swift */,
+				1808041E24354C4000A6AADA /* Resources.storyboard */,
+				1808041B24354C3F00A6AADA /* ResourcesViewController.swift */,
 				18577D98241856340091DFD6 /* Assets.xcassets */,
 				18577D9A241856340091DFD6 /* LaunchScreen.storyboard */,
 				18577D9D241856340091DFD6 /* Info.plist */,
+				0F0C2E412433FA4000B37C34 /* fonts */,
 			);
 			path = "FlowChart-iOSProject";
 			sourceTree = "<group>";
@@ -146,10 +166,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FA5831D2432E38D0048BC3B /* Calendar.storyboard in Resources */,
 				18577D9C241856340091DFD6 /* LaunchScreen.storyboard in Resources */,
+				1808042524354C4000A6AADA /* Resources.storyboard in Resources */,
 				18577D99241856340091DFD6 /* Assets.xcassets in Resources */,
-				18577DA424185B890091DFD6 /* Resources.storyboard in Resources */,
 				18577D972418562A0091DFD6 /* Main.storyboard in Resources */,
+				0F3A1E3A2434537C00E7AE35 /* ReemKufi-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,15 +182,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1808041524316C5A00A6AADA /* LocationViewController.swift in Sources */,
-				1808041924341D1A00A6AADA /* ArticleTableViewCell.swift in Sources */,
-				18080413243160C200A6AADA /* CheckableTableViewCell.swift in Sources */,
+				1808042324354C4000A6AADA /* ArticleTableViewCell.swift in Sources */,
+				0F3A1E3624343D0600E7AE35 /* DayOverviewViewController.swift in Sources */,
+				0F3A1E3C2434559B00E7AE35 /* DayOverviewTableViewCell.swift in Sources */,
+				1808042624354C4000A6AADA /* LocationViewController.swift in Sources */,
+				0FA5831F2432E5C90048BC3B /* CalendarViewController.swift in Sources */,
 				18577D942418562A0091DFD6 /* ViewController.swift in Sources */,
+				1808042124354C4000A6AADA /* CheckableTableViewCell.swift in Sources */,
+				1808042424354C4000A6AADA /* ChecklistViewController.swift in Sources */,
 				18577D902418562A0091DFD6 /* AppDelegate.swift in Sources */,
-				1808040B243052F700A6AADA /* ResourcesViewController.swift in Sources */,
-				1808041124315E7B00A6AADA /* ChecklistViewController.swift in Sources */,
-				180804172434117500A6AADA /* RecentNewsViewController.swift in Sources */,
+				1808042224354C4000A6AADA /* ResourcesViewController.swift in Sources */,
 				18577D922418562A0091DFD6 /* SceneDelegate.swift in Sources */,
+				1808042724354C4000A6AADA /* RecentNewsViewController.swift in Sources */,
+				0FA583212432EC710048BC3B /* CalendarCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,7 +340,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "FlowChart-iOSProject/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -332,7 +357,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "FlowChart-iOSProject/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

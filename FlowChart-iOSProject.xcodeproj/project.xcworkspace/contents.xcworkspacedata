@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:FlowChart-iOSProject.xcodeproj">
+      location = "group:/Users/shannonradey/Documents/FlowChart/FlowChart-iOSProject/fonts">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/shannonradey/Documents/FlowChart/FlowChart-iOSProject/fonts">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>
