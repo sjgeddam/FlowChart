@@ -177,6 +177,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     
     @IBAction func onDateClick(_ sender: Any) {
         curDay = Int((sender as! UIButton).tag)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -186,6 +187,14 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
             nextVC?.month = curMonth
             nextVC?.day = curDay
             nextVC?.year = curYear
+            let section = dates.firstIndex(where: { $0.contains(curDay) })
+            let row = dates[section!].firstIndex(of: curDay)
+            let indexPath = IndexPath(item: row!, section: section!)
+            let cell = collectionView.cellForItem(at: indexPath) as! CalendarCollectionViewCell
+            nextVC?.prevColor = cell.markDate.tintColor
+            cell.markDate.tintColor = .red
+            nextVC?.markedDate = cell.markDate
+ 
             
         }
     }

@@ -13,6 +13,9 @@ var symptoms = ["bloating", "lower back pain", "mood swings", "low energy", "cra
 class DayOverviewViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
 
+    var markedDate: UIImageView!
+    var prevColor: UIColor!
+    
     var month = 1
     var year = 2020
     var day = 1
@@ -38,16 +41,10 @@ class DayOverviewViewController: UIViewController, UITableViewDelegate, UITableV
         dateLabel.text = "\(monthDict[month]) \(day), \(year)"
     }
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillDisappear(_ animated: Bool) {
+        markedDate.tintColor = prevColor
     }
-    */
+
+    
 
 }
