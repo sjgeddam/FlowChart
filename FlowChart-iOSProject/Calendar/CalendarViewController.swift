@@ -28,6 +28,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     @IBOutlet weak var monthYearLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var layout: UICollectionViewFlowLayout!
     
     
     func fillDates() {
@@ -63,10 +64,12 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
+        // number of weeks in a month
         return 6
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // number of days in a week
         return 7
     }
     
@@ -144,7 +147,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        layout.minimumInteritemSpacing = 12
         // Move navigation bar to bottom of screen
         self.navigationController!.navigationBar.frame = CGRect(
             origin: CGPoint(
