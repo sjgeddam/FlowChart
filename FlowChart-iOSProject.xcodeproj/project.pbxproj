@@ -13,6 +13,7 @@
 		0FA5831D2432E38D0048BC3B /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FA5831C2432E38D0048BC3B /* Calendar.storyboard */; };
 		0FA5831F2432E5C90048BC3B /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA5831E2432E5C90048BC3B /* CalendarViewController.swift */; };
 		0FA583212432EC710048BC3B /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA583202432EC710048BC3B /* CalendarCollectionViewCell.swift */; };
+		140B77F0243ECE4B00365B00 /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 140B77EF243ECE4700365B00 /* Raleway-Regular.ttf */; };
 		1808042124354C4000A6AADA /* CheckableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808041A24354C3F00A6AADA /* CheckableTableViewCell.swift */; };
 		1808042224354C4000A6AADA /* ResourcesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808041B24354C3F00A6AADA /* ResourcesViewController.swift */; };
 		1808042324354C4000A6AADA /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808041C24354C3F00A6AADA /* ArticleTableViewCell.swift */; };
@@ -44,6 +45,7 @@
 		0FA5831C2432E38D0048BC3B /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		0FA5831E2432E5C90048BC3B /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		0FA583202432EC710048BC3B /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
+		140B77EF243ECE4700365B00 /* Raleway-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Regular.ttf"; sourceTree = "<group>"; };
 		1808041A24354C3F00A6AADA /* CheckableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckableTableViewCell.swift; sourceTree = "<group>"; };
 		1808041B24354C3F00A6AADA /* ResourcesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourcesViewController.swift; sourceTree = "<group>"; };
 		1808041C24354C3F00A6AADA /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				0F3A1E392434537C00E7AE35 /* ReemKufi-Regular.ttf */,
+				140B77EF243ECE4700365B00 /* Raleway-Regular.ttf */,
 				18577D8E2418562A0091DFD6 /* FlowChart-iOSProject */,
 				18577D8D2418562A0091DFD6 /* Products */,
 			);
@@ -194,6 +197,7 @@
 				1808042E2435540A00A6AADA /* Tracker.storyboard in Resources */,
 				18577D9C241856340091DFD6 /* LaunchScreen.storyboard in Resources */,
 				1808042524354C4000A6AADA /* Resources.storyboard in Resources */,
+				140B77F0243ECE4B00365B00 /* Raleway-Regular.ttf in Resources */,
 				18577D99241856340091DFD6 /* Assets.xcassets in Resources */,
 				18577D972418562A0091DFD6 /* Main.storyboard in Resources */,
 				0F3A1E3A2434537C00E7AE35 /* ReemKufi-Regular.ttf in Resources */,

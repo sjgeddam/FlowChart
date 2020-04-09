@@ -27,7 +27,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ic2-Du-lO2">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ic2-Du-lO2" userLabel="CalendarButton">
                                 <rect key="frame" x="137" y="131" width="62" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Calendar"/>
@@ -35,7 +35,7 @@
                                     <segue destination="41b-MK-fc8" kind="show" identifier="segueToCalendar" id="ie0-ET-h4g"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rnt-UP-mgN">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rnt-UP-mgN" userLabel="TrackerButton">
                                 <rect key="frame" x="142" y="201" width="52" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Tracker"/>
@@ -43,7 +43,7 @@
                                     <segue destination="dAk-cz-py3" kind="show" identifier="segueToTracker" id="5Br-TV-XhD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vue-PQ-v9o">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vue-PQ-v9o" userLabel="ResourcesButton">
                                 <rect key="frame" x="132" y="282" width="72" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Resources"/>
@@ -51,41 +51,11 @@
                                     <segue destination="GBX-m6-1Ga" kind="show" identifier="segueToResources" id="7TZ-RP-dOp"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fj5-D6-aUa">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fj5-D6-aUa" userLabel="HomeBackgroundView">
                                 <rect key="frame" x="0.0" y="44" width="414" height="692"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ab5-Ml-s8U">
-                                        <rect key="frame" x="35" y="174" width="344" height="344"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="344" id="aKC-Kd-k0U"/>
-                                            <constraint firstAttribute="width" constant="344" id="eFQ-qx-hcC"/>
-                                        </constraints>
-                                        <connections>
-                                            <segue destination="cdA-6I-kPc" kind="embed" id="HEg-Yk-qoK"/>
-                                        </connections>
-                                    </containerView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Projected start in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5do-ge-K0B" userLabel="HomeTopTextLabel">
-                                        <rect key="frame" x="35" y="327" width="344" height="37.333333333333329"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="344" id="aGK-KR-rVq"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="32"/>
-                                        <color key="textColor" red="0.95686274510000002" green="0.60392156860000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUR-YM-cXi" userLabel="HomeNumberLabel">
-                                        <rect key="frame" x="132" y="271" width="150" height="150"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="8lv-Du-zRs"/>
-                                            <constraint firstAttribute="width" constant="150" id="iF1-RQ-aQv"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="128"/>
-                                        <color key="textColor" red="0.95686274510000002" green="0.60392156860000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gv-qb-DxB" userLabel="HomeDateLabel">
-                                        <rect key="frame" x="35" y="311" width="344" height="70"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gv-qb-DxB" userLabel="HomeDateLabel">
+                                        <rect key="frame" x="35" y="454" width="344" height="70"/>
                                         <color key="backgroundColor" red="0.98135274650000004" green="0.83145362140000001" blue="0.6328324676" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="344" id="0PI-x6-g1f"/>
@@ -95,34 +65,103 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWg-Rl-DTx" userLabel="HomeCalendarButton">
-                                        <rect key="frame" x="149" y="327" width="115" height="38"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="17"/>
-                                        <state key="normal" title="Cycle just started"/>
-                                        <connections>
-                                            <action selector="calendarButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hIL-cC-tCq"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="day(s)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7U9-hL-dqn" userLabel="HomeBottomTextLabel">
-                                        <rect key="frame" x="164" y="327" width="85" height="37.333333333333314"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yn6-eO-Chl" userLabel="HomeSquareView">
+                                        <rect key="frame" x="35" y="69" width="344" height="344"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUR-YM-cXi" userLabel="HomeNumberLabel">
+                                                <rect key="frame" x="97" y="97" width="150" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="150" id="8lv-Du-zRs"/>
+                                                    <constraint firstAttribute="width" constant="150" id="iF1-RQ-aQv"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="128"/>
+                                                <color key="textColor" red="0.95686274510000002" green="0.60392156860000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Projected start in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5do-ge-K0B" userLabel="HomeTopTextLabel">
+                                                <rect key="frame" x="0.0" y="21.000000000000004" width="344" height="37.333333333333343"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="344" id="aGK-KR-rVq"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="32"/>
+                                                <color key="textColor" red="0.95686274510000002" green="0.60392156860000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.99091118570000003" green="0.94792693849999998" blue="0.88623529670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="344" id="4v0-LG-YoY"/>
+                                            <constraint firstItem="dUR-YM-cXi" firstAttribute="centerX" secondItem="Yn6-eO-Chl" secondAttribute="centerX" id="5rh-jf-iiw"/>
+                                            <constraint firstItem="5do-ge-K0B" firstAttribute="centerX" secondItem="Yn6-eO-Chl" secondAttribute="centerX" id="Sb5-Km-Dae"/>
+                                            <constraint firstAttribute="height" constant="344" id="hCJ-HQ-joP"/>
+                                            <constraint firstItem="5do-ge-K0B" firstAttribute="top" secondItem="Yn6-eO-Chl" secondAttribute="top" constant="21" id="nBt-Ok-3uX"/>
+                                            <constraint firstItem="dUR-YM-cXi" firstAttribute="centerY" secondItem="Yn6-eO-Chl" secondAttribute="centerY" id="w5Y-f5-k0O"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="day(s)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7U9-hL-dqn" userLabel="HomeBottomTextLabel">
+                                        <rect key="frame" x="164.66666666666666" y="350" width="85" height="37.333333333333314"/>
                                         <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="32"/>
                                         <color key="textColor" red="0.95686274510000002" green="0.60392156860000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hdo-5b-Fv7" userLabel="HomeSlideMenu">
-                                        <rect key="frame" x="46" y="0.0" width="321" height="692"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UfU-S3-obD">
+                                        <rect key="frame" x="89" y="586" width="236" height="81"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWg-Rl-DTx" userLabel="HomeCalendarButton">
+                                                <rect key="frame" x="9" y="14.666666666666629" width="54" height="52"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="tintColor" red="0.95686274510000002" green="0.60392156860000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" image="plus.circle.fill" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="46" scale="default"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="calendarButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hIL-cC-tCq"/>
+                                                    <segue destination="41b-MK-fc8" kind="show" id="TgX-tE-K4g"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cycle just started" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PP9-py-7xI">
+                                                <rect key="frame" x="70" y="22" width="158" height="37"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="37" id="0gd-JZ-CQN"/>
+                                                    <constraint firstAttribute="width" constant="158" id="Vvz-R7-KIs"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <color key="textColor" red="0.95686274510000002" green="0.60392156860000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="692" id="f8C-jx-Hmn"/>
-                                            <constraint firstAttribute="width" constant="321" id="jSO-WW-2Rx"/>
+                                            <constraint firstItem="PP9-py-7xI" firstAttribute="leading" secondItem="IWg-Rl-DTx" secondAttribute="trailing" constant="7" id="9Xr-0J-vBH"/>
+                                            <constraint firstAttribute="width" constant="236" id="MJh-uw-6BC"/>
+                                            <constraint firstAttribute="height" constant="81" id="fp1-ny-Dgt"/>
+                                            <constraint firstItem="IWg-Rl-DTx" firstAttribute="centerY" secondItem="UfU-S3-obD" secondAttribute="centerY" id="hcS-2u-oB2"/>
+                                            <constraint firstItem="PP9-py-7xI" firstAttribute="centerY" secondItem="IWg-Rl-DTx" secondAttribute="centerY" id="iCX-aO-UcA"/>
+                                            <constraint firstAttribute="trailing" secondItem="PP9-py-7xI" secondAttribute="trailing" constant="8" id="s44-a5-2y3"/>
                                         </constraints>
-                                    </containerView>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Yn6-eO-Chl" firstAttribute="top" secondItem="Fj5-D6-aUa" secondAttribute="top" constant="69" id="0kk-EO-h5X"/>
+                                    <constraint firstAttribute="bottom" secondItem="UfU-S3-obD" secondAttribute="bottom" constant="25" id="23A-ud-heT"/>
+                                    <constraint firstItem="UfU-S3-obD" firstAttribute="centerX" secondItem="Fj5-D6-aUa" secondAttribute="centerX" id="2p0-ys-Tj7"/>
+                                    <constraint firstItem="2gv-qb-DxB" firstAttribute="top" secondItem="Fj5-D6-aUa" secondAttribute="top" constant="454" id="9zZ-Df-P3r"/>
+                                    <constraint firstItem="7U9-hL-dqn" firstAttribute="top" secondItem="Fj5-D6-aUa" secondAttribute="top" constant="350" id="QLH-a7-QIr"/>
+                                    <constraint firstItem="Yn6-eO-Chl" firstAttribute="leading" secondItem="Fj5-D6-aUa" secondAttribute="leading" constant="35" id="QfJ-3V-QqB"/>
+                                    <constraint firstItem="2gv-qb-DxB" firstAttribute="centerX" secondItem="Fj5-D6-aUa" secondAttribute="centerX" id="UGI-g8-FIp"/>
+                                    <constraint firstItem="UfU-S3-obD" firstAttribute="centerX" secondItem="Fj5-D6-aUa" secondAttribute="centerX" id="bg2-Me-KdU"/>
+                                    <constraint firstItem="7U9-hL-dqn" firstAttribute="centerX" secondItem="Fj5-D6-aUa" secondAttribute="centerX" id="xrw-ED-6gv"/>
+                                </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="1" green="0.94901960784313721" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Fj5-D6-aUa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="3Vg-uw-Mka"/>
+                            <constraint firstItem="Fj5-D6-aUa" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="AZY-O1-ic9"/>
+                            <constraint firstItem="Fj5-D6-aUa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="b2O-O5-3j5"/>
+                            <constraint firstItem="Fj5-D6-aUa" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ybo-MK-6MD"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="FlowChart" id="NwK-0Y-MYd">
@@ -134,12 +173,18 @@
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="QlQ-m1-Wk4" userLabel="HomeSettingsButton"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="homeBackgroundLeading" destination="b2O-O5-3j5" id="l7I-uE-Xw4"/>
+                        <outlet property="homeBackgroundTrailing" destination="ybo-MK-6MD" id="ngd-o2-Nyj"/>
                         <outlet property="homeBackgroundView" destination="Fj5-D6-aUa" id="D6k-Cj-fGH"/>
                         <outlet property="homeBottomLabel" destination="7U9-hL-dqn" id="iWc-Jc-JBE"/>
+                        <outlet property="homeBottomTop" destination="QLH-a7-QIr" id="pqn-Y0-Zcn"/>
+                        <outlet property="homeCalendarButton" destination="IWg-Rl-DTx" id="hjf-nE-omq"/>
+                        <outlet property="homeCycleStartedLabel" destination="PP9-py-7xI" id="E00-i7-DKm"/>
                         <outlet property="homeDateLabel" destination="2gv-qb-DxB" id="ETW-xX-HCi"/>
+                        <outlet property="homeNumberCenterY" destination="w5Y-f5-k0O" id="8Pa-qS-tAG"/>
                         <outlet property="homeNumberLabel" destination="dUR-YM-cXi" id="ahA-eT-maz"/>
-                        <outlet property="homeSlideMenu" destination="Hdo-5b-Fv7" id="RrA-8m-u8V"/>
-                        <outlet property="homeSquareView" destination="ab5-Ml-s8U" id="DdG-xi-sEN"/>
+                        <outlet property="homeSquareHeight" destination="hCJ-HQ-joP" id="gHD-Zq-BZE"/>
+                        <outlet property="homeSquareView" destination="Yn6-eO-Chl" id="y2E-Bb-Pqb"/>
                         <outlet property="homeTopLabel" destination="5do-ge-K0B" id="fka-6o-yQu"/>
                     </connections>
                 </viewController>
@@ -164,21 +209,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oj7-4p-TCa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="115.84821428571428"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="vRK-l4-eMa">
-            <objects>
-                <viewController id="cdA-6I-kPc" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="y12-Wx-Pwq">
-                        <rect key="frame" x="0.0" y="0.0" width="344" height="344"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.99436718229999999" green="0.94795280689999994" blue="0.8826082945" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="dly-TD-jTY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qJD-Ft-J3f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1042" y="740"/>
         </scene>
         <!--Calendar-->
         <scene sceneID="TiG-qR-jdr">
@@ -211,4 +241,10 @@
             <point key="canvasLocation" x="1586" y="220"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="plus.circle.fill" catalog="system" width="64" height="60"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ie0-ET-h4g"/>
+    </inferredMetricsTieBreakers>
 </document>
