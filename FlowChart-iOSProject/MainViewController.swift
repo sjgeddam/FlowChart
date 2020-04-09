@@ -16,8 +16,8 @@ var endDate:Date? = nil // only set if onPeriod == true
 
 class MainViewController: UIViewController {
     
+    @IBOutlet weak var homeBackgroundView: UIView!
     @IBOutlet weak var homeSlideMenu: UIView!
-    @IBOutlet weak var homeMenuLeftConstraint: NSLayoutConstraint!
     
     
     
@@ -36,7 +36,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        homeSlideMenu.layer.zPosition = 1000;
+        homeBackgroundView.layer.zPosition = 900;
         
         // filler code to come up with some date
         dateFormatter.dateFormat = "YYYY-MM-dd"
@@ -162,20 +162,32 @@ class MainViewController: UIViewController {
             blurEffectView.layer.zPosition = 999
             view.addSubview(blurEffectView)
             
-            homeMenuLeftConstraint.constant = 0
+            UIView.animate(
+                withDuration: 0.2,
+                delay: 0.0,
+                options: .curveEaseInOut, animations: {
+                    self.homeBackgroundView.center.x = self.view.bounds.width * 1.25
+                    blurEffectView.center.x = self.view.bounds.width * 1.25
+                },
+                completion: nil)
+            
             menuHidden = false
         }
         else {
-            view.viewWithTag(420)?.removeFromSuperview()
-            homeMenuLeftConstraint.constant = -321
+            UIView.animate(
+            withDuration: 0.2,
+            delay: 0.0,
+            options: .curveEaseInOut, animations: {
+                self.view.viewWithTag(420)?.removeFromSuperview()
+                self.homeBackgroundView.center.x = self.view.center.x
+            },
+            completion: nil)
+            
             menuHidden = true
         }
-        
-        UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseIn, animations: {self.view.layoutIfNeeded()}, completion: nil)
     }
     
     @IBAction func calendarButtonPressed(_ sender: Any) {
     }
-    
 }
 
