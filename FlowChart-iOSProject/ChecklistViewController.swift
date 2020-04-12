@@ -10,11 +10,15 @@ import UIKit
 
 class ChecklistViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
+    @IBAction func back(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     var checklist:[String] = []
     @IBOutlet weak var tableView: UITableView!
     var textCellIdentifier = "Item"
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController!.setNavigationBarHidden(true,animated:false)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.allowsMultipleSelection = true

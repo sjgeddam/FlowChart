@@ -10,8 +10,14 @@ import UIKit
 
 class ResourcesViewController: UIViewController {
 
+    @IBAction func back(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+
+        self.navigationController!.setNavigationBarHidden(false,animated:false)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController!.setNavigationBarHidden(true,animated:false)
 
         // Do any additional setup after loading the view.
     }
