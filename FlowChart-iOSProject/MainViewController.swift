@@ -40,6 +40,12 @@ class MainViewController: UIViewController {
     // menu variables
     @IBOutlet weak var menuGoTo: UILabel!
     @IBOutlet weak var menuViewWidth: NSLayoutConstraint!
+    @IBOutlet weak var menuCalendarButton: UIButton!
+    @IBOutlet weak var menuTrackerButton: UIButton!
+    @IBOutlet weak var menuResourcesButton: UIButton!
+    @IBOutlet weak var menuCalendarButtonLabel: UIButton!
+    @IBOutlet weak var menuTrackerButtonLabel: UIButton!
+    @IBOutlet weak var menuResourcesButtonLabel: UIButton!
     
     let dateFormatter = DateFormatter()
     let today = Date()
@@ -93,6 +99,12 @@ class MainViewController: UIViewController {
         // menu elements
         menuGoTo.font = UIFont (name: "ReemKufi-Regular", size: 32)
         menuViewWidth.constant = view.bounds.width * 0.75
+        menuCalendarButton.layer.cornerRadius = 40
+        menuCalendarButtonLabel.titleLabel?.font = UIFont (name: "ReemKufi-Regular", size: 24)
+        menuTrackerButton.layer.cornerRadius = 40
+        menuTrackerButtonLabel.titleLabel?.font = UIFont (name: "ReemKufi-Regular", size: 24)
+        menuResourcesButton.layer.cornerRadius = 40
+        menuResourcesButtonLabel.titleLabel?.font = UIFont (name: "ReemKufi-Regular", size: 24)
     }
     
     // period has not yet started
@@ -195,6 +207,25 @@ class MainViewController: UIViewController {
         homeDateLabel.isHidden = true
     }
     
+    func moveMenuBack() {
+        // move background view constraints back to center
+        self.homeBackgroundLeading.constant = 0
+        self.homeBackgroundTrailing.constant = 0
+        
+        // animate the "slide out"
+        UIView.animate(
+        withDuration: 0.4,
+        delay: 0.0,
+        options: .curveEaseInOut, animations: {
+            self.view.layoutIfNeeded()
+            // remove blur view
+            self.view.viewWithTag(420)?.removeFromSuperview()
+        },
+        completion: nil)
+        
+        menuHidden = true
+    }
+    
     // menu animation
     @IBAction func menuButtonPressed(_ sender: Any) {
         
@@ -236,24 +267,32 @@ class MainViewController: UIViewController {
         }
         else {
             
-            // move background view constraints back to center
-            self.homeBackgroundLeading.constant = 0
-            self.homeBackgroundTrailing.constant = 0
-            
-            // animate the "slide out"
-            UIView.animate(
-            withDuration: 0.4,
-            delay: 0.0,
-            options: .curveEaseInOut, animations: {
-                self.view.layoutIfNeeded()
-                // remove blur view
-                self.view.viewWithTag(420)?.removeFromSuperview()
-            },
-            completion: nil)
-            
-            menuHidden = true
+            moveMenuBack()
         }
     }
+    
+    @IBAction func menuCalendarPressed(_ sender: Any) {
+        moveMenuBack()
+    }
+    @IBAction func menuTrackerPressed(_ sender: Any) {
+        moveMenuBack()
+    }
+    @IBAction func menuResourcesPressed(_ sender: Any) {
+        moveMenuBack()
+    }
+    @IBAction func menuCalendarLabelPressed(_ sender: Any) {
+        performSegue(withIdentifier: "segueToCalendar", sender: nil)
+        moveMenuBack()
+    }
+    @IBAction func menuTrackerLabelPressed(_ sender: Any) {
+        performSegue(withIdentifier: "segueToTracker", sender: nil)
+        moveMenuBack()
+    }
+    @IBAction func menuResourcesLabelPressed(_ sender: Any) {
+        performSegue(withIdentifier: "segueToResources", sender: nil)
+        moveMenuBack()
+    }
+    
     
     @IBAction func calendarButtonPressed(_ sender: Any) {
     }

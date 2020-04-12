@@ -27,32 +27,135 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ic2-Du-lO2" userLabel="CalendarButton">
-                                <rect key="frame" x="137" y="131" width="62" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Calendar"/>
-                                <connections>
-                                    <segue destination="41b-MK-fc8" kind="show" identifier="segueToCalendar" id="ie0-ET-h4g"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rnt-UP-mgN" userLabel="TrackerButton">
-                                <rect key="frame" x="142" y="201" width="52" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Tracker"/>
-                                <connections>
-                                    <segue destination="dAk-cz-py3" kind="show" identifier="segueToTracker" id="5Br-TV-XhD"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vue-PQ-v9o" userLabel="ResourcesButton">
-                                <rect key="frame" x="132" y="282" width="72" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Resources"/>
-                                <connections>
-                                    <segue destination="GBX-m6-1Ga" kind="show" identifier="segueToResources" id="7TZ-RP-dOp"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fj5-D6-aUa" userLabel="HomeBackgroundView">
-                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wy0-Cg-j5Z" userLabel="MenuView">
+                                <rect key="frame" x="0.0" y="44" width="330" height="692"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RedDivider" translatesAutoresizingMaskIntoConstraints="NO" id="rKT-09-0Qx">
+                                        <rect key="frame" x="8" y="37" width="314" height="5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="5" id="Sg0-LF-VOb"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="go to..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0B-8h-arA" userLabel="MenuGoToLabel">
+                                        <rect key="frame" x="8" y="8" width="54" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.70588235290000001" green="0.094117647060000004" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NYT-CX-vDZ" userLabel="CalendarButton">
+                                        <rect key="frame" x="19" y="72" width="292" height="115"/>
+                                        <color key="backgroundColor" red="0.95686274510000002" green="0.60392156860000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="115" id="xgI-WP-IEn"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <state key="normal" title="Calendar" image="ChartIcon"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="imageView.contentMode">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="menuCalendarPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Grr-JJ-Lh1"/>
+                                            <segue destination="41b-MK-fc8" kind="show" identifier="segueToCalendar" id="ffr-Se-C58"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d8e-qB-519" userLabel="TrackerButton">
+                                        <rect key="frame" x="19" y="247" width="292" height="115"/>
+                                        <color key="backgroundColor" red="0.95686274510000002" green="0.60392156860000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="115" id="leU-4w-mUW"/>
+                                        </constraints>
+                                        <state key="normal" title="Tracker" image="PencilIcon"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="imageView.contentMode">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="menuTrackerPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k6a-bu-tQa"/>
+                                            <segue destination="dAk-cz-py3" kind="show" identifier="segueToTracker" id="SP3-nM-HnA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hui-qW-wKJ" userLabel="ResourcesButton">
+                                        <rect key="frame" x="19" y="422" width="292" height="115"/>
+                                        <color key="backgroundColor" red="0.95686274510000002" green="0.60392156860000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="115" id="KNd-BZ-Xii"/>
+                                        </constraints>
+                                        <state key="normal" title="Resources" image="ResourcesIcon"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="imageView.contentMode">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="menuResourcesPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Vq-2E-v9R"/>
+                                            <segue destination="GBX-m6-1Ga" kind="show" identifier="segueToResources" id="iX9-k0-cQ2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EtT-Zw-Ztg">
+                                        <rect key="frame" x="134" y="187" width="62" height="30"/>
+                                        <state key="normal" title="Calendar">
+                                            <color key="titleColor" red="0.95686274510000002" green="0.60392156860000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="menuCalendarLabelPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iyL-Cb-D3f"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d6A-13-fgf">
+                                        <rect key="frame" x="139" y="362" width="52" height="30"/>
+                                        <state key="normal" title="Tracker">
+                                            <color key="titleColor" red="0.95686274510000002" green="0.60392156860000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="menuTrackerLabelPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RYG-z9-Lrr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyg-5M-gv7">
+                                        <rect key="frame" x="129" y="537" width="72" height="30"/>
+                                        <state key="normal" title="Resources">
+                                            <color key="titleColor" red="0.95686274510000002" green="0.60392156860000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="menuResourcesLabelPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oh0-YY-uf3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.94901960780000005" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Z0B-8h-arA" firstAttribute="leading" secondItem="wy0-Cg-j5Z" secondAttribute="leading" constant="8" id="1Uf-xc-eNR"/>
+                                    <constraint firstItem="hui-qW-wKJ" firstAttribute="top" secondItem="d6A-13-fgf" secondAttribute="bottom" constant="30" id="3D9-cn-MyM"/>
+                                    <constraint firstAttribute="trailing" secondItem="d8e-qB-519" secondAttribute="trailing" constant="19" id="5zL-8Y-AzA"/>
+                                    <constraint firstItem="d8e-qB-519" firstAttribute="leading" secondItem="wy0-Cg-j5Z" secondAttribute="leading" constant="19" id="5zt-8o-Qfs"/>
+                                    <constraint firstItem="d6A-13-fgf" firstAttribute="centerX" secondItem="EtT-Zw-Ztg" secondAttribute="centerX" id="6td-pD-cjC"/>
+                                    <constraint firstItem="rKT-09-0Qx" firstAttribute="top" secondItem="Z0B-8h-arA" secondAttribute="bottom" constant="8" id="9Q5-XZ-Tka"/>
+                                    <constraint firstItem="NYT-CX-vDZ" firstAttribute="centerX" secondItem="wy0-Cg-j5Z" secondAttribute="centerX" id="CeR-RS-h3g"/>
+                                    <constraint firstItem="EtT-Zw-Ztg" firstAttribute="top" secondItem="NYT-CX-vDZ" secondAttribute="bottom" id="Chf-IJ-lCf"/>
+                                    <constraint firstItem="hui-qW-wKJ" firstAttribute="centerX" secondItem="wy0-Cg-j5Z" secondAttribute="centerX" id="Fa5-Ru-3ex"/>
+                                    <constraint firstItem="d6A-13-fgf" firstAttribute="centerX" secondItem="wy0-Cg-j5Z" secondAttribute="centerX" id="FoS-zC-cVK"/>
+                                    <constraint firstAttribute="trailing" secondItem="rKT-09-0Qx" secondAttribute="trailing" constant="8" id="KGq-fG-ouq"/>
+                                    <constraint firstItem="NYT-CX-vDZ" firstAttribute="leading" secondItem="rKT-09-0Qx" secondAttribute="trailing" constant="-303" id="NSC-80-JEl"/>
+                                    <constraint firstItem="gyg-5M-gv7" firstAttribute="centerX" secondItem="EtT-Zw-Ztg" secondAttribute="centerX" id="OB1-pk-rTD"/>
+                                    <constraint firstItem="hui-qW-wKJ" firstAttribute="leading" secondItem="wy0-Cg-j5Z" secondAttribute="leading" constant="19" id="SCW-vH-zx4"/>
+                                    <constraint firstItem="gyg-5M-gv7" firstAttribute="top" secondItem="hui-qW-wKJ" secondAttribute="bottom" id="SEh-py-cHI"/>
+                                    <constraint firstAttribute="trailing" secondItem="hui-qW-wKJ" secondAttribute="trailing" constant="19" id="SpF-Ut-EH3"/>
+                                    <constraint firstItem="rKT-09-0Qx" firstAttribute="leading" secondItem="wy0-Cg-j5Z" secondAttribute="leading" constant="8" id="VzI-4h-aBd"/>
+                                    <constraint firstItem="gyg-5M-gv7" firstAttribute="centerX" secondItem="wy0-Cg-j5Z" secondAttribute="centerX" id="bwK-vE-3uE"/>
+                                    <constraint firstItem="NYT-CX-vDZ" firstAttribute="leading" secondItem="wy0-Cg-j5Z" secondAttribute="leading" constant="19" id="cbc-Ta-6Ui"/>
+                                    <constraint firstAttribute="trailing" secondItem="NYT-CX-vDZ" secondAttribute="trailing" constant="19" id="f3I-Vz-x8Q"/>
+                                    <constraint firstItem="d8e-qB-519" firstAttribute="top" secondItem="EtT-Zw-Ztg" secondAttribute="bottom" constant="30" id="m7G-ha-Gal"/>
+                                    <constraint firstAttribute="width" constant="330" id="n1C-tc-3Ab"/>
+                                    <constraint firstItem="Z0B-8h-arA" firstAttribute="top" secondItem="wy0-Cg-j5Z" secondAttribute="top" constant="8" id="nL7-1G-s3U"/>
+                                    <constraint firstItem="d6A-13-fgf" firstAttribute="top" secondItem="d8e-qB-519" secondAttribute="bottom" id="oyG-EX-BXo"/>
+                                    <constraint firstItem="NYT-CX-vDZ" firstAttribute="top" secondItem="rKT-09-0Qx" secondAttribute="bottom" constant="30" id="pQV-cg-tYg"/>
+                                    <constraint firstItem="rKT-09-0Qx" firstAttribute="centerX" secondItem="wy0-Cg-j5Z" secondAttribute="centerX" id="pU8-jo-3pz"/>
+                                    <constraint firstItem="EtT-Zw-Ztg" firstAttribute="centerX" secondItem="wy0-Cg-j5Z" secondAttribute="centerX" id="q8M-hf-Pdl"/>
+                                    <constraint firstItem="d8e-qB-519" firstAttribute="centerX" secondItem="wy0-Cg-j5Z" secondAttribute="centerX" id="u1d-J4-2O8"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fj5-D6-aUa" userLabel="HomeBackgroundView">
+                                <rect key="frame" x="287" y="44" width="414" height="692"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gv-qb-DxB" userLabel="HomeDateLabel">
                                         <rect key="frame" x="35" y="454" width="344" height="70"/>
@@ -79,7 +182,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Projected start in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5do-ge-K0B" userLabel="HomeTopTextLabel">
-                                                <rect key="frame" x="0.0" y="21" width="344" height="48"/>
+                                                <rect key="frame" x="0.0" y="21.000000000000004" width="344" height="37.333333333333343"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="344" id="aGK-KR-rVq"/>
                                                 </constraints>
@@ -99,7 +202,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="day(s)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7U9-hL-dqn" userLabel="HomeBottomTextLabel">
-                                        <rect key="frame" x="168.33333333333334" y="350" width="77.333333333333343" height="48"/>
+                                        <rect key="frame" x="164.66666666666666" y="350" width="85" height="37.333333333333314"/>
                                         <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="32"/>
                                         <color key="textColor" red="0.95686274510000002" green="0.60392156860000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -159,18 +262,21 @@
                         <constraints>
                             <constraint firstItem="Fj5-D6-aUa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="3Vg-uw-Mka"/>
                             <constraint firstItem="Fj5-D6-aUa" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="AZY-O1-ic9"/>
+                            <constraint firstItem="wy0-Cg-j5Z" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="GAq-9T-6Fn"/>
+                            <constraint firstItem="wy0-Cg-j5Z" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="N9z-CB-ROc"/>
+                            <constraint firstItem="wy0-Cg-j5Z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ZxT-K7-ZtV"/>
                             <constraint firstItem="Fj5-D6-aUa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="b2O-O5-3j5"/>
                             <constraint firstItem="Fj5-D6-aUa" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ybo-MK-6MD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="FlowChart" id="NwK-0Y-MYd">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="cde-j8-lbP" userLabel="HomeMenuButton">
+                    <navigationItem key="navigationItem" title="FlowChart" largeTitleDisplayMode="always" id="NwK-0Y-MYd">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" image="MenuIcon" width="48" id="cde-j8-lbP" userLabel="HomeMenuButton">
                             <connections>
                                 <action selector="menuButtonPressed:" destination="BYZ-38-t0r" id="swa-c7-9Em"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="QlQ-m1-Wk4" userLabel="HomeSettingsButton"/>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" image="SettingsIcon" width="48" id="QlQ-m1-Wk4" userLabel="HomeSettingsButton"/>
                     </navigationItem>
                     <connections>
                         <outlet property="homeBackgroundLeading" destination="b2O-O5-3j5" id="l7I-uE-Xw4"/>
@@ -186,6 +292,14 @@
                         <outlet property="homeSquareHeight" destination="hCJ-HQ-joP" id="gHD-Zq-BZE"/>
                         <outlet property="homeSquareView" destination="Yn6-eO-Chl" id="y2E-Bb-Pqb"/>
                         <outlet property="homeTopLabel" destination="5do-ge-K0B" id="fka-6o-yQu"/>
+                        <outlet property="menuCalendarButton" destination="NYT-CX-vDZ" id="cJ8-pL-M9d"/>
+                        <outlet property="menuCalendarButtonLabel" destination="EtT-Zw-Ztg" id="bBn-fo-08w"/>
+                        <outlet property="menuGoTo" destination="Z0B-8h-arA" id="X47-ru-ayU"/>
+                        <outlet property="menuResourcesButton" destination="hui-qW-wKJ" id="bNC-Co-UYh"/>
+                        <outlet property="menuResourcesButtonLabel" destination="gyg-5M-gv7" id="LQM-4Y-OFi"/>
+                        <outlet property="menuTrackerButton" destination="d8e-qB-519" id="2pF-XY-zgW"/>
+                        <outlet property="menuTrackerButtonLabel" destination="d6A-13-fgf" id="XYq-Mt-jEW"/>
+                        <outlet property="menuViewWidth" destination="n1C-tc-3Ab" id="qEr-El-SNK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -418,7 +532,6 @@
         <!--Navigation Controller-->
         <scene sceneID="3Lk-XU-4wd">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wdF-WB-CjI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="38v-NB-iOi" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Uia-HT-FyU">
@@ -430,16 +543,23 @@
                         <segue destination="Oox-my-JuV" kind="relationship" relationship="rootViewController" id="Kit-cn-0Sb"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wdF-WB-CjI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1039.1304347826087" y="-621.19565217391312"/>
         </scene>
     </scenes>
     <resources>
+        <image name="ChartIcon" width="700" height="598"/>
         <image name="LoginTitle" width="920" height="267"/>
+        <image name="MenuIcon" width="700" height="574"/>
+        <image name="PencilIcon" width="700" height="594"/>
+        <image name="RedDivider" width="781" height="17"/>
+        <image name="ResourcesIcon" width="700" height="604"/>
+        <image name="SettingsIcon" width="700" height="602"/>
         <image name="plus.circle.fill" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ie0-ET-h4g"/>
+        <segue reference="ffr-Se-C58"/>
         <segue reference="vPc-YW-OXY"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
