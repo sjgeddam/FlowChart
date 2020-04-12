@@ -37,6 +37,10 @@ class MainViewController: UIViewController {
     @IBOutlet weak var homeCycleStartedLabel: UILabel!
     @IBOutlet weak var homeCalendarButton: UIButton!
     
+    // menu variables
+    @IBOutlet weak var menuGoTo: UILabel!
+    @IBOutlet weak var menuViewWidth: NSLayoutConstraint!
+    
     let dateFormatter = DateFormatter()
     let today = Date()
 
@@ -82,9 +86,13 @@ class MainViewController: UIViewController {
         homeDateLabel.font = UIFont (name: "ReemKufi-Regular", size: 32)
         homeDateLabel.layer.masksToBounds = true
         
-        // cycle just started
+        // cycle just started button
         homeCycleStartedLabel.font = UIFont (name: "ReemKufi-Regular", size: 24)
         homeCalendarButton.imageView?.contentMode = .scaleAspectFit
+        
+        // menu elements
+        menuGoTo.font = UIFont (name: "ReemKufi-Regular", size: 32)
+        menuViewWidth.constant = view.bounds.width * 0.75
     }
     
     // period has not yet started

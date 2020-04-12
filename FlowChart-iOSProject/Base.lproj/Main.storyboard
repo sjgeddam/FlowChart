@@ -20,39 +20,96 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="go to..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQT-Fi-evo">
-                                <rect key="frame" x="20" y="65" width="54" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ic2-Du-lO2" userLabel="CalendarButton">
-                                <rect key="frame" x="137" y="131" width="62" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Calendar"/>
-                                <connections>
-                                    <segue destination="41b-MK-fc8" kind="show" identifier="segueToCalendar" id="ie0-ET-h4g"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rnt-UP-mgN" userLabel="TrackerButton">
-                                <rect key="frame" x="142" y="201" width="52" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Tracker"/>
-                                <connections>
-                                    <segue destination="dAk-cz-py3" kind="show" identifier="segueToTracker" id="5Br-TV-XhD"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vue-PQ-v9o" userLabel="ResourcesButton">
-                                <rect key="frame" x="132" y="282" width="72" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Resources"/>
-                                <connections>
-                                    <segue destination="GBX-m6-1Ga" kind="show" identifier="segueToResources" id="7TZ-RP-dOp"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fj5-D6-aUa" userLabel="HomeBackgroundView">
-                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fBB-VB-eSJ" userLabel="MenuView">
+                                <rect key="frame" x="0.0" y="44" width="330" height="692"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RedDivider" translatesAutoresizingMaskIntoConstraints="NO" id="l95-wy-yXS">
+                                        <rect key="frame" x="8" y="37" width="314" height="5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="5" id="BP7-xF-laZ"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="go to..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQT-Fi-evo" userLabel="MenuGoToLabel">
+                                        <rect key="frame" x="8" y="8" width="54" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.70588235294117641" green="0.094117647058823528" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ic2-Du-lO2" userLabel="CalendarButton">
+                                        <rect key="frame" x="19" y="81" width="292" height="145"/>
+                                        <color key="backgroundColor" red="0.95686274510000002" green="0.60392156860000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="145" id="KUN-qN-NDj"/>
+                                        </constraints>
+                                        <state key="normal" title="Calendar" image="ChartIcon"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="imageView.contentMode">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="41b-MK-fc8" kind="show" identifier="segueToCalendar" id="ie0-ET-h4g"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rnt-UP-mgN" userLabel="TrackerButton">
+                                        <rect key="frame" x="19" y="265" width="292" height="145"/>
+                                        <color key="backgroundColor" red="0.95686274510000002" green="0.60392156860000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="145" id="34r-VX-FYS"/>
+                                        </constraints>
+                                        <state key="normal" title="Tracker" image="PencilIcon"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="imageView.contentMode">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="dAk-cz-py3" kind="show" identifier="segueToTracker" id="5Br-TV-XhD"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vue-PQ-v9o" userLabel="ResourcesButton">
+                                        <rect key="frame" x="19" y="449" width="292" height="145"/>
+                                        <color key="backgroundColor" red="0.95686274510000002" green="0.60392156860000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="145" id="jFF-Ad-Xky"/>
+                                        </constraints>
+                                        <state key="normal" title="Resources" image="ResourcesIcon"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="imageView.contentMode">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="GBX-m6-1Ga" kind="show" identifier="segueToResources" id="7TZ-RP-dOp"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.94901960784313721" blue="0.88235294117647056" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ic2-Du-lO2" secondAttribute="trailing" constant="19" id="1Kf-j9-r07"/>
+                                    <constraint firstItem="l95-wy-yXS" firstAttribute="leading" secondItem="fBB-VB-eSJ" secondAttribute="leading" constant="8" id="2T1-oh-oQZ"/>
+                                    <constraint firstItem="ic2-Du-lO2" firstAttribute="leading" secondItem="fBB-VB-eSJ" secondAttribute="leading" constant="19" id="8XU-Fu-EB1"/>
+                                    <constraint firstItem="Vue-PQ-v9o" firstAttribute="centerX" secondItem="fBB-VB-eSJ" secondAttribute="centerX" id="AOx-Af-Hvw"/>
+                                    <constraint firstAttribute="trailing" secondItem="l95-wy-yXS" secondAttribute="trailing" constant="8" id="D7L-v1-1aS"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vue-PQ-v9o" secondAttribute="trailing" constant="19" id="Elr-Xy-yjC"/>
+                                    <constraint firstItem="ic2-Du-lO2" firstAttribute="top" secondItem="l95-wy-yXS" secondAttribute="bottom" constant="39" id="Hnr-ES-P1c"/>
+                                    <constraint firstItem="ic2-Du-lO2" firstAttribute="centerX" secondItem="fBB-VB-eSJ" secondAttribute="centerX" id="JU3-Rv-drY"/>
+                                    <constraint firstAttribute="width" constant="330" id="M8J-Id-ng2"/>
+                                    <constraint firstItem="rnt-UP-mgN" firstAttribute="centerX" secondItem="fBB-VB-eSJ" secondAttribute="centerX" id="NWv-OW-N09"/>
+                                    <constraint firstItem="l95-wy-yXS" firstAttribute="top" secondItem="rQT-Fi-evo" secondAttribute="bottom" constant="8" id="RXx-0f-JKY"/>
+                                    <constraint firstItem="l95-wy-yXS" firstAttribute="centerX" secondItem="fBB-VB-eSJ" secondAttribute="centerX" id="YTp-62-BHh"/>
+                                    <constraint firstItem="Vue-PQ-v9o" firstAttribute="leading" secondItem="fBB-VB-eSJ" secondAttribute="leading" constant="19" id="fwd-vP-wiy"/>
+                                    <constraint firstItem="rnt-UP-mgN" firstAttribute="leading" secondItem="fBB-VB-eSJ" secondAttribute="leading" constant="19" id="h7q-f3-fTr"/>
+                                    <constraint firstItem="rQT-Fi-evo" firstAttribute="top" secondItem="fBB-VB-eSJ" secondAttribute="top" constant="8" id="lSv-ei-L2M"/>
+                                    <constraint firstItem="rQT-Fi-evo" firstAttribute="leading" secondItem="fBB-VB-eSJ" secondAttribute="leading" constant="8" id="lt0-aL-KVC"/>
+                                    <constraint firstItem="Vue-PQ-v9o" firstAttribute="top" secondItem="rnt-UP-mgN" secondAttribute="bottom" constant="39" id="ltf-Lt-FE0"/>
+                                    <constraint firstAttribute="trailing" secondItem="rnt-UP-mgN" secondAttribute="trailing" constant="19" id="poH-Rg-1T0"/>
+                                    <constraint firstItem="rnt-UP-mgN" firstAttribute="top" secondItem="ic2-Du-lO2" secondAttribute="bottom" constant="39" id="rM6-1J-6M4"/>
+                                    <constraint firstItem="ic2-Du-lO2" firstAttribute="leading" secondItem="l95-wy-yXS" secondAttribute="trailing" constant="-303" id="rqJ-iF-E33"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fj5-D6-aUa" userLabel="HomeBackgroundView">
+                                <rect key="frame" x="353" y="44" width="414" height="716"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gv-qb-DxB" userLabel="HomeDateLabel">
                                         <rect key="frame" x="35" y="454" width="344" height="70"/>
@@ -105,7 +162,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UfU-S3-obD">
-                                        <rect key="frame" x="89" y="586" width="236" height="81"/>
+                                        <rect key="frame" x="89" y="610" width="236" height="81"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWg-Rl-DTx" userLabel="HomeCalendarButton">
                                                 <rect key="frame" x="9" y="14.666666666666629" width="54" height="52"/>
@@ -157,10 +214,13 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.94901960784313721" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Fj5-D6-aUa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="3Vg-uw-Mka"/>
-                            <constraint firstItem="Fj5-D6-aUa" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="AZY-O1-ic9"/>
-                            <constraint firstItem="Fj5-D6-aUa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="b2O-O5-3j5"/>
-                            <constraint firstItem="Fj5-D6-aUa" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ybo-MK-6MD"/>
+                            <constraint firstItem="fBB-VB-eSJ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="69D-h1-3QY"/>
+                            <constraint firstItem="Fj5-D6-aUa" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" symbolic="YES" id="6s2-gf-u6L"/>
+                            <constraint firstItem="fBB-VB-eSJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Mu7-Pu-qG9"/>
+                            <constraint firstItem="Fj5-D6-aUa" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="STZ-Aj-Rc0"/>
+                            <constraint firstItem="fBB-VB-eSJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="jIr-NT-cUt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Fj5-D6-aUa" secondAttribute="bottom" id="kgU-2j-SDg"/>
+                            <constraint firstItem="Fj5-D6-aUa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="x7I-vW-B0k"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -173,8 +233,8 @@
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="QlQ-m1-Wk4" userLabel="HomeSettingsButton"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="homeBackgroundLeading" destination="b2O-O5-3j5" id="l7I-uE-Xw4"/>
-                        <outlet property="homeBackgroundTrailing" destination="ybo-MK-6MD" id="ngd-o2-Nyj"/>
+                        <outlet property="homeBackgroundLeading" destination="x7I-vW-B0k" id="8jy-0n-hwD"/>
+                        <outlet property="homeBackgroundTrailing" destination="STZ-Aj-Rc0" id="W5O-vg-okh"/>
                         <outlet property="homeBackgroundView" destination="Fj5-D6-aUa" id="D6k-Cj-fGH"/>
                         <outlet property="homeBottomLabel" destination="7U9-hL-dqn" id="iWc-Jc-JBE"/>
                         <outlet property="homeBottomTop" destination="QLH-a7-QIr" id="pqn-Y0-Zcn"/>
@@ -186,6 +246,8 @@
                         <outlet property="homeSquareHeight" destination="hCJ-HQ-joP" id="gHD-Zq-BZE"/>
                         <outlet property="homeSquareView" destination="Yn6-eO-Chl" id="y2E-Bb-Pqb"/>
                         <outlet property="homeTopLabel" destination="5do-ge-K0B" id="fka-6o-yQu"/>
+                        <outlet property="menuGoTo" destination="rQT-Fi-evo" id="kcv-4b-QpR"/>
+                        <outlet property="menuViewWidth" destination="M8J-Id-ng2" id="jDG-w0-SVd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -242,9 +304,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ChartIcon" width="700" height="598"/>
+        <image name="PencilIcon" width="700" height="594"/>
+        <image name="RedDivider" width="781" height="17"/>
+        <image name="ResourcesIcon" width="700" height="604"/>
         <image name="plus.circle.fill" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ie0-ET-h4g"/>
+        <segue reference="TgX-tE-K4g"/>
     </inferredMetricsTieBreakers>
 </document>
