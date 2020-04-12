@@ -147,7 +147,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     @IBAction func onClick(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
         self.navigationController!.setNavigationBarHidden(false,animated:false)
-        
+
     }
     
     override func viewDidLoad() {
