@@ -23,7 +23,6 @@ var curYear = 2020
 var curDay = 1
 
 
-
 class CalendarViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var monthYearLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -92,6 +91,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
        return CGSize(width: 43, height: 65)
     }
     
+    
     @objc func swipeRightDetected(_ sender: UIGestureRecognizer) {
         curMonth -= 1
         if (curMonth == 0) {
@@ -99,7 +99,14 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
             curYear -= 1
         }
         setCalendar()
-        collectionView.reloadData()
+        UIView.transition(with: collectionView,
+                                  duration: 0.35,
+                                  options: .transitionFlipFromLeft,
+                                  animations:
+        { () -> Void in
+            self.collectionView.reloadData()
+        },
+                                  completion: nil);
     }
     
     @objc func swipeLeftDetected(_ sender: UIGestureRecognizer) {
@@ -109,7 +116,14 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
             curYear += 1
         }
         setCalendar()
-        collectionView.reloadData()
+        UIView.transition(with: collectionView,
+                                  duration: 0.35,
+                                  options: .transitionFlipFromRight,
+                                  animations:
+                                    { () -> Void in
+                                        self.collectionView.reloadData()
+                                    },
+                                  completion: nil);
     }
     
     func setCalendar() {
@@ -183,7 +197,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "dateSegue") {
-            let nextVC = segue.destination as? DayOverviewViewController
+            let nextVC = segue.destination as? TrackerViewController
             nextVC?.delegate = self
             nextVC?.month = curMonth
             nextVC?.day = curDay

@@ -13,23 +13,24 @@ protocol newSymptom {
 }
 
 class TrackerViewController: UIViewController, UIPopoverPresentationControllerDelegate, UITableViewDelegate, UITableViewDataSource, newSymptom {
+    
 
-     var symptoms: [String] = []
-     let cellReuseIdentifier = "cell"
-     let cellSpacingHeight: CGFloat = 5
-     var customTableViewCellIdentifier = "symptomCell"
-     var popoverSegueIdentifier = "popoverSegue"
-     var popoverVCIdentifier = "popoverVC"
+    var symptoms: [String] = []
+    let cellReuseIdentifier = "cell"
+    let cellSpacingHeight: CGFloat = 5
+    var customTableViewCellIdentifier = "symptomCell"
+    var popoverSegueIdentifier = "popoverSegue"
+    var popoverVCIdentifier = "popoverVC"
      
-     //sections are used to add spacing between cells
-     func numberOfSections(in tableView: UITableView) -> Int {
-         return self.symptoms.count
-     }
+    //sections are used to add spacing between cells
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return self.symptoms.count
+    }
      
-     //only one row per section
-     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-         return 1
-     }
+    //only one row per section
+    func tableView(_ tableView: UITableView,    numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
      
      //setting the spacing between cells
      func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -47,14 +48,10 @@ class TrackerViewController: UIViewController, UIPopoverPresentationControllerDe
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
          let cell = tableView.dequeueReusableCell(withIdentifier: customTableViewCellIdentifier, for: indexPath) as! CustomTableViewCell
          // note that indexPath.section is used rather than indexPath.row
-         cell.symptom.text = self.symptoms[indexPath.section]
-
-         // add border and color
-         cell.backgroundColor = UIColor.orange
-         cell.layer.borderColor = UIColor.black.cgColor
-         cell.layer.borderWidth = 1
-         cell.layer.cornerRadius = 8
-         cell.clipsToBounds = true
+         cell.symptom.text = "  \(self.symptoms[indexPath.section])"
+        cell.symptom.clipsToBounds = true
+        cell.symptom.layer.cornerRadius = 17
+         
          return cell
      }
      
@@ -66,22 +63,50 @@ class TrackerViewController: UIViewController, UIPopoverPresentationControllerDe
          }
      }
 
-     @IBOutlet weak var date: UILabel!
-     @IBOutlet weak var symptomsTable: UITableView!
+    var monthList = ["none", "january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
+    @IBOutlet weak var symptomsTable: UITableView!
+    @IBOutlet weak var date: UILabel!
+    
+    var delegate: UIViewController!
+    var day = 1
+    var month = 1
+    var year = 2020
+    var prevColor: UIColor!
+    var markedDate: UIImageView!
      
-     override func viewDidLoad() {
-         super.viewDidLoad()
-         // Do any additional setup after loading the view.
-         symptomsTable.delegate = self
-         symptomsTable.dataSource = self
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        symptomsTable.delegate = self
+        symptomsTable.dataSource = self
+        symptomsTable.separatorStyle = .none
+        self.navigationController!.setNavigationBarHidden(true,animated:false)
+        if delegate is MainViewController {
+            day = Calendar.current.component(.day, from: NSDate() as Date)
+            month = Calendar.current.component(.month, from: NSDate() as Date)
+            year = Calendar.current.component(.year, from: NSDate() as Date)
+        }
+        date.text = "\(monthList[month]) \(day), \(year)"
+        
      }
      
-     func addSymptom(symptom:String) {
+    @IBAction func onBackClick(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+        if delegate is ViewController {
+            self.navigationController!.setNavigationBarHidden(false, animated: false)
+        }
+    }
+    
+    func addSymptom(symptom:String) {
          symptoms.append(symptom)
          symptomsTable.reloadData()
      }
 
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        if delegate is CalendarViewController {
+            markedDate.tintColor = prevColor
+        }
+    }
 
     /*
     // MARK: - Navigation

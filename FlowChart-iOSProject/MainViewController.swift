@@ -257,5 +257,12 @@ class MainViewController: UIViewController {
     
     @IBAction func calendarButtonPressed(_ sender: Any) {
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToTracker" {
+            let nextVC = segue.destination as? TrackerViewController
+            nextVC?.delegate = self
+        }
+    }
 }
 
