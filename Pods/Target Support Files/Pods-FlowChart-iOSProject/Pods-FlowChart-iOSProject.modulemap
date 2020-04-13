@@ -1,0 +1,6 @@
+framework module Pods_FlowChart_iOSProject {
+  umbrella header "Pods-FlowChart-iOSProject-umbrella.h"
+
+  export *
+  module * { export * }
+}
