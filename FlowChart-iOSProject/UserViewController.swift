@@ -24,7 +24,8 @@ class UserViewController: UIViewController {
         Auth.auth().addStateDidChangeListener() {
           auth, user in
             if user != nil {
-                self.performSegue(withIdentifier: "LoginSegue", sender: nil)
+//                let vc = MainViewController()
+//                self.navigationController?.pushViewController(vc, animated: true)
             }
         }
         
@@ -39,22 +40,23 @@ class UserViewController: UIViewController {
         Auth.auth().signIn(withEmail: email, password: password) {
           user, error in
             if let _ = error, user == nil {
-                self.performSegue(withIdentifier: "LoginSegue", sender: nil)
-            }
-            else {
+                
                 let ac = UIAlertController(title: "Login Invalid", message: "Please use a valid login or make a new account", preferredStyle: .alert)
                 let submitAction = UIAlertAction(title: "OK!", style: .default) { _ in
         
                 }
-
                 ac.addAction(submitAction)
                 self.present(ac, animated: true)
+            }
+            else {
+                 self.performSegue(withIdentifier: "LoginSegue", sender: self)
+                
             }
         }
     }
 
     @IBAction func signupAction(_ sender: Any) {
-        guard var emailField = signupEmail.text,
+        guard let emailField = signupEmail.text,
             let passwordField = signupPassword.text,
             let confirmedPasswordField = signupConfirm.text
         else {
@@ -65,23 +67,22 @@ class UserViewController: UIViewController {
             let submitAction = UIAlertAction(title: "OK!", style: .default) { _ in
     
             }
-
             ac.addAction(submitAction)
             self.present(ac, animated: true)
         }
         else {
-            emailField += "@filler.com"
             Auth.auth().createUser(withEmail: emailField, password: passwordField) { user, error in
                 if error == nil {
                     Auth.auth().signIn(withEmail: emailField, password: passwordField)
-                    self.performSegue(withIdentifier: "SignupSegue", sender: nil)
+                    self.performSegue(withIdentifier: "SignupSegue", sender: self)
+
                 }
                 else {
+                    print(error)
                     let ac = UIAlertController(title: "Login Invalid", message: "Please use a valid login or make a new account", preferredStyle: .alert)
                     let submitAction = UIAlertAction(title: "OK!", style: .default) { _ in
             
                     }
-
                     ac.addAction(submitAction)
                     self.present(ac, animated: true)
                 }
