@@ -15,13 +15,13 @@ class MoodViewController: UIViewController {
     
     @IBAction func onXmark(_ sender: Any) {
         //dismiss immediately
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func onCheckmark(_ sender: Any) {
         //need to save data first and then dismiss
         //for now, I am dismissing immediately since core data is not yet enabled
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     override func viewDidLoad() {

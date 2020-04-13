@@ -92,7 +92,8 @@ class TrackerViewController: UIViewController, UIPopoverPresentationControllerDe
      
     @IBAction func onBackClick(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
-        if delegate is ViewController {
+        if delegate is CalendarViewController {
+        } else {
             self.navigationController!.setNavigationBarHidden(false, animated: false)
         }
     }

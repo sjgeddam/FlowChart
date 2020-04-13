@@ -153,6 +153,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="N3f-Wn-6YB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="WY8-Iv-Zi5"/>
                     <connections>
                         <outlet property="date" destination="HdL-7x-E34" id="jQJ-zR-JPp"/>
                         <outlet property="symptomsTable" destination="enJ-yV-R8a" id="sio-Ih-HBl"/>
