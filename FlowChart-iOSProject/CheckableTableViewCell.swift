@@ -14,6 +14,7 @@ class CheckableTableViewCell: UITableViewCell {
     @IBOutlet weak var itemText: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
+        itemText.font = UIFont (name: "ReemKufi-Regular", size: 32)
         // Initialization code
     }
     

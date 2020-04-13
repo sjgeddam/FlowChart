@@ -17,8 +17,12 @@ class LocationViewController: UIViewController {
     @IBOutlet weak var mapKit: MKMapView!
     
     
+    @IBAction func back(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController!.setNavigationBarHidden(true,animated:false)
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
