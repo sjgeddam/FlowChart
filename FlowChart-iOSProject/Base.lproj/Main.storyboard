@@ -182,7 +182,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Projected start in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5do-ge-K0B" userLabel="HomeTopTextLabel">
-                                                <rect key="frame" x="0.0" y="21" width="344" height="48"/>
+                                                <rect key="frame" x="0.0" y="21.000000000000004" width="344" height="37.333333333333343"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="344" id="aGK-KR-rVq"/>
                                                 </constraints>
@@ -202,7 +202,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="day(s)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7U9-hL-dqn" userLabel="HomeBottomTextLabel">
-                                        <rect key="frame" x="168.33333333333334" y="350" width="77.333333333333343" height="48"/>
+                                        <rect key="frame" x="164.66666666666666" y="350" width="85" height="37.333333333333314"/>
                                         <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="32"/>
                                         <color key="textColor" red="0.95686274510000002" green="0.60392156860000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -276,7 +276,11 @@
                                 <action selector="menuButtonPressed:" destination="BYZ-38-t0r" id="swa-c7-9Em"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Settings" image="SettingsIcon" width="48" id="QlQ-m1-Wk4" userLabel="HomeSettingsButton"/>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" image="SettingsIcon" width="48" id="QlQ-m1-Wk4" userLabel="HomeSettingsButton">
+                            <connections>
+                                <segue destination="28q-AM-fKo" kind="show" id="hg1-0H-OWJ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="homeBackgroundLeading" destination="b2O-O5-3j5" id="l7I-uE-Xw4"/>
@@ -536,7 +540,7 @@
             <objects>
                 <viewController id="28q-AM-fKo" customClass="SettingsViewController" customModule="FlowChart_iOSProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tHB-aN-JzK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="RedDivider" translatesAutoresizingMaskIntoConstraints="NO" id="hoV-F6-PBm">
@@ -633,6 +637,7 @@
                         <color key="backgroundColor" red="0.98624962569999997" green="0.94733029599999996" blue="0.88992601630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="ral-EB-6aB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="LG0-OB-Rh8"/>
                     <connections>
                         <outlet property="notifLabel" destination="66j-Q0-Msl" id="V7M-6Z-2J0"/>
                         <outlet property="notificationDays" destination="YtQ-Hy-332" id="VP4-X4-x9P"/>
