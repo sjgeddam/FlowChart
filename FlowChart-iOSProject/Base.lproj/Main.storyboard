@@ -311,7 +311,7 @@
             <objects>
                 <viewController id="Oox-my-JuV" customClass="UserViewController" customModule="FlowChart_iOSProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AZE-Kd-O6l">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lPW-4j-pNh">
@@ -531,10 +531,10 @@
             </objects>
             <point key="canvasLocation" x="2736.231884057971" y="-621.19565217391312"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="y4Y-Wr-3ZN">
             <objects>
-                <viewController id="28q-AM-fKo" sceneMemberID="viewController">
+                <viewController id="28q-AM-fKo" customClass="SettingsViewController" customModule="FlowChart_iOSProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tHB-aN-JzK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -554,11 +554,6 @@
                                 <rect key="frame" x="20" y="119" width="374" height="170"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="YtQ-Hy-332">
-                                        <rect key="frame" x="8" y="96" width="360" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="thumbTintColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="notify me _ days before my predicted cycle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="66j-Q0-Msl">
                                         <rect key="frame" x="8" y="50" width="344" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -566,6 +561,14 @@
                                         <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="YtQ-Hy-332">
+                                        <rect key="frame" x="8" y="111" width="360" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="thumbTintColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="sliderValueChanged:" destination="28q-AM-fKo" eventType="valueChanged" id="dRu-OW-aoa"/>
+                                        </connections>
+                                    </slider>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
@@ -594,6 +597,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <action selector="logout:" destination="28q-AM-fKo" eventType="touchUpInside" id="LSb-Ko-esq"/>
                                             <action selector="signupAction:" destination="6Ax-u5-scq" eventType="touchUpInside" id="LcY-i7-gOu"/>
                                         </connections>
                                     </button>
@@ -611,6 +615,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <action selector="newAccount:" destination="28q-AM-fKo" eventType="touchUpInside" id="zfg-US-YlL"/>
                                             <action selector="signupAction:" destination="6Ax-u5-scq" eventType="touchUpInside" id="FNO-yx-IB2"/>
                                         </connections>
                                     </button>
@@ -629,7 +634,10 @@
                         <viewLayoutGuide key="safeArea" id="ral-EB-6aB"/>
                     </view>
                     <connections>
+                        <outlet property="notifLabel" destination="66j-Q0-Msl" id="V7M-6Z-2J0"/>
+                        <outlet property="notificationDays" destination="YtQ-Hy-332" id="VP4-X4-x9P"/>
                         <segue destination="6Ax-u5-scq" kind="show" identifier="SettingsSignup" id="de5-CB-a74"/>
+                        <segue destination="Oox-my-JuV" kind="show" identifier="SettingsLogin" id="Iew-Yr-y0V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="idD-fe-egl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -668,6 +676,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="de5-CB-a74"/>
         <segue reference="ffr-Se-C58"/>
+        <segue reference="Iew-Yr-y0V"/>
         <segue reference="aqa-Aq-MLw"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

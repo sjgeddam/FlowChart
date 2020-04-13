@@ -78,7 +78,6 @@ class UserViewController: UIViewController {
 
                 }
                 else {
-                    print(error)
                     let ac = UIAlertController(title: "Login Invalid", message: "Please use a valid login or make a new account", preferredStyle: .alert)
                     let submitAction = UIAlertAction(title: "OK!", style: .default) { _ in
             
