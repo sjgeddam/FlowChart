@@ -33,7 +33,8 @@ class SettingsViewController: UIViewController {
         let firebaseAuth = Auth.auth()
         do {
           try firebaseAuth.signOut()
-          self.performSegue(withIdentifier: "SettingsLogin", sender: self)
+            let  vc =  self.navigationController?.viewControllers.filter({$0 is UserViewController}).first
+            self.navigationController?.popToViewController(vc!, animated: true)
         } catch let signOutError as NSError {
           print ("Error signing out: %@", signOutError)
         }
@@ -43,7 +44,9 @@ class SettingsViewController: UIViewController {
         let firebaseAuth = Auth.auth()
         do {
           try firebaseAuth.signOut()
-          self.performSegue(withIdentifier: "SettingsSignup", sender: self)
+            let  vc =  self.navigationController?.viewControllers.filter({$0 is UserViewController}).first
+            self.navigationController?.popToViewController(vc!, animated: true)
+            vc!.performSegue(withIdentifier: "NewAccSegue", sender: vc!)
         } catch let signOutError as NSError {
           print ("Error signing out: %@", signOutError)
         }

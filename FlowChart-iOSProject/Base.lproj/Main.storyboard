@@ -17,7 +17,7 @@
             <objects>
                 <viewController title="mainVC" id="BYZ-38-t0r" customClass="MainViewController" customModule="FlowChart_iOSProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="go to..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQT-Fi-evo">
@@ -28,7 +28,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wy0-Cg-j5Z" userLabel="MenuView">
-                                <rect key="frame" x="0.0" y="0.0" width="330" height="716"/>
+                                <rect key="frame" x="0.0" y="44" width="330" height="692"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RedDivider" translatesAutoresizingMaskIntoConstraints="NO" id="rKT-09-0Qx">
                                         <rect key="frame" x="8" y="37" width="314" height="5"/>
@@ -182,7 +182,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Projected start in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5do-ge-K0B" userLabel="HomeTopTextLabel">
-                                                <rect key="frame" x="0.0" y="21.000000000000004" width="344" height="37.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="21" width="344" height="48"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="344" id="aGK-KR-rVq"/>
                                                 </constraints>
@@ -202,13 +202,13 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="day(s)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7U9-hL-dqn" userLabel="HomeBottomTextLabel">
-                                        <rect key="frame" x="164.66666666666666" y="350" width="85" height="37.333333333333314"/>
+                                        <rect key="frame" x="168.33333333333334" y="350" width="77.333333333333343" height="48"/>
                                         <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="32"/>
                                         <color key="textColor" red="0.95686274510000002" green="0.60392156860000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UfU-S3-obD">
-                                        <rect key="frame" x="89" y="610" width="236" height="81"/>
+                                        <rect key="frame" x="89" y="586" width="236" height="81"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWg-Rl-DTx" userLabel="HomeCalendarButton">
                                                 <rect key="frame" x="9" y="14.666666666666629" width="54" height="52"/>
@@ -310,12 +310,12 @@
             </objects>
             <point key="canvasLocation" x="1042.0289855072465" y="115.7608695652174"/>
         </scene>
-        <!--User View Controller-->
+        <!--LoginView-->
         <scene sceneID="LQC-8j-TbD">
             <objects>
-                <viewController id="Oox-my-JuV" customClass="UserViewController" customModule="FlowChart_iOSProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginView" title="LoginView" id="Oox-my-JuV" customClass="UserViewController" customModule="FlowChart_iOSProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AZE-Kd-O6l">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lPW-4j-pNh">
@@ -378,14 +378,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2B-SM-ZET">
-                                <rect key="frame" x="20" y="646" width="288" height="30"/>
+                                <rect key="frame" x="13" y="664" width="288" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="20"/>
                                 <state key="normal" title="create a new account">
                                     <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="6Ax-u5-scq" kind="show" id="Qa2-HP-jVp"/>
+                                    <segue destination="6Ax-u5-scq" kind="show" identifier="NewAccSegue" id="Qa2-HP-jVp"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -433,12 +433,12 @@
             </objects>
             <point key="canvasLocation" x="1586" y="220"/>
         </scene>
-        <!--User View Controller-->
+        <!--SignupView-->
         <scene sceneID="CxQ-kq-WG2">
             <objects>
-                <viewController id="6Ax-u5-scq" customClass="UserViewController" customModule="FlowChart_iOSProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignupView" title="SignupView" id="6Ax-u5-scq" customClass="UserViewController" customModule="FlowChart_iOSProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RJV-4S-pns">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rHh-dK-4El">
@@ -540,7 +540,7 @@
             <objects>
                 <viewController id="28q-AM-fKo" customClass="SettingsViewController" customModule="FlowChart_iOSProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tHB-aN-JzK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="RedDivider" translatesAutoresizingMaskIntoConstraints="NO" id="hoV-F6-PBm">
@@ -558,14 +558,7 @@
                                 <rect key="frame" x="20" y="119" width="374" height="170"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="notify me _ days before my predicted cycle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="66j-Q0-Msl">
-                                        <rect key="frame" x="8" y="50" width="344" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="20"/>
-                                        <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="YtQ-Hy-332">
+                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="7" translatesAutoresizingMaskIntoConstraints="NO" id="YtQ-Hy-332">
                                         <rect key="frame" x="8" y="111" width="360" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="thumbTintColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -573,6 +566,13 @@
                                             <action selector="sliderValueChanged:" destination="28q-AM-fKo" eventType="valueChanged" id="dRu-OW-aoa"/>
                                         </connections>
                                     </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="notify me ___ days before my predicted cycle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="66j-Q0-Msl">
+                                        <rect key="frame" x="8" y="50" width="366" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="19"/>
+                                        <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
@@ -641,8 +641,6 @@
                     <connections>
                         <outlet property="notifLabel" destination="66j-Q0-Msl" id="V7M-6Z-2J0"/>
                         <outlet property="notificationDays" destination="YtQ-Hy-332" id="VP4-X4-x9P"/>
-                        <segue destination="6Ax-u5-scq" kind="show" identifier="SettingsSignup" id="de5-CB-a74"/>
-                        <segue destination="Oox-my-JuV" kind="show" identifier="SettingsLogin" id="Iew-Yr-y0V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="idD-fe-egl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -679,10 +677,8 @@
         <image name="plus.circle.fill" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="de5-CB-a74"/>
         <segue reference="ffr-Se-C58"/>
-        <segue reference="Iew-Yr-y0V"/>
-        <segue reference="aqa-Aq-MLw"/>
+        <segue reference="jCp-ZC-EVB"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
