@@ -7,13 +7,19 @@
 //
 
 import UIKit
+import CoreData
+import Firebase
+import FirebaseAuth
+
+protocol todaysDate {
+    func sendDate() -> String
+}
 
 protocol newSymptom {
     func addSymptom(symptom:String)
 }
 
-class TrackerViewController: UIViewController, UIPopoverPresentationControllerDelegate, UITableViewDelegate, UITableViewDataSource, newSymptom {
-    
+class TrackerViewController: UIViewController, UIPopoverPresentationControllerDelegate, UITableViewDelegate, UITableViewDataSource, newSymptom, todaysDate {
 
     var symptoms: [String] = []
     let cellReuseIdentifier = "cell"
@@ -61,6 +67,16 @@ class TrackerViewController: UIViewController, UIPopoverPresentationControllerDe
              let destination = segue.destination as? popoverViewController
              destination?.delegate = self
          }
+        
+        if (segue.identifier == "moodSegue") {
+            let destination = segue.destination as? MoodViewController
+            destination?.delegate = self 
+        }
+        
+        if (segue.identifier == "flowSegue") {
+            let destination = segue.destination as? FlowViewController
+            destination?.delegate = self
+        }
      }
 
     var monthList = ["none", "january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
@@ -107,6 +123,10 @@ class TrackerViewController: UIViewController, UIPopoverPresentationControllerDe
         if delegate is CalendarViewController {
             markedDate.tintColor = prevColor
         }
+    }
+    
+    func sendDate() -> String {
+        return date.text!
     }
 
     /*
