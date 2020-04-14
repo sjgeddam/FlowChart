@@ -27,6 +27,7 @@ class FlowViewController: UIViewController {
     var spottingSelected = false
     
     @IBAction func onLight(_ sender: Any) {
+        //clear data 
         let light = UIImage(named: "lightfill")
         lightButton.setImage(light, for: .normal)
         lightSelected = true

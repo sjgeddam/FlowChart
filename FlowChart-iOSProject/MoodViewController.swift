@@ -30,30 +30,40 @@ class MoodViewController: UIViewController {
     
     
     @IBAction func onSmile(_ sender: Any) {
+        handleSmile()
+        
         let smile = UIImage(named: "reallyhappyfill")
         smileButton.setImage(smile, for: .normal)
         smileSelected = true
     }
     
     @IBAction func onHappy(_ sender: Any) {
+        handleHappy()
+        
         let happy = UIImage(named: "happyfill")
         happyButton.setImage(happy, for: .normal)
         happySelected = true
     }
     
     @IBAction func onNeutral(_ sender: Any) {
+        handleNeutral()
+        
         let neutral = UIImage(named: "neutralfill")
         neutralButton.setImage(neutral, for: .normal)
         neutralSelected = true
     }
     
     @IBAction func onSad(_ sender: Any) {
+        handleSad()
+        
         let sad = UIImage(named: "sadfill")
         sadButton.setImage(sad, for: .normal)
         sadSelected = true
     }
     
     @IBAction func onUpset(_ sender: Any) {
+        handleUpset()
+        
         let upset = UIImage(named: "upsetfill")
         upsetButton.setImage(upset, for: .normal)
         upsetSelected = true
@@ -71,13 +81,17 @@ class MoodViewController: UIViewController {
         //need to save data first and then dismiss
         if (smileSelected) {
             storeMood(moodType: "smile")
-        } else if (happySelected) {
+        }
+        if (happySelected) {
             storeMood(moodType: "happy")
-        } else if (neutralSelected) {
+        }
+        if (neutralSelected) {
             storeMood(moodType: "neutral")
-        } else if (sadSelected) {
+        }
+        if (sadSelected) {
             storeMood(moodType: "sad")
-        } else if (upsetSelected) {
+        }
+        if (upsetSelected) {
             storeMood(moodType: "upset")
         }
         
@@ -92,6 +106,8 @@ class MoodViewController: UIViewController {
         let fetchedResults = retrieveMood()
 
         for mood in fetchedResults {
+            let description = mood.value(forKey: "reason")
+            reason.text = description as? String 
             if let feeling = mood.value(forKey:"moodtype") {
                 if (feeling as? String == "smile") {
                     let smile = UIImage(named: "reallyhappyfill")
@@ -119,6 +135,23 @@ class MoodViewController: UIViewController {
                     upsetSelected = true
                 }
             }
+        }
+    }
+    
+    func deleteMood() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchedResults = retrieveMood()
+        let item = fetchedResults[0]
+        
+        context.delete(item)
+        do {
+            try context.save()
+        } catch {
+            // If an error occurs
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
         }
     }
     
@@ -159,6 +192,7 @@ class MoodViewController: UIViewController {
             flow.setValue(user?.uid, forKey: "userID")
             flow.setValue(currdate, forKey: "date")
             flow.setValue(moodType, forKey: "moodtype")
+            flow.setValue(reason.text, forKey: "reason")
             
             // Commit the changes
             do {
@@ -198,6 +232,141 @@ class MoodViewController: UIViewController {
         } else {
             print("no results")
             return []
+        }
+    }
+    
+    func handleSmile() {
+        if (happySelected) {
+            let happy = UIImage(named: "happyface")
+            happyButton.setImage(happy, for: .normal)
+            deleteMood()
+            happySelected = false
+        }
+        if (neutralSelected) {
+            let neutral = UIImage(named: "neutralface")
+            neutralButton.setImage(neutral, for: .normal)
+            deleteMood()
+            neutralSelected = false
+        }
+        if (sadSelected) {
+            let sad = UIImage(named: "sadface")
+            sadButton.setImage(sad, for: .normal)
+            deleteMood()
+            sadSelected = false
+        }
+        if (upsetSelected) {
+            let upset = UIImage(named: "upsetface")
+            upsetButton.setImage(upset, for: .normal)
+            deleteMood()
+            upsetSelected = false
+        }
+    }
+    
+    func handleHappy() {
+        if (smileSelected) {
+            let smile = UIImage(named: "reallyhappyface")
+            smileButton.setImage(smile, for: .normal)
+            deleteMood()
+            smileSelected = false
+        }
+        if (neutralSelected) {
+            let neutral = UIImage(named: "neutralface")
+            neutralButton.setImage(neutral, for: .normal)
+            deleteMood()
+            neutralSelected = false
+        }
+        if (sadSelected) {
+            let sad = UIImage(named: "sadface")
+            sadButton.setImage(sad, for: .normal)
+            deleteMood()
+            sadSelected = false
+        }
+        if (upsetSelected) {
+            let upset = UIImage(named: "upsetface")
+            upsetButton.setImage(upset, for: .normal)
+            deleteMood()
+            upsetSelected = false
+        }
+    }
+    
+    func handleNeutral() {
+        if (smileSelected) {
+            let smile = UIImage(named: "reallyhappyface")
+            smileButton.setImage(smile, for: .normal)
+            deleteMood()
+            smileSelected = false
+        }
+        if (happySelected) {
+            let happy = UIImage(named: "happyface")
+            happyButton.setImage(happy, for: .normal)
+            deleteMood()
+            happySelected = false
+        }
+        if (sadSelected) {
+            let sad = UIImage(named: "sadface")
+            sadButton.setImage(sad, for: .normal)
+            deleteMood()
+            sadSelected = false
+        }
+        if (upsetSelected) {
+            let upset = UIImage(named: "upsetface")
+            upsetButton.setImage(upset, for: .normal)
+            deleteMood()
+            upsetSelected = false
+        }
+    }
+    
+    func handleSad() {
+        if (smileSelected) {
+            let smile = UIImage(named: "reallyhappyface")
+            smileButton.setImage(smile, for: .normal)
+            deleteMood()
+            smileSelected = false
+        }
+        if (happySelected) {
+            let happy = UIImage(named: "happyface")
+            happyButton.setImage(happy, for: .normal)
+            deleteMood()
+            happySelected = false
+        }
+        if (neutralSelected) {
+            let neutral = UIImage(named: "neutralface")
+            neutralButton.setImage(neutral, for: .normal)
+            deleteMood()
+            neutralSelected = false
+        }
+        if (upsetSelected) {
+            let upset = UIImage(named: "upsetface")
+            upsetButton.setImage(upset, for: .normal)
+            deleteMood()
+            upsetSelected = false
+        }
+    }
+    
+    func handleUpset() {
+        if (smileSelected) {
+            let smile = UIImage(named: "reallyhappyface")
+            smileButton.setImage(smile, for: .normal)
+            deleteMood()
+            smileSelected = false
+        }
+        if (happySelected) {
+            let happy = UIImage(named: "happyface")
+            happyButton.setImage(happy, for: .normal)
+            deleteMood()
+            happySelected = false
+        }
+        if (neutralSelected) {
+            let neutral = UIImage(named: "neutralface")
+            neutralButton.setImage(neutral, for: .normal)
+            deleteMood()
+            neutralSelected = false
+        }
+        if  (sadSelected) {
+            let sad = UIImage(named: "sadface")
+            sadButton.setImage(sad, for: .normal)
+            deleteMood()
+            sadSelected = false
         }
     }
 

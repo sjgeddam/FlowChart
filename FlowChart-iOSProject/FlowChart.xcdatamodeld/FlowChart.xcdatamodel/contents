@@ -13,11 +13,12 @@
     <entity name="Mood" representedClassName="Mood" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="String"/>
         <attribute name="moodtype" optional="YES" attributeType="String"/>
+        <attribute name="reason" optional="YES" attributeType="String"/>
         <attribute name="userID" optional="YES" attributeType="String"/>
     </entity>
     <elements>
         <element name="ChecklistItem" positionX="-63" positionY="-18" width="128" height="88"/>
         <element name="Flow" positionX="-63" positionY="9" width="128" height="88"/>
-        <element name="Mood" positionX="-54" positionY="27" width="128" height="88"/>
+        <element name="Mood" positionX="-54" positionY="27" width="128" height="103"/>
     </elements>
 </model>
