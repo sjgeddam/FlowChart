@@ -107,7 +107,7 @@ class MoodViewController: UIViewController {
 
         for mood in fetchedResults {
             let description = mood.value(forKey: "reason")
-            reason.text = description as? String 
+            reason.text = description as? String
             if let feeling = mood.value(forKey:"moodtype") {
                 if (feeling as? String == "smile") {
                     let smile = UIImage(named: "reallyhappyfill")
