@@ -16,34 +16,30 @@ class popoverViewController: UIViewController {
     @IBOutlet weak var symptomTF: UITextField!
     
     @IBAction func onNewSymptom(_ sender: Any) {
-        let newsymptom = symptomTF.text
-        if (newsymptom != nil) {
-            delegate?.addSymptom(symptom: newsymptom!)
+        let newsymptom1 = symptomTF.text
+        if (newsymptom1 != nil) {
+            delegate?.addSymptom(newsymptom: newsymptom1!)
         }
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onMoodSwing(_ sender: Any) {
-        let newsymptom = "mood swings"
-        delegate?.addSymptom(symptom: newsymptom)
+        delegate?.addSymptom(newsymptom: "mood swings")
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onCramping(_ sender: Any) {
-        let newsymptom = "cramping"
-        delegate?.addSymptom(symptom: newsymptom)
+        delegate?.addSymptom(newsymptom: "cramping")
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onBackPain(_ sender: Any) {
-        let newsymptom = "lower back pain"
-        delegate?.addSymptom(symptom: newsymptom)
+        delegate?.addSymptom(newsymptom: "lower back pain")
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onLowEnergy(_ sender: Any) {
-        let newsymptom = "low energy"
-        delegate?.addSymptom(symptom: newsymptom)
+        delegate?.addSymptom(newsymptom: "low energy")
         self.dismiss(animated: true, completion: nil)
     }
     

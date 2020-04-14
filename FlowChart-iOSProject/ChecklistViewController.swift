@@ -108,6 +108,7 @@ class ChecklistViewController: UIViewController, UITableViewDelegate, UITableVie
         let fetchedResults = retrieveItems()
         let row = indexPath.row
         let item = fetchedResults[row]
+
         cell.itemText.text = item.value(forKey:"name") as? String
         return cell
     }

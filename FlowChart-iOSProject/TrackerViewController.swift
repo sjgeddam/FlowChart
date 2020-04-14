@@ -7,20 +7,26 @@
 //
 
 import UIKit
+import CoreData
+import Firebase
+import FirebaseAuth
 
-protocol newSymptom {
-    func addSymptom(symptom:String)
+protocol todaysDate {
+    func sendDate() -> String
 }
 
-class TrackerViewController: UIViewController, UIPopoverPresentationControllerDelegate, UITableViewDelegate, UITableViewDataSource, newSymptom {
-    
+protocol newSymptom {
+    func addSymptom(newsymptom:String)
+}
 
-    var symptoms: [String] = []
+class TrackerViewController: UIViewController, UIPopoverPresentationControllerDelegate, UITableViewDelegate, UITableViewDataSource, newSymptom, todaysDate {
+
     let cellReuseIdentifier = "cell"
     let cellSpacingHeight: CGFloat = 5
     var customTableViewCellIdentifier = "symptomCell"
     var popoverSegueIdentifier = "popoverSegue"
     var popoverVCIdentifier = "popoverVC"
+    var symptoms: [Symptom] = []
      
     //sections are used to add spacing between cells
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -46,14 +52,75 @@ class TrackerViewController: UIViewController, UIPopoverPresentationControllerDe
      
      //create a cell for each table view row
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("in cell for row at func")
          let cell = tableView.dequeueReusableCell(withIdentifier: customTableViewCellIdentifier, for: indexPath) as! CustomTableViewCell
          // note that indexPath.section is used rather than indexPath.row
-         cell.symptom.text = "  \(self.symptoms[indexPath.section])"
+        let symptomdescription = self.symptoms[indexPath.row].value(forKey: "symptomtype") as? String
+        print("symptom description::   " + (symptomdescription ?? "non existent"))
+        cell.symptom.text = symptomdescription
         cell.symptom.clipsToBounds = true
         cell.symptom.layer.cornerRadius = 17
          
          return cell
      }
+    
+    
+    func addSymptom(newsymptom:String) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let symptom = NSEntityDescription.insertNewObject(forEntityName: "Symptom", into: context)
+        
+        let user = Auth.auth().currentUser
+    
+        if ((user) != nil) {
+            symptom.setValue(newsymptom, forKey: "symptomtype")
+            symptom.setValue(date.text!, forKey: "date")
+            symptom.setValue(user?.uid, forKey: "userID")
+            symptomsTable.reloadData()
+            // Commit the changes
+            do {
+                try context.save()
+                print(newsymptom + " added")
+            } catch {
+                // If an error occurs
+                let nserror = error as NSError
+                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+                abort()
+            }
+        }
+    }
+    
+    func retrieveSymptoms() -> [NSManagedObject] {
+        print("in retrieveing data!!!!")
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Symptom")
+        var fetchedResults:[NSManagedObject]? = nil
+
+        let user = Auth.auth().currentUser
+        if ((user) != nil) {
+            //need to filter by both USERID and DATE
+            let predicate = NSPredicate(format: "userID == %@", user!.uid)
+            let secondpredicate = NSPredicate(format: "date == %@", date.text!)
+            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate, secondpredicate])
+            do {
+                try fetchedResults = context.fetch(request) as? [NSManagedObject]
+            } catch {
+                // If an error occurs
+                let nserror = error as NSError
+                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+                abort()
+            }
+            print("before returning fetched results")
+            return(fetchedResults)!
+        } else {
+            print("no results")
+            return []
+        }
+    }
+    
+    
+    
      
      //segueing into popoverVC after + button is clicked
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -61,6 +128,16 @@ class TrackerViewController: UIViewController, UIPopoverPresentationControllerDe
              let destination = segue.destination as? popoverViewController
              destination?.delegate = self
          }
+        
+        if (segue.identifier == "moodSegue") {
+            let destination = segue.destination as? MoodViewController
+            destination?.delegate = self 
+        }
+        
+        if (segue.identifier == "flowSegue") {
+            let destination = segue.destination as? FlowViewController
+            destination?.delegate = self
+        }
      }
 
     var monthList = ["none", "january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
@@ -75,11 +152,15 @@ class TrackerViewController: UIViewController, UIPopoverPresentationControllerDe
     var markedDate: UIImageView!
      
     override func viewDidLoad() {
+        print("IN VIEW DID LOAD TRACKER")
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         symptomsTable.delegate = self
         symptomsTable.dataSource = self
         symptomsTable.separatorStyle = .none
+        self.symptoms = retrieveSymptoms() as! [Symptom]
+        symptomsTable.reloadData()
+        
         self.navigationController!.setNavigationBarHidden(true,animated:false)
         if delegate is MainViewController {
             day = Calendar.current.component(.day, from: NSDate() as Date)
@@ -98,15 +179,16 @@ class TrackerViewController: UIViewController, UIPopoverPresentationControllerDe
         }
     }
     
-    func addSymptom(symptom:String) {
-         symptoms.append(symptom)
-         symptomsTable.reloadData()
-     }
+    
 
     override func viewWillDisappear(_ animated: Bool) {
         if delegate is CalendarViewController {
             markedDate.tintColor = prevColor
         }
+    }
+    
+    func sendDate() -> String {
+        return date.text!
     }
 
     /*
