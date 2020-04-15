@@ -1,7 +1,0 @@
-#  FlowChart Beta
-
-
-## Contributions 
-
-## Deviations  
-
