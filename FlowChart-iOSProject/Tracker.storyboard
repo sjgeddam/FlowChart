@@ -35,15 +35,22 @@
                                             <rect key="frame" x="0.0" y="0.0" width="394" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" text="bloating" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Chj-3W-JXO">
-                                                    <rect key="frame" x="19" y="5" width="320" height="33"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="0.97754532100000002" green="0.83238404990000003" blue="0.62976407999999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" preservesSuperviewLayoutMargins="YES" text="bloating" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Chj-3W-JXO">
+                                                    <rect key="frame" x="37" y="5" width="320" height="33"/>
+                                                    <color key="backgroundColor" red="0.97647058823529409" green="0.83137254901960778" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="33" id="foO-Vh-bfV"/>
+                                                        <constraint firstAttribute="width" constant="320" id="xuX-n8-kr2"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="22"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Chj-3W-JXO" firstAttribute="centerX" secondItem="jEr-d3-Mfk" secondAttribute="centerX" id="c0O-3Z-WaU"/>
+                                                <constraint firstItem="Chj-3W-JXO" firstAttribute="centerX" secondItem="jEr-d3-Mfk" secondAttribute="centerX" id="l5B-ug-ncZ"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="symptom" destination="Chj-3W-JXO" id="4wx-dH-Mzb"/>
@@ -199,75 +206,138 @@
             <objects>
                 <viewController storyboardIdentifier="popoverVC" id="VgA-Z6-ObZ" customClass="popoverViewController" customModule="FlowChart_iOSProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nkE-lr-EHt">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="650"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter a new symptom" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O2w-Yh-6pX">
-                                <rect key="frame" x="9" y="121" width="185" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter a new symptom" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O2w-Yh-6pX">
+                                <rect key="frame" x="61" y="314" width="246" height="34"/>
+                                <color key="backgroundColor" red="0.97647058823529409" green="0.83137254901960778" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="wSa-fA-b7U"/>
+                                    <constraint firstAttribute="width" constant="246" id="yin-9O-tYR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tde-ZS-Etv" customClass="pop">
-                                <rect key="frame" x="164" y="129" width="20" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3RR-5b-BPh">
+                                <rect key="frame" x="61" y="69" width="292" height="33"/>
+                                <color key="backgroundColor" red="0.97647058823529409" green="0.83137254901960778" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="N8Z-ou-rHh"/>
+                                    <constraint firstAttribute="width" constant="292" id="yKO-tg-Dbv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="22"/>
+                                <state key="normal" title="  mood swings">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="17"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onMoodSwing:" destination="VgA-Z6-ObZ" eventType="touchUpInside" id="rHr-Ia-pGb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36Y-a1-j2d">
+                                <rect key="frame" x="61" y="122" width="292" height="34"/>
+                                <color key="backgroundColor" red="0.97647058823529409" green="0.83137254901960778" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="292" id="td7-qp-IjU"/>
+                                    <constraint firstAttribute="height" constant="34" id="xsS-3v-Ian"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="22"/>
+                                <state key="normal" title="  cramping">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="17"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onCramping:" destination="VgA-Z6-ObZ" eventType="touchUpInside" id="PFK-oC-Op9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tQM-Pt-nPi">
+                                <rect key="frame" x="61" y="176" width="292" height="34"/>
+                                <color key="backgroundColor" red="0.97647058823529409" green="0.83137254901960778" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="292" id="2tE-2g-pHf"/>
+                                    <constraint firstAttribute="height" constant="34" id="YLj-XD-V4D"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="22"/>
+                                <state key="normal" title="  lower back pain">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="17"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onBackPain:" destination="VgA-Z6-ObZ" eventType="touchUpInside" id="JMk-Lh-5bY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9G-ec-Qyk">
+                                <rect key="frame" x="61" y="230" width="292" height="34"/>
+                                <color key="backgroundColor" red="0.97647058823529409" green="0.83137254901960778" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="292" id="Mja-Ee-6OY"/>
+                                    <constraint firstAttribute="height" constant="34" id="xAj-Hr-jQg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="22"/>
+                                <state key="normal" title="  low energy">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="17"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onLowEnergy:" destination="VgA-Z6-ObZ" eventType="touchUpInside" id="37M-CI-eXL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tde-ZS-Etv" customClass="pop">
+                                <rect key="frame" x="316" y="315" width="37" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="37" id="XO9-PK-MsB"/>
+                                    <constraint firstAttribute="height" constant="34.329999999999998" id="x3Z-HX-lOi"/>
+                                </constraints>
+                                <color key="tintColor" red="0.96078431369999995" green="0.61568627450000002" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" backgroundImage="checkmark.circle" catalog="system"/>
                                 <connections>
                                     <action selector="onNewSymptom:" destination="VgA-Z6-ObZ" eventType="touchUpInside" id="Urw-eU-lX2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3RR-5b-BPh">
-                                <rect key="frame" x="51" y="4" width="91" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="mood swings">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="onMoodSwing:" destination="VgA-Z6-ObZ" eventType="touchUpInside" id="rHr-Ia-pGb"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36Y-a1-j2d">
-                                <rect key="frame" x="64" y="34" width="65" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="cramping">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="onCramping:" destination="VgA-Z6-ObZ" eventType="touchUpInside" id="PFK-oC-Op9"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tQM-Pt-nPi">
-                                <rect key="frame" x="45" y="58" width="107" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="lower back pain">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="onBackPain:" destination="VgA-Z6-ObZ" eventType="touchUpInside" id="JMk-Lh-5bY"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9G-ec-Qyk">
-                                <rect key="frame" x="57" y="85" width="75" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="low energy">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="onLowEnergy:" destination="VgA-Z6-ObZ" eventType="touchUpInside" id="37M-CI-eXL"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="3RR-5b-BPh" firstAttribute="centerX" secondItem="nkE-lr-EHt" secondAttribute="centerX" id="0nu-5L-Kof"/>
+                            <constraint firstItem="tQM-Pt-nPi" firstAttribute="top" secondItem="36Y-a1-j2d" secondAttribute="bottom" constant="20" id="1Xe-cV-97U"/>
+                            <constraint firstItem="O2w-Yh-6pX" firstAttribute="leading" secondItem="o9G-ec-Qyk" secondAttribute="leading" id="60g-4e-7t1"/>
+                            <constraint firstItem="36Y-a1-j2d" firstAttribute="top" secondItem="3RR-5b-BPh" secondAttribute="bottom" constant="20" id="IWt-k3-6hv"/>
+                            <constraint firstItem="O2w-Yh-6pX" firstAttribute="top" secondItem="o9G-ec-Qyk" secondAttribute="bottom" constant="50" id="JGz-LT-kqy"/>
+                            <constraint firstItem="3RR-5b-BPh" firstAttribute="centerX" secondItem="nkE-lr-EHt" secondAttribute="centerX" id="KBF-1E-WuS"/>
+                            <constraint firstItem="o9G-ec-Qyk" firstAttribute="top" secondItem="tQM-Pt-nPi" secondAttribute="bottom" constant="20" id="Rtu-JB-dr5"/>
+                            <constraint firstItem="3RR-5b-BPh" firstAttribute="top" secondItem="oh4-aK-FEW" secondAttribute="top" constant="69" id="bzl-nc-4iv"/>
+                            <constraint firstItem="o9G-ec-Qyk" firstAttribute="centerX" secondItem="nkE-lr-EHt" secondAttribute="centerX" id="jwR-SA-mwE"/>
+                            <constraint firstItem="tde-ZS-Etv" firstAttribute="centerY" secondItem="O2w-Yh-6pX" secondAttribute="centerY" id="qdg-89-IQU"/>
+                            <constraint firstItem="36Y-a1-j2d" firstAttribute="centerX" secondItem="nkE-lr-EHt" secondAttribute="centerX" id="sgN-8y-qKj"/>
+                            <constraint firstItem="tde-ZS-Etv" firstAttribute="trailing" secondItem="o9G-ec-Qyk" secondAttribute="trailing" id="slR-dl-qJt"/>
+                            <constraint firstItem="tQM-Pt-nPi" firstAttribute="centerX" secondItem="nkE-lr-EHt" secondAttribute="centerX" id="uJV-4m-35n"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="oh4-aK-FEW"/>
                     </view>
-                    <size key="freeformSize" width="200" height="200"/>
+                    <size key="freeformSize" width="414" height="670"/>
                     <connections>
                         <outlet property="symptomTF" destination="O2w-Yh-6pX" id="c9p-Is-X3t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kPg-4W-Ugv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="369.56521739130437" y="605.70652173913049"/>
+            <point key="canvasLocation" x="482.60869565217394" y="814.4021739130435"/>
         </scene>
         <!--Flow View Controller-->
         <scene sceneID="Tgi-Xs-ZtC">
