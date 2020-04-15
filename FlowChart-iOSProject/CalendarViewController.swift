@@ -98,15 +98,15 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
             curMonth = 12
             curYear -= 1
         }
-        setCalendar()
         UIView.transition(with: collectionView,
                                   duration: 0.35,
-                                  options: .transitionFlipFromLeft,
+                                  options: .transitionCrossDissolve,
                                   animations:
-        { () -> Void in
-            self.collectionView.reloadData()
-        },
-                                  completion: nil);
+                                    { () -> Void in
+                                        self.setCalendar()
+                                        self.collectionView.reloadData()
+                                    },
+                                                              completion: nil);
     }
     
     @objc func swipeLeftDetected(_ sender: UIGestureRecognizer) {
@@ -115,12 +115,12 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
             curMonth = 1
             curYear += 1
         }
-        setCalendar()
         UIView.transition(with: collectionView,
                                   duration: 0.35,
-                                  options: .transitionFlipFromRight,
+                                  options: .transitionCrossDissolve,
                                   animations:
                                     { () -> Void in
+                                        self.setCalendar()
                                         self.collectionView.reloadData()
                                     },
                                   completion: nil);

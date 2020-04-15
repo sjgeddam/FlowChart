@@ -22,22 +22,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="march 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TPh-TW-Xkx" userLabel="monthYearLabel">
-                                <rect key="frame" x="20" y="20" width="374" height="30"/>
+                                <rect key="frame" x="20" y="29" width="374" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="AeE-PG-WBL"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="27"/>
                                 <color key="textColor" red="0.96078431372549022" green="0.61568627450980395" blue="0.20784313725490194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view alpha="0.55000000000000004" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ovL-Su-cla">
-                                <rect key="frame" x="0.0" y="51" width="414" height="0.66666666666666663"/>
+                            <view alpha="0.55000000000000004" contentMode="scaleToFill" id="ovL-Su-cla" userLabel="Line">
+                                <rect key="frame" x="0.0" y="67" width="414" height="0.66666666666666663"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jF0-nO-hj4">
-                                <rect key="frame" x="20" y="76" width="374" height="415"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="jF0-nO-hj4">
+                                <rect key="frame" x="20" y="93" width="374" height="398"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="12" id="gGc-Ta-IWv">
@@ -148,96 +145,92 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="rectangle.fill" catalog="system" id="EDu-zy-Llc">
-                                <rect key="frame" x="59" y="506.66666666666663" width="34" height="4"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="rectangle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="EDu-zy-Llc">
+                                <rect key="frame" x="59" y="507" width="34" height="4"/>
                                 <color key="tintColor" red="0.95294117649999999" green="0.97254901959999995" blue="0.039215686270000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="34" id="5nc-pS-Mpm"/>
+                                    <constraint firstAttribute="height" constant="7" id="Wjg-yH-pjS"/>
+                                </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="rectangle.fill" catalog="system" id="pjP-lW-feS">
-                                <rect key="frame" x="59" y="571.66666666666663" width="34" height="4"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="rectangle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pjP-lW-feS">
+                                <rect key="frame" x="59" y="572" width="34" height="4"/>
                                 <color key="tintColor" red="0.96078431372549022" green="0.61568627450980395" blue="0.20784313725490194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="34" id="It5-SS-Czg"/>
+                                    <constraint firstAttribute="height" constant="7" id="Rvp-Bl-xNN"/>
+                                </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="rectangle.fill" catalog="system" id="YDA-Vf-Zpn">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="rectangle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YDA-Vf-Zpn">
                                 <rect key="frame" x="59" y="636.66666666666663" width="34" height="4"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.97254901960784312" green="0.039215686274509803" blue="0.039215686274509803" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="7" id="lRI-E5-8YP"/>
+                                    <constraint firstAttribute="width" constant="34" id="wRd-VB-Fr0"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ovulation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgd-BW-oFb">
-                                <rect key="frame" x="107" y="558" width="75" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ovulation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgd-BW-oFb">
+                                <rect key="frame" x="107" y="558.66666666666663" width="74.333333333333314" height="30"/>
                                 <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="period" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fs-DZ-dIA">
-                                <rect key="frame" x="107" y="623" width="52" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="symptoms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3W-UM-aIX">
+                                <rect key="frame" x="107" y="493.66666666666669" width="82" height="30.000000000000057"/>
                                 <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="symptoms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3W-UM-aIX">
-                                <rect key="frame" x="107" y="493" width="82" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="twO-Sb-5If">
-                                <rect key="frame" x="20.000000000000007" y="531" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="s" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgB-5g-m5H">
-                                <rect key="frame" x="37.666666666666664" y="51" width="6" height="23"/>
+                                <rect key="frame" x="37.666666666666664" y="65" width="6" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="17"/>
                                 <color key="textColor" red="0.47843137250000001" green="0.51764705879999995" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="s" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGN-xr-URr">
-                                <rect key="frame" x="369" y="51" width="6" height="23"/>
+                                <rect key="frame" x="369" y="65" width="6" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="17"/>
                                 <color key="textColor" red="0.47843137250000001" green="0.51764705879999995" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5G2-OI-tew">
-                                <rect key="frame" x="90" y="51" width="15" height="23"/>
+                                <rect key="frame" x="90" y="65" width="15" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="17"/>
                                 <color key="textColor" red="0.47843137250000001" green="0.51764705879999995" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="t" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N65-T8-xgZ">
-                                <rect key="frame" x="148" y="51" width="15" height="23"/>
+                                <rect key="frame" x="148" y="65" width="15" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="17"/>
                                 <color key="textColor" red="0.47843137250000001" green="0.51764705879999995" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="w" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNk-tO-kci">
-                                <rect key="frame" x="202" y="51" width="15" height="23"/>
+                                <rect key="frame" x="202" y="65" width="15" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="17"/>
                                 <color key="textColor" red="0.47843137250000001" green="0.51764705879999995" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="t" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7W-DO-0ce">
-                                <rect key="frame" x="258" y="51" width="15" height="23"/>
+                                <rect key="frame" x="258" y="65" width="15" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="17"/>
                                 <color key="textColor" red="0.47843137250000001" green="0.51764705879999995" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="f" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQy-hY-oqs">
-                                <rect key="frame" x="315" y="51" width="15" height="23"/>
+                                <rect key="frame" x="315" y="65" width="15" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="17"/>
                                 <color key="textColor" red="0.47843137250000001" green="0.51764705879999995" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DZP-Nf-PW6">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="DZP-Nf-PW6">
                                 <rect key="frame" x="0.0" y="692" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -250,9 +243,30 @@
                                 </items>
                                 <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="period" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fs-DZ-dIA">
+                                <rect key="frame" x="106.99999999999999" y="623.66666666666663" width="51.333333333333329" height="30"/>
+                                <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="YDA-Vf-Zpn" firstAttribute="leading" secondItem="OP5-XU-Wjh" secondAttribute="leading" constant="59" id="1cJ-xX-qHx"/>
+                            <constraint firstItem="fgd-BW-oFb" firstAttribute="leading" secondItem="pjP-lW-feS" secondAttribute="trailing" constant="14" id="3Lx-be-CKA"/>
+                            <constraint firstItem="YDA-Vf-Zpn" firstAttribute="top" secondItem="pjP-lW-feS" secondAttribute="bottom" constant="57.670000000000002" id="6pD-M5-U9U"/>
+                            <constraint firstItem="pjP-lW-feS" firstAttribute="leading" secondItem="OP5-XU-Wjh" secondAttribute="leading" constant="59" id="B7Z-t9-KnG"/>
+                            <constraint firstItem="pjP-lW-feS" firstAttribute="top" secondItem="EDu-zy-Llc" secondAttribute="bottom" constant="58" id="L1d-rU-QSe"/>
+                            <constraint firstItem="3fs-DZ-dIA" firstAttribute="leading" secondItem="YDA-Vf-Zpn" secondAttribute="trailing" constant="14" id="Oie-Tu-Hh2"/>
+                            <constraint firstItem="R3W-UM-aIX" firstAttribute="centerY" secondItem="EDu-zy-Llc" secondAttribute="centerY" id="UGv-lP-qRA"/>
+                            <constraint firstItem="pjP-lW-feS" firstAttribute="top" secondItem="EDu-zy-Llc" secondAttribute="bottom" constant="58" id="UOr-C3-zrw"/>
+                            <constraint firstItem="fgd-BW-oFb" firstAttribute="centerY" secondItem="pjP-lW-feS" secondAttribute="centerY" id="X9H-Ms-oLR"/>
+                            <constraint firstItem="YDA-Vf-Zpn" firstAttribute="centerY" secondItem="3fs-DZ-dIA" secondAttribute="centerY" id="hiq-fd-lCw"/>
+                            <constraint firstItem="DZP-Nf-PW6" firstAttribute="top" secondItem="YDA-Vf-Zpn" secondAttribute="bottom" constant="50" id="qWD-kT-TWA"/>
+                            <constraint firstItem="R3W-UM-aIX" firstAttribute="leading" secondItem="EDu-zy-Llc" secondAttribute="trailing" constant="14" id="r8k-qz-6Xo"/>
+                            <constraint firstItem="EDu-zy-Llc" firstAttribute="leading" secondItem="OP5-XU-Wjh" secondAttribute="leading" constant="59" id="wsw-FN-gLf"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="OP5-XU-Wjh"/>
                     </view>
                     <navigationItem key="navigationItem" id="3Dx-Gk-T5f"/>
