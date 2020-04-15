@@ -11,6 +11,9 @@
 **Shannon Radey**
 
 **Soujanya Geddam**
+* Built storyboards for tracker screens including symptoms, mood, and flow 
+* Added functionality (image switching) based on button selection (in mood and flow VCs); also added functionality for symptoms selection and designed table view to display symptoms aesthetically 
+* Implemented core data for the screens to save user and date specific information (ex: flow level, mood type)
 
 ## Deviations
 * Splash screen will not display random fun facts as it is unabled to be modified due to its nature
