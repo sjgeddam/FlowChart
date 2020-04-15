@@ -228,18 +228,14 @@ class MainViewController: UIViewController {
         }
         else {
             startDate = lastStart
-            if ready.count == 0 {
-                endDate = lastEnd
-            }
-            else {
-                endDate = Calendar.current.date(byAdding: .day, value: 30, to: lastEnd) ?? Date()
-            }
-            
+            endDate = Calendar.current.date(byAdding: .day, value: 30, to: lastEnd) ?? Date()
         }
         
         
         // update UI elements to reflect user's phase
         if (ready.count == 0) {
+            startDate = Date()
+            endDate = Date()
             periodWaiting()
         }
         if (!onPeriod && (today <= startDate || Calendar.current.isDateInToday(startDate))) {
