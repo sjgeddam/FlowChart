@@ -174,7 +174,7 @@ class FlowViewController: UIViewController {
             heavySelected = false
         }
         if (spottingSelected) {
-            let spotting = UIImage(named: "spotting")
+            let spotting = UIImage(named: "spottingupdate")
             spottingButton.setImage(spotting, for: .normal)
             deleteFlow()
             spottingSelected = false
@@ -215,7 +215,9 @@ class FlowViewController: UIViewController {
                     lightSelected = true
                 }
                 if (level as? String == "medium") {
-                    //do nothing cause we dont have a good icon yet
+                    let medium = UIImage(named: "mediumfill")
+                    mediumButton.setImage(medium, for: .normal)
+                    mediumSelected = true
                 }
                 if (level as? String == "heavy") {
                     let heavy = UIImage(named: "heavyfill")
