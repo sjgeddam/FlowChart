@@ -337,12 +337,10 @@ class FlowViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         //clearCoreData()
         // retrieve data
         currdate = (delegate?.sendDate())!
-//        clearCoreData()
         let fetchedResults = retrieveFlow()
         
         for flow in fetchedResults {
