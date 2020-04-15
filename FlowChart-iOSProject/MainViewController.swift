@@ -228,7 +228,7 @@ class MainViewController: UIViewController {
         }
         else {
             startDate = lastStart
-            endDate = Calendar.current.date(byAdding: .day, value: 30, to: lastEnd) ?? Date()
+            endDate = Calendar.current.date(byAdding: .day, value: 7, to: lastEnd) ?? Date()
         }
         
         
