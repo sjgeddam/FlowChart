@@ -7,17 +7,17 @@
 //
 
 import UIKit
+import CoreData
+import Firebase
+import FirebaseAuth
 
 // global flags, will probably need to be stored in core data and/or firebase
 var onPeriod:Bool = false
 var startDate:Date = Date()
-var endDate:Date? = nil // only set if onPeriod == true
+var endDate:Date = Date()
 
 
 class MainViewController: UIViewController {
-    
-    // variables related to the menu
-    var menuHidden = true
     
     // UI variables
     @IBOutlet weak var homeBackgroundView: UIView!
@@ -47,6 +47,9 @@ class MainViewController: UIViewController {
     @IBOutlet weak var menuTrackerButtonLabel: UIButton!
     @IBOutlet weak var menuResourcesButtonLabel: UIButton!
     
+    var menuHidden = true
+    
+    // date variables
     let dateFormatter = DateFormatter()
     let today = Date()
 
@@ -54,11 +57,41 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         // filler code to come up with some date
-        dateFormatter.dateFormat = "YYYY-MM-dd"
-        let someDateTime = dateFormatter.date(from: "2020-04-26")
-        let someDateTime2 = dateFormatter.date(from: "2020-04-10")
-        startDate = someDateTime!
-        endDate = someDateTime2!
+//        dateFormatter.dateFormat = "YYYY-MM-dd"
+//        let someDateTime = dateFormatter.date(from: "2020-04-26")
+//        let someDateTime2 = dateFormatter.date(from: "2020-04-10")
+//        startDate = someDateTime!
+//        endDate = someDateTime2!
+        
+        // set startDate and endDate
+        let flowData = retrieveFlow()
+        if flowData.count > 0 {
+            // convert core data's list of NSManagedObject to list of dates
+            let stringDateList = retrieveFlow().compactMap {
+                String(($0.value(forKey: "date") as! String).prefix(1)).capitalized +
+                String(($0.value(forKey: "date") as! String).suffix(($0.value(forKey: "date") as! String).count-1))}
+            dateFormatter.dateFormat = "MMMM d, yyyy"
+            var dateList = stringDateList.compactMap { dateFormatter.date(from: $0 ) }
+            dateList.sort(){$0 > $1}
+            
+            if Calendar.current.isDateInToday(dateList[0]) || Calendar.current.isDateInYesterday(dateList[0]) {
+                onPeriod = true
+                startDate = dateList[0]
+                endDate = Calendar.current.date(byAdding: .day, value: 7, to: endDate)!
+                
+            }
+            else {
+                onPeriod = false
+                endDate = dateList[0]
+                startDate = Calendar.current.date(byAdding: .day, value: 30, to: endDate)!
+            }
+        }
+        else {
+            // nothing in core data
+            startDate = today
+            endDate = today
+            onPeriod = false
+        }
         
         // update UI elements to reflect user's phase
         if (!onPeriod && (today <= startDate || Calendar.current.isDateInToday(startDate))) {
@@ -107,6 +140,31 @@ class MainViewController: UIViewController {
         menuResourcesButtonLabel.titleLabel?.font = UIFont (name: "ReemKufi-Regular", size: 24)
     }
     
+    func retrieveFlow() -> [NSManagedObject] {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Flow")
+        var fetchedResults:[NSManagedObject]? = nil
+
+        let user = Auth.auth().currentUser
+        if ((user) != nil) {
+            let predicate = NSPredicate(format: "userID == %@", user!.uid)
+            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate])
+            do {
+                try fetchedResults = context.fetch(request) as? [NSManagedObject]
+            } catch {
+                // If an error occurs
+                let nserror = error as NSError
+                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+                abort()
+            }
+            return(fetchedResults)!
+        } else {
+            print("no results")
+            return []
+        }
+    }
+    
     // period has not yet started
     func periodWaiting () {
         let dateDifference = Calendar.current.dateComponents([.day], from: today, to: startDate).day!
@@ -135,6 +193,7 @@ class MainViewController: UIViewController {
             homeDateLabel.text = dateFormatter.string(from: startDate)
         }
         
+        // UI element changes
         homeTopLabel.textColor = UIColor(red: 0xf4/255, green: 0x9a/255, blue: 0x5a/255, alpha: 1)
         homeNumberLabel.layer.borderWidth = 3
         homeNumberLabel.textColor = UIColor(red: 0xf4/255, green: 0x9a/255, blue: 0x5a/255, alpha: 1)
@@ -146,7 +205,7 @@ class MainViewController: UIViewController {
     // period has began
     func periodStarted () {
         let startDateDifference = Calendar.current.dateComponents([.day], from: startDate, to: today).day! + 1
-        let endDateDifference = Calendar.current.dateComponents([.day], from: today, to: endDate!).day!
+        let endDateDifference = Calendar.current.dateComponents([.day], from: today, to: endDate).day!
         
         homeTopLabel.text = "cycle day"
         homeNumberLabel.text = String(startDateDifference)
@@ -159,15 +218,16 @@ class MainViewController: UIViewController {
         case 1: homeDateLabel.text = "tomorrow"
         case 2..<6:
             dateFormatter.dateFormat = "EEEE"
-            homeDateLabel.text = "this " + dateFormatter.string(from: endDate!)
+            homeDateLabel.text = "this " + dateFormatter.string(from: endDate)
         case 6..<13:
             dateFormatter.dateFormat = "EEEE"
-            homeDateLabel.text = "next " + dateFormatter.string(from: endDate!)
+            homeDateLabel.text = "next " + dateFormatter.string(from: endDate)
         default:
             dateFormatter.dateFormat = "MMMM d"
-            homeDateLabel.text = dateFormatter.string(from: endDate!)
+            homeDateLabel.text = dateFormatter.string(from: endDate)
         }
         
+        // UI element changes
         homeTopLabel.textColor = UIColor(red: 0xf4/255, green: 0x9a/255, blue: 0x5a/255, alpha: 1)
         homeNumberLabel.textColor = UIColor(red: 0xf4/255, green: 0x9a/255, blue: 0x5a/255, alpha: 1)
         homeNumberLabel.layer.cornerRadius = homeNumberLabel.frame.width/2
@@ -198,6 +258,7 @@ class MainViewController: UIViewController {
             homeBottomLabel.text = "day"
         }
         
+        // UI elements changes
         homeTopLabel.textColor = UIColor(red: 0xB4/255, green: 0x18/255, blue: 0x02/255, alpha: 1)
         homeNumberLabel.layer.borderWidth = 3
         homeNumberLabel.textColor = UIColor(red: 0xB4/255, green: 0x18/255, blue: 0x02/255, alpha: 1)
@@ -207,6 +268,7 @@ class MainViewController: UIViewController {
         homeDateLabel.isHidden = true
     }
     
+    // automatically moves menu back if openend
     func moveMenuBack() {
         // move background view constraints back to center
         self.homeBackgroundLeading.constant = 0
@@ -226,7 +288,7 @@ class MainViewController: UIViewController {
         menuHidden = true
     }
     
-    // menu animation
+    // menu animation when button is pressed
     @IBAction func menuButtonPressed(_ sender: Any) {
         
         if menuHidden == true {
@@ -245,7 +307,7 @@ class MainViewController: UIViewController {
             self.homeBackgroundLeading.constant = self.view.bounds.width * 0.75
             self.homeBackgroundTrailing.constant = self.view.bounds.width * 0.75
             
-            // animate the "slide in"
+            // animate the menu "slide in"
             UIView.animate(
                 withDuration: 0.4,
                 delay: 0.0,
@@ -271,6 +333,7 @@ class MainViewController: UIViewController {
         }
     }
     
+    // menu buttons
     @IBAction func menuCalendarPressed(_ sender: Any) {
         moveMenuBack()
     }
@@ -293,14 +356,37 @@ class MainViewController: UIViewController {
         moveMenuBack()
     }
     
-    
-    @IBAction func calendarButtonPressed(_ sender: Any) {
-    }
-    
+    // going to tracker
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToTracker" {
             let nextVC = segue.destination as? TrackerViewController
             nextVC?.delegate = self
+        }
+    }
+    
+    
+    //clear core data for flow
+    func clearCoreData() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Flow")
+        var fetchedResults:[NSManagedObject]
+        
+        do {
+            try fetchedResults = context.fetch(request) as! [NSManagedObject]
+            if fetchedResults.count > 0 {
+                for result:AnyObject in fetchedResults {
+                    context.delete(result as! NSManagedObject)
+                    print("\(result.value(forKey: "flowtype")!) has been Deleted")
+                }
+            }
+            try context.save()
+        } catch {
+            // If an error occurs
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
         }
     }
 }
