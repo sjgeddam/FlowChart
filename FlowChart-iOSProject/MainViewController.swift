@@ -14,7 +14,7 @@ import FirebaseAuth
 // global flags, will probably need to be stored in core data and/or firebase
 var startDate:Date = Date()
 var endDate:Date = Date()
-
+var alreadyMoved:Bool = false
 
 class MainViewController: UIViewController {
     
@@ -228,7 +228,7 @@ class MainViewController: UIViewController {
         }
         else {
             startDate = lastStart
-            endDate = Calendar.current.date(byAdding: .day, value: 7, to: lastEnd) ?? Date()
+            endDate = Calendar.current.date(byAdding: .day, value: 7, to: lastStart) ?? Date()
         }
         
         
@@ -319,9 +319,12 @@ class MainViewController: UIViewController {
         // change square size
         homeSquareHeight.constant = 280
         // change bottom label's distance to the top
-        homeBottomTop.constant += 50
-        // change middle number
-        homeNumberCenterY.constant += 20
+        if !alreadyMoved {
+            homeBottomTop.constant += 50
+            // change middle number
+//            homeNumberCenterY.constant += 20
+            alreadyMoved = true
+        }
         homeNumberLabel.layer.borderWidth = 0.0
         homeNumberLabel.attributedText = NSAttributedString(string: homeNumberLabel.text!, attributes:
             [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue])
