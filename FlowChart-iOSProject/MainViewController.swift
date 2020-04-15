@@ -175,7 +175,7 @@ class MainViewController: UIViewController {
         var onPeriod:Bool = false
 
 
-        var df = DateFormatter()
+        let df = DateFormatter()
         df.dateFormat = "MM dd, yyyy"
         var convertedArray: [Date] = []
 
@@ -197,15 +197,19 @@ class MainViewController: UIViewController {
         var max = -1
         while index + 1 < ready.count {
             let dateDifference = Calendar.current.dateComponents([.day], from: ready[index + 1], to: ready[index]).day!
-            if dateDifference > 1 {
-                lastStart = ready[index]
-                lastEnd = ready[0]
-            }
-            index += 1
             
             if dateDifference > max {
                 max = dateDifference
             }
+            
+            if dateDifference > 1 {
+                lastStart = ready[index]
+                lastEnd = ready[0]
+                break
+            }
+            index += 1
+            
+            
         }
         
         if max == 1 && ready.count > 0 {
