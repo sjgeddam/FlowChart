@@ -9,7 +9,6 @@
 import UIKit
 
 // global flags, will probably need to be stored in core data and/or firebase
-var onPeriod:Bool = false
 var startDate:Date = Date()
 var endDate:Date? = nil // only set if onPeriod == true
 
@@ -52,25 +51,6 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // filler code to come up with some date
-        dateFormatter.dateFormat = "YYYY-MM-dd"
-        let someDateTime = dateFormatter.date(from: "2020-04-26")
-        let someDateTime2 = dateFormatter.date(from: "2020-04-10")
-        startDate = someDateTime!
-        endDate = someDateTime2!
-        
-        // update UI elements to reflect user's phase
-        if (!onPeriod && (today <= startDate || Calendar.current.isDateInToday(startDate))) {
-            periodWaiting()
-        }
-        else if (!onPeriod) {
-            periodLate()
-        }
-        else {
-            periodStarted()
-        }
-        
         // UI elements programatic style
         
         // home page container
@@ -107,6 +87,83 @@ class MainViewController: UIViewController {
         menuResourcesButtonLabel.titleLabel?.font = UIFont (name: "ReemKufi-Regular", size: 24)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        let day = Calendar.current.component(.day, from: NSDate() as Date)
+        let month = Calendar.current.component(.month, from: NSDate() as Date)
+        let year = Calendar.current.component(.year, from: NSDate() as Date)
+        
+        let dateStr = "\(monthDict[month]) \(day), \(year)"
+        let flow = PeriodData.retrieveItems(item: "Flow")
+        var onPeriod:Bool = false
+
+
+        var df = DateFormatter()
+        df.dateFormat = "MM dd, yyyy"
+        var convertedArray: [Date] = []
+
+        for f in flow {
+            let dat = f.value(forKey:"date") as? String ?? ""
+            if dat == dateStr {
+                onPeriod = true
+            }
+            let date = df.date(from: dat)
+            if let date = date {
+                convertedArray.append(date)
+            }
+        }
+
+        let ready = convertedArray.sorted(by: { $0.compare($1) == .orderedDescending })
+        var lastEnd = Date()
+        var lastStart = Date()
+        var index = 0
+        var max = -1
+        while index + 1 < ready.count {
+            let dateDifference = Calendar.current.dateComponents([.day], from: ready[index + 1], to: ready[index]).day!
+            if dateDifference > 1 {
+                lastStart = ready[index]
+                lastEnd = ready[0]
+            }
+            index += 1
+            
+            if dateDifference > max {
+                max = dateDifference
+            }
+        }
+        
+        if max == 1 && ready.count > 0 {
+            lastStart = ready[ready.count-1]
+            lastEnd = ready[0]
+        }
+        if ready.count == 1 {
+            lastStart = ready[0]
+            lastEnd = ready[0]
+        }
+
+        if !onPeriod {
+            startDate = Calendar.current.date(byAdding: .day, value: 30, to: lastStart) ?? Date()
+            endDate = lastEnd
+
+        }
+        else {
+            startDate = lastStart
+            endDate = Calendar.current.date(byAdding: .day, value: 30, to: lastEnd) ?? Date()
+        }
+        
+        // update UI elements to reflect user's phase
+        if (ready.count == 0) {
+            periodWaiting()
+        }
+        if (!onPeriod && (today <= startDate || Calendar.current.isDateInToday(startDate))) {
+            periodWaiting()
+        }
+        else if (!onPeriod) {
+            periodLate()
+        }
+        else {
+            periodStarted()
+        }
+    }
     // period has not yet started
     func periodWaiting () {
         let dateDifference = Calendar.current.dateComponents([.day], from: today, to: startDate).day!

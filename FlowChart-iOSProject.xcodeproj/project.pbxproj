@@ -36,6 +36,7 @@
 		18577D99241856340091DFD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18577D98241856340091DFD6 /* Assets.xcassets */; };
 		18577D9C241856340091DFD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18577D9A241856340091DFD6 /* LaunchScreen.storyboard */; };
 		18DDCA622444EDD300149D71 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDCA612444EDD300149D71 /* SettingsViewController.swift */; };
+		18DDCA642446940B00149D71 /* PeriodData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDCA632446940B00149D71 /* PeriodData.swift */; };
 		1DEA48CC2446572A00AED286 /* FlowChart.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 1DEA48CB2446572A00AED286 /* FlowChart.xcdatamodel */; };
 		EFF322CC4719207DE0D2DF38 /* Pods_FlowChart_iOSProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30B7CF5D40B9E682BFFD4AB0 /* Pods_FlowChart_iOSProject.framework */; };
 /* End PBXBuildFile section */
@@ -73,6 +74,7 @@
 		18577D9B241856340091DFD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18577D9D241856340091DFD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18DDCA612444EDD300149D71 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		18DDCA632446940B00149D71 /* PeriodData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodData.swift; sourceTree = "<group>"; };
 		1DEA48CB2446572A00AED286 /* FlowChart.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = FlowChart.xcdatamodel; path = FlowChart.xcdatamodeld/FlowChart.xcdatamodel; sourceTree = "<group>"; };
 		30B7CF5D40B9E682BFFD4AB0 /* Pods_FlowChart_iOSProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlowChart_iOSProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54A76B937372DB0B2973E2D1 /* Pods-FlowChart-iOSProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowChart-iOSProject.release.xcconfig"; path = "Target Support Files/Pods-FlowChart-iOSProject/Pods-FlowChart-iOSProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				18577D912418562A0091DFD6 /* SceneDelegate.swift */,
 				18577D932418562A0091DFD6 /* ViewController.swift */,
 				18080434243558F400A6AADA /* MainViewController.swift */,
+				18DDCA632446940B00149D71 /* PeriodData.swift */,
 				18577D952418562A0091DFD6 /* Main.storyboard */,
 				18DDCA612444EDD300149D71 /* SettingsViewController.swift */,
 				182E28172442B34D00DB598C /* UserViewController.swift */,
@@ -291,6 +294,7 @@
 				182E28182442B34D00DB598C /* UserViewController.swift in Sources */,
 				1808042324354C4000A6AADA /* ArticleTableViewCell.swift in Sources */,
 				180804322435540A00A6AADA /* popoverViewController.swift in Sources */,
+				18DDCA642446940B00149D71 /* PeriodData.swift in Sources */,
 				180804312435540A00A6AADA /* TrackerViewController.swift in Sources */,
 				18080435243558F500A6AADA /* MainViewController.swift in Sources */,
 				180804302435540A00A6AADA /* FlowViewController.swift in Sources */,

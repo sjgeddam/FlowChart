@@ -26,16 +26,11 @@ class TrackerViewController: UIViewController, UIPopoverPresentationControllerDe
     var customTableViewCellIdentifier = "symptomCell"
     var popoverSegueIdentifier = "popoverSegue"
     var popoverVCIdentifier = "popoverVC"
-    var symptoms: [Symptom] = []
      
-    //sections are used to add spacing between cells
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return self.symptoms.count
-    }
-     
+    
     //only one row per section
     func tableView(_ tableView: UITableView,    numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return retrieveSymptoms().count
     }
      
      //setting the spacing between cells
@@ -55,9 +50,10 @@ class TrackerViewController: UIViewController, UIPopoverPresentationControllerDe
         print("in cell for row at func")
          let cell = tableView.dequeueReusableCell(withIdentifier: customTableViewCellIdentifier, for: indexPath) as! CustomTableViewCell
          // note that indexPath.section is used rather than indexPath.row
-        let symptomdescription = self.symptoms[indexPath.row].value(forKey: "symptomtype") as? String
+        let fetchedData = retrieveSymptoms()
+        let symptomdescription = fetchedData[indexPath.row].value(forKey: "symptomtype") as? String
         print("symptom description::   " + (symptomdescription ?? "non existent"))
-        cell.symptom.text = symptomdescription
+        cell.symptom.text = "  " + (symptomdescription ?? "")
         cell.symptom.clipsToBounds = true
         cell.symptom.layer.cornerRadius = 17
          
@@ -76,7 +72,7 @@ class TrackerViewController: UIViewController, UIPopoverPresentationControllerDe
             symptom.setValue(newsymptom, forKey: "symptomtype")
             symptom.setValue(date.text!, forKey: "date")
             symptom.setValue(user?.uid, forKey: "userID")
-            symptomsTable.reloadData()
+            
             // Commit the changes
             do {
                 try context.save()
@@ -87,6 +83,29 @@ class TrackerViewController: UIViewController, UIPopoverPresentationControllerDe
                 NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
                 abort()
             }
+            symptomsTable.reloadData()
+        }
+    }
+    func clearCoreData() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Symptom")
+        var fetchedResults:[NSManagedObject]
+        
+        do {
+            try fetchedResults = context.fetch(request) as! [NSManagedObject]
+            if fetchedResults.count > 0 {
+                for result:AnyObject in fetchedResults {
+                    context.delete(result as! NSManagedObject)
+                }
+            }
+            try context.save()
+        } catch {
+            // If an error occurs
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
         }
     }
     
@@ -158,9 +177,8 @@ class TrackerViewController: UIViewController, UIPopoverPresentationControllerDe
         symptomsTable.delegate = self
         symptomsTable.dataSource = self
         symptomsTable.separatorStyle = .none
-        self.symptoms = retrieveSymptoms() as! [Symptom]
         symptomsTable.reloadData()
-        
+//        clearCoreData()
         self.navigationController!.setNavigationBarHidden(true,animated:false)
         if delegate is MainViewController {
             day = Calendar.current.component(.day, from: NSDate() as Date)

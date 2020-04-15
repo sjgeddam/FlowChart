@@ -105,6 +105,7 @@ class FlowViewController: UIViewController {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Flow")
         var fetchedResults:[NSManagedObject]
         
+        print("hello")
         do {
             try fetchedResults = context.fetch(request) as! [NSManagedObject]
             if fetchedResults.count > 0 {
@@ -151,6 +152,7 @@ class FlowViewController: UIViewController {
 
         // retrieve data
         currdate = (delegate?.sendDate())!
+//        clearCoreData()
         let fetchedResults = retrieveFlow()
         
         for flow in fetchedResults {
