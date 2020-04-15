@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreData
+import Firebase
 
 let reuseIdentifier = "Cell"
 var dates = [[Int]]()
@@ -21,7 +23,7 @@ var realDay = 1
 var curMonth = 1
 var curYear = 2020
 var curDay = 1
-
+var lastMonthOvulation = -1
 
 class CalendarViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var monthYearLabel: UILabel!
@@ -126,28 +128,68 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
                                   completion: nil);
     }
     
+    
     func setCalendar() {
         fillDates()
         monthYearLabel.text = "\(monthDict[curMonth]) \(curYear)"
         markedDates.removeAll()
-        // Period/ovulation/symptom dates hard coded in
-        let periodStart = 27
-        let periodLen = 5
-        let ovulationStart = 13
         let ovulationLen = 5
-        let symptomDates = [4, 5, 10, 18, 20]
+        
+        
+        let flow = PeriodData.retrieveItems(item: "Flow")
+        let symptoms = PeriodData.retrieveItems(item: "Symptom")
+        let monthName = monthDict[curMonth]
+        let nextMonthName = curMonth == 12 ? monthDict[0]: monthDict[curMonth+1]
+        
+        var symptomDates:[Int] = []
+        var flowDates:[Int] = []
+        var nextMonthFlowDates:[Int] = []
+        
+        for f in flow {
+            let monthString = f.value(forKey:"date") as? String ?? ""
+            let monthArr = monthString.components(separatedBy: " ")
+            if monthArr[0] == monthName && monthArr[2] == String(curYear){
+                flowDates.append(Int(monthArr[1].dropLast()) ?? 0)
+            }
+            if monthArr[0] == nextMonthName {
+                nextMonthFlowDates.append(Int(monthArr[1].dropLast()) ?? 0)
+            }
+        }
+        
+        for s in symptoms {
+            let monthString = s.value(forKey:"date") as? String ?? ""
+            let monthArr = monthString.components(separatedBy: " ")
+            if monthArr[0] == monthName && monthArr[2] == String(curYear){
+                symptomDates.append(Int(monthArr[1].dropLast()) ?? 0)
+            }
+        }
+        
+        var lastPeriodDay = 0
+        var nextMonthPeriodDay = 0
+        if flowDates.count > 0 {
+            lastPeriodDay = flowDates.sorted(by: >)[0]
+        }
+        var ovulationStart = lastPeriodDay > 14 ? lastPeriodDay-14: -1
+        
+        if nextMonthFlowDates.count > 0 {
+            // if we had a period the next month we should show ovulation for this month
+            nextMonthPeriodDay = nextMonthFlowDates.sorted()[0]
+            ovulationStart = nextMonthPeriodDay-14 + 31
+        }
+        
         
         //var markedDates:[[(period: Bool, ovulation: Bool, symptoms: Bool)]] = []
         for week in 0...5 {
             var row:[(period: Bool, ovulation: Bool, symptoms: Bool)] = []
             for day in 0...6 {
                 var markedDay = (period: false, ovulation: false, symptoms: false)
-                if dates[week][day] >= periodStart && dates[week][day] <= periodStart + periodLen {
+                if flowDates.contains(dates[week][day]) {
                     markedDay.period = true
                 }
-                if dates[week][day] >= ovulationStart && dates[week][day] <= ovulationStart + ovulationLen {
+                if ovulationStart != -1 && dates[week][day] >= ovulationStart && dates[week][day] <= ovulationStart + ovulationLen {
                     markedDay.ovulation = true
                 }
+                
                 if symptomDates.contains(dates[week][day]) {
                     markedDay.symptoms = true
                 }
@@ -175,7 +217,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         realYear = curYear
         realDay = Calendar.current.component(.day, from: NSDate() as Date)
         
-        setCalendar()
+        
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -188,6 +230,12 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         swipeLeftRecognizer.direction = .left
         view.addGestureRecognizer(swipeLeftRecognizer)
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        setCalendar()
+        self.collectionView.reloadData()
     }
     
     @IBAction func onDateClick(_ sender: Any) {

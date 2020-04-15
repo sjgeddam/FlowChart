@@ -12,7 +12,6 @@ import Firebase
 import FirebaseAuth
 
 // global flags, will probably need to be stored in core data and/or firebase
-var onPeriod:Bool = false
 var startDate:Date = Date()
 var endDate:Date = Date()
 
@@ -64,45 +63,45 @@ class MainViewController: UIViewController {
 //        endDate = someDateTime2!
         
         // set startDate and endDate
-        let flowData = retrieveFlow()
-        if flowData.count > 0 {
-            // convert core data's list of NSManagedObject to list of dates
-            let stringDateList = retrieveFlow().compactMap {
-                String(($0.value(forKey: "date") as! String).prefix(1)).capitalized +
-                String(($0.value(forKey: "date") as! String).suffix(($0.value(forKey: "date") as! String).count-1))}
-            dateFormatter.dateFormat = "MMMM d, yyyy"
-            var dateList = stringDateList.compactMap { dateFormatter.date(from: $0 ) }
-            dateList.sort(){$0 > $1}
-            
-            if Calendar.current.isDateInToday(dateList[0]) || Calendar.current.isDateInYesterday(dateList[0]) {
-                onPeriod = true
-                startDate = dateList[0]
-                endDate = Calendar.current.date(byAdding: .day, value: 7, to: endDate)!
-                
-            }
-            else {
-                onPeriod = false
-                endDate = dateList[0]
-                startDate = Calendar.current.date(byAdding: .day, value: 30, to: endDate)!
-            }
-        }
-        else {
-            // nothing in core data
-            startDate = today
-            endDate = today
-            onPeriod = false
-        }
-        
-        // update UI elements to reflect user's phase
-        if (!onPeriod && (today <= startDate || Calendar.current.isDateInToday(startDate))) {
-            periodWaiting()
-        }
-        else if (!onPeriod) {
-            periodLate()
-        }
-        else {
-            periodStarted()
-        }
+//        let flowData = retrieveFlow()
+//        if flowData.count > 0 {
+//            // convert core data's list of NSManagedObject to list of dates
+//            let stringDateList = retrieveFlow().compactMap {
+//                String(($0.value(forKey: "date") as! String).prefix(1)).capitalized +
+//                String(($0.value(forKey: "date") as! String).suffix(($0.value(forKey: "date") as! String).count-1))}
+//            dateFormatter.dateFormat = "MMMM d, yyyy"
+//            var dateList = stringDateList.compactMap { dateFormatter.date(from: $0 ) }
+//            dateList.sort(){$0 > $1}
+//
+//            if Calendar.current.isDateInToday(dateList[0]) || Calendar.current.isDateInYesterday(dateList[0]) {
+//                onPeriod = true
+//                startDate = dateList[0]
+//                endDate = Calendar.current.date(byAdding: .day, value: 7, to: endDate)!
+//
+//            }
+//            else {
+//                onPeriod = false
+//                endDate = dateList[0]
+//                startDate = Calendar.current.date(byAdding: .day, value: 30, to: endDate)!
+//            }
+//        }
+//        else {
+//            // nothing in core data
+//            startDate = today
+//            endDate = today
+//            onPeriod = false
+//        }
+//
+//        // update UI elements to reflect user's phase
+//        if (!onPeriod && (today <= startDate || Calendar.current.isDateInToday(startDate))) {
+//            periodWaiting()
+//        }
+//        else if (!onPeriod) {
+//            periodLate()
+//        }
+//        else {
+//            periodStarted()
+//        }
         
         // UI elements programatic style
         
@@ -140,31 +139,108 @@ class MainViewController: UIViewController {
         menuResourcesButtonLabel.titleLabel?.font = UIFont (name: "ReemKufi-Regular", size: 24)
     }
     
-    func retrieveFlow() -> [NSManagedObject] {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Flow")
-        var fetchedResults:[NSManagedObject]? = nil
+//    func retrieveFlow() -> [NSManagedObject] {
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let context = appDelegate.persistentContainer.viewContext
+//        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Flow")
+//        var fetchedResults:[NSManagedObject]? = nil
+//
+//        let user = Auth.auth().currentUser
+//        if ((user) != nil) {
+//            let predicate = NSPredicate(format: "userID == %@", user!.uid)
+//            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate])
+//            do {
+//                try fetchedResults = context.fetch(request) as? [NSManagedObject]
+//            } catch {
+//                // If an error occurs
+//                let nserror = error as NSError
+//                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+//                abort()
+//            }
+//            return(fetchedResults)!
+//        } else {
+//            print("no results")
+//            return []
+//        }
+//    }
+//
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        let day = Calendar.current.component(.day, from: NSDate() as Date)
+        let month = Calendar.current.component(.month, from: NSDate() as Date)
+        let year = Calendar.current.component(.year, from: NSDate() as Date)
+        
+        let dateStr = "\(monthDict[month]) \(day), \(year)"
+        let flow = PeriodData.retrieveItems(item: "Flow")
+        var onPeriod:Bool = false
 
-        let user = Auth.auth().currentUser
-        if ((user) != nil) {
-            let predicate = NSPredicate(format: "userID == %@", user!.uid)
-            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate])
-            do {
-                try fetchedResults = context.fetch(request) as? [NSManagedObject]
-            } catch {
-                // If an error occurs
-                let nserror = error as NSError
-                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-                abort()
+
+        var df = DateFormatter()
+        df.dateFormat = "MM dd, yyyy"
+        var convertedArray: [Date] = []
+
+        for f in flow {
+            let dat = f.value(forKey:"date") as? String ?? ""
+            if dat == dateStr {
+                onPeriod = true
             }
-            return(fetchedResults)!
-        } else {
-            print("no results")
-            return []
+            let date = df.date(from: dat)
+            if let date = date {
+                convertedArray.append(date)
+            }
+        }
+
+        let ready = convertedArray.sorted(by: { $0.compare($1) == .orderedDescending })
+        var lastEnd = Date()
+        var lastStart = Date()
+        var index = 0
+        var max = -1
+        while index + 1 < ready.count {
+            let dateDifference = Calendar.current.dateComponents([.day], from: ready[index + 1], to: ready[index]).day!
+            if dateDifference > 1 {
+                lastStart = ready[index]
+                lastEnd = ready[0]
+            }
+            index += 1
+            
+            if dateDifference > max {
+                max = dateDifference
+            }
+        }
+        
+        if max == 1 && ready.count > 0 {
+            lastStart = ready[ready.count-1]
+            lastEnd = ready[0]
+        }
+        if ready.count == 1 {
+            lastStart = ready[0]
+            lastEnd = ready[0]
+        }
+
+        if !onPeriod {
+            startDate = Calendar.current.date(byAdding: .day, value: 30, to: lastStart) ?? Date()
+            endDate = lastEnd
+
+        }
+        else {
+            startDate = lastStart
+            endDate = Calendar.current.date(byAdding: .day, value: 30, to: lastEnd) ?? Date()
+        }
+        
+        // update UI elements to reflect user's phase
+        if (ready.count == 0) {
+            periodWaiting()
+        }
+        if (!onPeriod && (today <= startDate || Calendar.current.isDateInToday(startDate))) {
+            periodWaiting()
+        }
+        else if (!onPeriod) {
+            periodLate()
+        }
+        else {
+            periodStarted()
         }
     }
-    
     // period has not yet started
     func periodWaiting () {
         let dateDifference = Calendar.current.dateComponents([.day], from: today, to: startDate).day!
