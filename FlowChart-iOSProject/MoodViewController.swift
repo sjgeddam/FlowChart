@@ -77,19 +77,7 @@ class MoodViewController: UIViewController {
         }
     
     }
-    
-//    func handleClicks(moodData: NSData, data1: NSData, data2: NSData, normal: String, full: String, button: UIButton) {
-//
-//        if (moodData.isEqual(data1)) {
-//            let mood = UIImage(named: normal)
-//            button.setImage(mood, for: .normal)
-//        }
-//
-//        if (moodData.isEqual(to:data2)) {
-//
-//        }
-//
-//    }
+
     
     @IBAction func onNeutral(_ sender: Any) {
         handleNeutral()
@@ -239,8 +227,9 @@ class MoodViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         
+        super.viewDidLoad()
+        //clearCoreData()
         //retrieve the data
         currdate = (delegate?.sendDate())!
         let fetchedResults = retrieveMood()

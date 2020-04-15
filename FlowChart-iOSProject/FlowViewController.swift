@@ -27,35 +27,96 @@ class FlowViewController: UIViewController {
     var spottingSelected = false
     
     @IBAction func onLight(_ sender: Any) {
-        handlePrevious()
+        handleLight()
         
-        let light = UIImage(named: "lightfill")
-        lightButton.setImage(light, for: .normal)
-        lightSelected = true
+        let lightfill = UIImage(named: "lightfill")
+        let lightnormal = UIImage(named: "light")
+        
+        let data1: NSData = lightfill!.pngData()! as NSData
+        let data2: NSData = lightnormal!.pngData()! as NSData
+        let lightdata: NSData = lightButton.currentImage!.pngData()! as NSData
+         
+        if (lightdata.isEqual(data1)) {
+             let light = UIImage(named: "light")
+             lightButton.setImage(light, for: .normal)
+             lightSelected = false
+        }
+         
+        if (lightdata.isEqual(data2)) {
+             let light = UIImage(named: "lightfill")
+             lightButton.setImage(light, for: .normal)
+             lightSelected = true
+        }
+        
     }
     
     @IBAction func onMedium(_ sender: Any) {
-        handlePrevious()
+        handleMedium()
         
-        let medium = UIImage(named: "mediumfill")
-        mediumButton.setImage(medium, for: .normal)
-        mediumSelected = true
+        let mediumfill = UIImage(named: "mediumfill")
+        let mediumnormal = UIImage(named: "medium")
+        
+        let data1: NSData = mediumfill!.pngData()! as NSData
+        let data2: NSData = mediumnormal!.pngData()! as NSData
+        let mediumdata: NSData = mediumButton.currentImage!.pngData()! as NSData
+         
+        if (mediumdata.isEqual(data1)) {
+             let medium = UIImage(named: "medium")
+             mediumButton.setImage(medium, for: .normal)
+             mediumSelected = false
+        }
+         
+        if (mediumdata.isEqual(data2)) {
+             let medium = UIImage(named: "mediumfill")
+             mediumButton.setImage(medium, for: .normal)
+             mediumSelected = true
+        }
     }
     
     @IBAction func onHeavy(_ sender: Any) {
-        handlePrevious()
+        handleHeavy()
         
-        let heavy = UIImage(named: "heavyfill")
-        heavyButton.setImage(heavy, for: .normal)
-        heavySelected = true
+        let heavyfill = UIImage(named: "heavyfill")
+        let heavynormal = UIImage(named: "heavy")
+        
+        let data1: NSData = heavyfill!.pngData()! as NSData
+        let data2: NSData = heavynormal!.pngData()! as NSData
+        let heavydata: NSData = heavyButton.currentImage!.pngData()! as NSData
+         
+        if (heavydata.isEqual(data1)) {
+             let heavy = UIImage(named: "heavy")
+             heavyButton.setImage(heavy, for: .normal)
+             heavySelected = false
+        }
+         
+        if (heavydata.isEqual(data2)) {
+             let heavy = UIImage(named: "heavyfill")
+             heavyButton.setImage(heavy, for: .normal)
+             heavySelected = true
+        }
     }
     
     @IBAction func onSpotting(_ sender: Any) {
-        handlePrevious()
+        handleSpotting()
         
-        let spotting = UIImage(named: "spottingfill")
-        spottingButton.setImage(spotting, for: .normal)
-        spottingSelected = true
+        let spottingfill = UIImage(named: "spottingfill")
+        let spottingnormal = UIImage(named: "spottingupdate")
+        
+        let data1: NSData = spottingfill!.pngData()! as NSData
+        let data2: NSData = spottingnormal!.pngData()! as NSData
+        let spottingdata: NSData = spottingButton.currentImage!.pngData()! as NSData
+         
+        if (spottingdata.isEqual(data1)) {
+             let spotting = UIImage(named: "spottingupdate")
+             spottingButton.setImage(spotting, for: .normal)
+             spottingSelected = false
+        }
+         
+        if (spottingdata.isEqual(data2)) {
+             let spotting = UIImage(named: "spottingfill")
+             spottingButton.setImage(spotting, for: .normal)
+             spottingSelected = true
+        }
     }
     
     @IBAction func onDiscard(_ sender: Any) {
@@ -63,15 +124,58 @@ class FlowViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    func resetbools() {
+        lightSelected = false
+        mediumSelected = false
+        heavySelected = false
+        spottingSelected = false
+    }
+    
     @IBAction func onSave(_ sender: Any) {
+        
+        let light = UIImage(named: "lightfill")
+        let medium = UIImage(named: "mediumfill")
+        let heavy = UIImage(named: "heavyfill")
+        let spotting = UIImage(named: "spottingfill")
+        
+        let lightfill: NSData = light!.pngData()! as NSData
+        let mediumfill: NSData = medium!.pngData()! as NSData
+        let heavyfill: NSData = heavy!.pngData()! as NSData
+        let spottingfill: NSData = spotting!.pngData()! as NSData
+        
+        let lightdata: NSData = lightButton.currentImage!.pngData()! as NSData
+        let mediumdata: NSData = mediumButton.currentImage!.pngData()! as NSData
+        let heavydata: NSData = heavyButton.currentImage!.pngData()! as NSData
+        let spottingdata: NSData = spottingButton.currentImage!.pngData()! as NSData
+        
+        
         //need to save data first and then dismiss
-        if (lightSelected) {
+        if (lightdata.isEqual(lightfill)) {
+            if (mediumSelected || heavySelected || spottingSelected) {
+                deleteFlow()
+                resetbools()
+            }
             storeFlow(flowType: "light")
-        } else if (mediumSelected) {
+        }
+        if (mediumdata.isEqual(mediumfill)) {
+            if (lightSelected || heavySelected || spottingSelected) {
+                deleteFlow()
+                resetbools()
+            }
             storeFlow(flowType: "medium")
-        } else if (heavySelected) {
+        }
+        if (heavydata.isEqual(heavyfill)) {
+            if (lightSelected || mediumSelected || spottingSelected) {
+                deleteFlow()
+                resetbools()
+            }
             storeFlow(flowType: "heavy")
-        } else if (spottingSelected) {
+        }
+        if (spottingdata.isEqual(spottingfill)) {
+            if (lightSelected || mediumSelected || heavySelected) {
+                deleteFlow()
+                resetbools()
+            }
             storeFlow(flowType: "spotting")
         }
         self.navigationController?.popViewController(animated: true)
@@ -154,32 +258,66 @@ class FlowViewController: UIViewController {
         }
     }
     
-    func handlePrevious() {
-        if (lightSelected) {
-            let light = UIImage(named: "light")
-            lightButton.setImage(light, for: .normal)
-            deleteFlow()
-            lightSelected = false
-        }
+    func handleLight() {
         if (mediumSelected) {
             let medium = UIImage(named: "medium")
             mediumButton.setImage(medium, for: .normal)
-            deleteFlow()
-            mediumSelected = false
         }
         if (heavySelected) {
             let heavy = UIImage(named: "heavy")
             heavyButton.setImage(heavy, for: .normal)
-            deleteFlow()
-            heavySelected = false
         }
         if (spottingSelected) {
             let spotting = UIImage(named: "spottingupdate")
             spottingButton.setImage(spotting, for: .normal)
-            deleteFlow()
-            spottingSelected = false
         }
     }
+    
+    func handleMedium() {
+        if (lightSelected) {
+            let light = UIImage(named: "light")
+            lightButton.setImage(light, for: .normal)
+        }
+        if (heavySelected) {
+            let heavy = UIImage(named: "heavy")
+            heavyButton.setImage(heavy, for: .normal)
+        }
+        if (spottingSelected) {
+            let spotting = UIImage(named: "spottingupdate")
+            spottingButton.setImage(spotting, for: .normal)
+        }
+    }
+    
+    func handleHeavy() {
+        if (lightSelected) {
+            let light = UIImage(named: "light")
+            lightButton.setImage(light, for: .normal)
+        }
+        if (mediumSelected) {
+            let medium = UIImage(named: "medium")
+            mediumButton.setImage(medium, for: .normal)
+        }
+        if (spottingSelected) {
+            let spotting = UIImage(named: "spottingupdate")
+            spottingButton.setImage(spotting, for: .normal)
+        }
+    }
+    
+    func handleSpotting() {
+        if (lightSelected) {
+            let light = UIImage(named: "light")
+            lightButton.setImage(light, for: .normal)
+        }
+        if (mediumSelected) {
+            let medium = UIImage(named: "medium")
+            mediumButton.setImage(medium, for: .normal)
+        }
+        if (heavySelected) {
+            let heavy = UIImage(named: "heavy")
+            heavyButton.setImage(heavy, for: .normal)
+        }
+    }
+    
     
     func deleteFlow() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -199,8 +337,9 @@ class FlowViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-
+        //clearCoreData()
         // retrieve data
         currdate = (delegate?.sendDate())!
 //        clearCoreData()
