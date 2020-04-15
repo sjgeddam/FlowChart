@@ -27,25 +27,32 @@ class FlowViewController: UIViewController {
     var spottingSelected = false
     
     @IBAction func onLight(_ sender: Any) {
-        //clear data 
+        handlePrevious()
+        
         let light = UIImage(named: "lightfill")
         lightButton.setImage(light, for: .normal)
         lightSelected = true
     }
     
     @IBAction func onMedium(_ sender: Any) {
+        handlePrevious()
+        
         let medium = UIImage(named: "mediumfill")
         mediumButton.setImage(medium, for: .normal)
         mediumSelected = true
     }
     
     @IBAction func onHeavy(_ sender: Any) {
+        handlePrevious()
+        
         let heavy = UIImage(named: "heavyfill")
         heavyButton.setImage(heavy, for: .normal)
         heavySelected = true
     }
     
     @IBAction func onSpotting(_ sender: Any) {
+        handlePrevious()
+        
         let spotting = UIImage(named: "spottingfill")
         spottingButton.setImage(spotting, for: .normal)
         spottingSelected = true
@@ -144,6 +151,50 @@ class FlowViewController: UIViewController {
                 NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
                 abort()
             }
+        }
+    }
+    
+    func handlePrevious() {
+        if (lightSelected) {
+            let light = UIImage(named: "light")
+            lightButton.setImage(light, for: .normal)
+            deleteFlow()
+            lightSelected = false
+        }
+        if (mediumSelected) {
+            let medium = UIImage(named: "medium")
+            mediumButton.setImage(medium, for: .normal)
+            deleteFlow()
+            mediumSelected = false
+        }
+        if (heavySelected) {
+            let heavy = UIImage(named: "heavy")
+            heavyButton.setImage(heavy, for: .normal)
+            deleteFlow()
+            heavySelected = false
+        }
+        if (spottingSelected) {
+            let spotting = UIImage(named: "spotting")
+            spottingButton.setImage(spotting, for: .normal)
+            deleteFlow()
+            spottingSelected = false
+        }
+    }
+    
+    func deleteFlow() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchedResults = retrieveFlow()
+        let item = fetchedResults[0]
+        
+        context.delete(item)
+        do {
+            try context.save()
+        } catch {
+            // If an error occurs
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
         }
     }
     

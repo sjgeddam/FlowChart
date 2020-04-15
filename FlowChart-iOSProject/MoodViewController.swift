@@ -30,7 +30,7 @@ class MoodViewController: UIViewController {
     
     
     @IBAction func onSmile(_ sender: Any) {
-        handleSmile()
+        handlePrevious()
         
         let smile = UIImage(named: "reallyhappyfill")
         smileButton.setImage(smile, for: .normal)
@@ -38,7 +38,7 @@ class MoodViewController: UIViewController {
     }
     
     @IBAction func onHappy(_ sender: Any) {
-        handleHappy()
+        handlePrevious()
         
         let happy = UIImage(named: "happyfill")
         happyButton.setImage(happy, for: .normal)
@@ -46,7 +46,7 @@ class MoodViewController: UIViewController {
     }
     
     @IBAction func onNeutral(_ sender: Any) {
-        handleNeutral()
+        handlePrevious()
         
         let neutral = UIImage(named: "neutralfill")
         neutralButton.setImage(neutral, for: .normal)
@@ -54,7 +54,7 @@ class MoodViewController: UIViewController {
     }
     
     @IBAction func onSad(_ sender: Any) {
-        handleSad()
+        handlePrevious()
         
         let sad = UIImage(named: "sadfill")
         sadButton.setImage(sad, for: .normal)
@@ -62,7 +62,7 @@ class MoodViewController: UIViewController {
     }
     
     @IBAction func onUpset(_ sender: Any) {
-        handleUpset()
+        handlePrevious()
         
         let upset = UIImage(named: "upsetfill")
         upsetButton.setImage(upset, for: .normal)
@@ -235,7 +235,13 @@ class MoodViewController: UIViewController {
         }
     }
     
-    func handleSmile() {
+    func handlePrevious() {
+        if (smileSelected) {
+            let smile = UIImage(named: "reallyhappyface")
+            smileButton.setImage(smile, for: .normal)
+            deleteMood()
+            smileSelected = false
+        }
         if (happySelected) {
             let happy = UIImage(named: "happyface")
             happyButton.setImage(happy, for: .normal)
@@ -262,113 +268,6 @@ class MoodViewController: UIViewController {
         }
     }
     
-    func handleHappy() {
-        if (smileSelected) {
-            let smile = UIImage(named: "reallyhappyface")
-            smileButton.setImage(smile, for: .normal)
-            deleteMood()
-            smileSelected = false
-        }
-        if (neutralSelected) {
-            let neutral = UIImage(named: "neutralface")
-            neutralButton.setImage(neutral, for: .normal)
-            deleteMood()
-            neutralSelected = false
-        }
-        if (sadSelected) {
-            let sad = UIImage(named: "sadface")
-            sadButton.setImage(sad, for: .normal)
-            deleteMood()
-            sadSelected = false
-        }
-        if (upsetSelected) {
-            let upset = UIImage(named: "upsetface")
-            upsetButton.setImage(upset, for: .normal)
-            deleteMood()
-            upsetSelected = false
-        }
-    }
-    
-    func handleNeutral() {
-        if (smileSelected) {
-            let smile = UIImage(named: "reallyhappyface")
-            smileButton.setImage(smile, for: .normal)
-            deleteMood()
-            smileSelected = false
-        }
-        if (happySelected) {
-            let happy = UIImage(named: "happyface")
-            happyButton.setImage(happy, for: .normal)
-            deleteMood()
-            happySelected = false
-        }
-        if (sadSelected) {
-            let sad = UIImage(named: "sadface")
-            sadButton.setImage(sad, for: .normal)
-            deleteMood()
-            sadSelected = false
-        }
-        if (upsetSelected) {
-            let upset = UIImage(named: "upsetface")
-            upsetButton.setImage(upset, for: .normal)
-            deleteMood()
-            upsetSelected = false
-        }
-    }
-    
-    func handleSad() {
-        if (smileSelected) {
-            let smile = UIImage(named: "reallyhappyface")
-            smileButton.setImage(smile, for: .normal)
-            deleteMood()
-            smileSelected = false
-        }
-        if (happySelected) {
-            let happy = UIImage(named: "happyface")
-            happyButton.setImage(happy, for: .normal)
-            deleteMood()
-            happySelected = false
-        }
-        if (neutralSelected) {
-            let neutral = UIImage(named: "neutralface")
-            neutralButton.setImage(neutral, for: .normal)
-            deleteMood()
-            neutralSelected = false
-        }
-        if (upsetSelected) {
-            let upset = UIImage(named: "upsetface")
-            upsetButton.setImage(upset, for: .normal)
-            deleteMood()
-            upsetSelected = false
-        }
-    }
-    
-    func handleUpset() {
-        if (smileSelected) {
-            let smile = UIImage(named: "reallyhappyface")
-            smileButton.setImage(smile, for: .normal)
-            deleteMood()
-            smileSelected = false
-        }
-        if (happySelected) {
-            let happy = UIImage(named: "happyface")
-            happyButton.setImage(happy, for: .normal)
-            deleteMood()
-            happySelected = false
-        }
-        if (neutralSelected) {
-            let neutral = UIImage(named: "neutralface")
-            neutralButton.setImage(neutral, for: .normal)
-            deleteMood()
-            neutralSelected = false
-        }
-        if  (sadSelected) {
-            let sad = UIImage(named: "sadface")
-            sadButton.setImage(sad, for: .normal)
-            deleteMood()
-            sadSelected = false
-        }
-    }
 
     /*
     // MARK: - Navigation

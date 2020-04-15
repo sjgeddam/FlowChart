@@ -52,7 +52,6 @@ class TrackerViewController: UIViewController, UIPopoverPresentationControllerDe
          // note that indexPath.section is used rather than indexPath.row
         let fetchedData = retrieveSymptoms()
         let symptomdescription = fetchedData[indexPath.row].value(forKey: "symptomtype") as? String
-        print("symptom description::   " + (symptomdescription ?? "non existent"))
         cell.symptom.text = "  " + (symptomdescription ?? "")
         cell.symptom.clipsToBounds = true
         cell.symptom.layer.cornerRadius = 17
@@ -86,6 +85,7 @@ class TrackerViewController: UIViewController, UIPopoverPresentationControllerDe
             symptomsTable.reloadData()
         }
     }
+    
     func clearCoreData() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
@@ -138,8 +138,6 @@ class TrackerViewController: UIViewController, UIPopoverPresentationControllerDe
         }
     }
     
-    
-    
      
      //segueing into popoverVC after + button is clicked
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -171,7 +169,6 @@ class TrackerViewController: UIViewController, UIPopoverPresentationControllerDe
     var markedDate: UIImageView!
      
     override func viewDidLoad() {
-        print("IN VIEW DID LOAD TRACKER")
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         symptomsTable.delegate = self
