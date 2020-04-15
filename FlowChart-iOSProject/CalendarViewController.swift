@@ -31,6 +31,8 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     
     @IBOutlet weak var layout: UICollectionViewFlowLayout!
     
+    var collectionViewItemSpacing = CGFloat(0.0)
+    var collectionViewLineSpacing = CGFloat(0.0)
     
     func fillDates() {
         dates.removeAll()
@@ -206,11 +208,29 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
 
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        if collectionViewLineSpacing == 0.0 {
+            let height = collectionView.frame.size.height
+            collectionViewLineSpacing = (height - 65 * 6) / 6
+        }
+        return collectionViewLineSpacing
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                          layout collectionViewLayout: UICollectionViewLayout,
+                          minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        
+        if collectionViewItemSpacing == 0.0 {
+            let width = collectionView.frame.size.width
+            collectionViewItemSpacing = (width - 43 * 7) / 7
+        }
+        return collectionViewItemSpacing
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        layout.minimumInteritemSpacing = 12
         self.navigationController!.setNavigationBarHidden(true,animated:false)
-        
+
         curMonth = Calendar.current.component(.month, from: NSDate() as Date)
         curYear = Calendar.current.component(.year, from: NSDate() as Date)
         realMonth = curMonth
@@ -229,7 +249,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         let swipeLeftRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeLeftDetected(_:)))
         swipeLeftRecognizer.direction = .left
         view.addGestureRecognizer(swipeLeftRecognizer)
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
