@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="38v-NB-iOi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="38v-NB-iOi">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -182,7 +182,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Projected start in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5do-ge-K0B" userLabel="HomeTopTextLabel">
-                                                <rect key="frame" x="0.0" y="21.000000000000004" width="344" height="37.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="21" width="344" height="48"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="344" id="aGK-KR-rVq"/>
                                                 </constraints>
@@ -202,7 +202,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="day(s)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7U9-hL-dqn" userLabel="HomeBottomTextLabel">
-                                        <rect key="frame" x="164.66666666666666" y="350" width="85" height="37.333333333333314"/>
+                                        <rect key="frame" x="168.33333333333334" y="350" width="77.333333333333343" height="48"/>
                                         <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="32"/>
                                         <color key="textColor" red="0.95686274510000002" green="0.60392156860000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -317,10 +317,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lPW-4j-pNh">
-                                <rect key="frame" x="95" y="320" width="225" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lPW-4j-pNh">
+                                <rect key="frame" x="94.666666666666686" y="230" width="225" height="34"/>
                                 <color key="backgroundColor" red="0.97754532100000002" green="0.83238404990000003" blue="0.62976407999999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="225" id="W1g-l0-tu9"/>
+                                    <constraint firstAttribute="height" constant="34" id="X4A-eY-z4y"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
@@ -329,10 +332,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ePO-g6-6CY">
-                                <rect key="frame" x="95" y="452" width="225" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ePO-g6-6CY">
+                                <rect key="frame" x="94.666666666666686" y="363" width="225" height="34"/>
                                 <color key="backgroundColor" red="0.97754532100000002" green="0.83238404990000003" blue="0.62976407999999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="r2G-wW-Wut"/>
+                                    <constraint firstAttribute="width" constant="225" id="x9x-Of-MN7"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
@@ -341,24 +347,25 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="email address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MgJ-dZ-kW9">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="email address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MgJ-dZ-kW9">
                                 <rect key="frame" x="95" y="275" width="124" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="20"/>
                                 <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFL-Ga-kSM">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFL-Ga-kSM">
                                 <rect key="frame" x="95" y="407" width="124" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="20"/>
                                 <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="If2-Vf-vgc">
-                                <rect key="frame" x="157" y="547" width="100" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="If2-Vf-vgc">
+                                <rect key="frame" x="157" y="458" width="100" height="50"/>
                                 <color key="backgroundColor" red="0.97754532100000002" green="0.83238404990000003" blue="0.62976407999999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="KPN-NP-eAb"/>
+                                    <constraint firstAttribute="width" constant="100" id="QXc-qG-r2X"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="17"/>
                                 <state key="normal" title="login">
                                     <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -372,13 +379,19 @@
                                     <action selector="loginAction:" destination="Oox-my-JuV" eventType="touchUpInside" id="za2-n2-EZw"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="LoginTitle" translatesAutoresizingMaskIntoConstraints="NO" id="GaK-6a-hMe">
-                                <rect key="frame" x="-5" y="93" width="419" height="133"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="LoginTitle" translatesAutoresizingMaskIntoConstraints="NO" id="GaK-6a-hMe">
+                                <rect key="frame" x="0.0" y="37" width="414" height="133"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="133" id="CPE-KN-ATH"/>
+                                    <constraint firstAttribute="width" constant="414" id="MAP-8P-QSA"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2B-SM-ZET">
-                                <rect key="frame" x="13" y="664" width="288" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2B-SM-ZET">
+                                <rect key="frame" x="13" y="672" width="170" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="ekA-LQ-51F"/>
+                                    <constraint firstAttribute="width" constant="170" id="g9s-AY-u1b"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="20"/>
                                 <state key="normal" title="create a new account">
                                     <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -389,6 +402,22 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="D2B-SM-ZET" firstAttribute="leading" secondItem="fIe-PO-lAF" secondAttribute="leading" constant="13" id="1mC-YS-ZuG"/>
+                            <constraint firstItem="lPW-4j-pNh" firstAttribute="centerX" secondItem="fIe-PO-lAF" secondAttribute="centerX" id="2fu-sU-LQt"/>
+                            <constraint firstItem="GaK-6a-hMe" firstAttribute="top" secondItem="fIe-PO-lAF" secondAttribute="top" constant="-7" id="3VC-Lf-ot9"/>
+                            <constraint firstItem="MgJ-dZ-kW9" firstAttribute="leading" secondItem="lPW-4j-pNh" secondAttribute="leading" id="6Vy-au-iqm"/>
+                            <constraint firstItem="lPW-4j-pNh" firstAttribute="top" secondItem="MgJ-dZ-kW9" secondAttribute="bottom" constant="4" id="CwP-83-m8g"/>
+                            <constraint firstItem="If2-Vf-vgc" firstAttribute="centerX" secondItem="fIe-PO-lAF" secondAttribute="centerX" id="EpE-a8-GOY"/>
+                            <constraint firstItem="ePO-g6-6CY" firstAttribute="top" secondItem="AFL-Ga-kSM" secondAttribute="bottom" constant="4" id="F1a-Uk-jGF"/>
+                            <constraint firstItem="GaK-6a-hMe" firstAttribute="centerX" secondItem="fIe-PO-lAF" secondAttribute="centerX" id="GmS-Ul-rF0"/>
+                            <constraint firstItem="lPW-4j-pNh" firstAttribute="top" secondItem="GaK-6a-hMe" secondAttribute="bottom" constant="60" id="azo-sl-5ln"/>
+                            <constraint firstItem="AFL-Ga-kSM" firstAttribute="top" secondItem="lPW-4j-pNh" secondAttribute="bottom" constant="65" id="hQL-XG-Mpa"/>
+                            <constraint firstItem="ePO-g6-6CY" firstAttribute="centerX" secondItem="fIe-PO-lAF" secondAttribute="centerX" id="k8k-e3-rvW"/>
+                            <constraint firstItem="If2-Vf-vgc" firstAttribute="top" secondItem="ePO-g6-6CY" secondAttribute="bottom" constant="61" id="sSj-Zl-2nE"/>
+                            <constraint firstItem="fIe-PO-lAF" firstAttribute="bottom" secondItem="D2B-SM-ZET" secondAttribute="bottom" constant="10" id="se3-PW-zSV"/>
+                            <constraint firstItem="AFL-Ga-kSM" firstAttribute="leading" secondItem="ePO-g6-6CY" secondAttribute="leading" id="wW0-RQ-WRn"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="fIe-PO-lAF"/>
                     </view>
                     <navigationItem key="navigationItem" id="a4e-0D-bvA"/>
@@ -440,10 +469,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rHh-dK-4El">
-                                <rect key="frame" x="95" y="276" width="225" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rHh-dK-4El">
+                                <rect key="frame" x="94.666666666666686" y="219" width="225" height="34"/>
                                 <color key="backgroundColor" red="0.97754532100000002" green="0.83238404990000003" blue="0.62976407999999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="225" id="0OF-AL-WOs"/>
+                                    <constraint firstAttribute="height" constant="34" id="eRm-Qq-ZgL"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
@@ -452,10 +484,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qz6-0S-Fy5">
-                                <rect key="frame" x="95" y="395" width="225" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qz6-0S-Fy5">
+                                <rect key="frame" x="94.666666666666686" y="337" width="225" height="34"/>
                                 <color key="backgroundColor" red="0.97754532100000002" green="0.83238404990000003" blue="0.62976407999999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="225" id="cLj-w4-mRS"/>
+                                    <constraint firstAttribute="height" constant="34" id="jM9-EB-QOP"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
@@ -464,31 +499,31 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="email address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8J-9S-f9H">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="email address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8J-9S-f9H">
                                 <rect key="frame" x="95" y="231" width="124" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="20"/>
                                 <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6p-uH-6ah">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6p-uH-6ah">
                                 <rect key="frame" x="95" y="350" width="124" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="20"/>
                                 <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="retype password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qJ-75-T3O">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="retype password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qJ-75-T3O">
                                 <rect key="frame" x="95" y="477" width="209" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="20"/>
                                 <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oij-dp-FWE">
-                                <rect key="frame" x="95" y="522" width="225" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oij-dp-FWE">
+                                <rect key="frame" x="94.666666666666686" y="455" width="225" height="34"/>
                                 <color key="backgroundColor" red="0.97754532100000002" green="0.83238404990000003" blue="0.62976407999999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="bqe-SX-Pzy"/>
+                                    <constraint firstAttribute="width" constant="225" id="hVO-9K-5Eu"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
@@ -497,10 +532,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9NH-Ac-eKZ">
-                                <rect key="frame" x="157" y="604" width="100" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9NH-Ac-eKZ">
+                                <rect key="frame" x="157" y="549" width="100" height="50"/>
                                 <color key="backgroundColor" red="0.97754532100000002" green="0.83238404990000003" blue="0.62976407999999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="IxE-YP-tQz"/>
+                                    <constraint firstAttribute="width" constant="100" id="ic6-F6-fnT"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="17"/>
                                 <state key="normal" title="sign up">
                                     <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -514,12 +552,49 @@
                                     <action selector="signupAction:" destination="6Ax-u5-scq" eventType="touchUpInside" id="n5m-zT-YqQ"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="LoginTitle" translatesAutoresizingMaskIntoConstraints="NO" id="Nv5-fY-fKG">
-                                <rect key="frame" x="-5" y="90" width="419" height="133"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="LoginTitle" translatesAutoresizingMaskIntoConstraints="NO" id="Nv5-fY-fKG">
+                                <rect key="frame" x="-2.6666666666666572" y="37" width="419.33333333333326" height="133"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="133" id="JZU-IY-WsC"/>
+                                    <constraint firstAttribute="width" constant="419.32999999999998" id="kjE-DX-dFY"/>
+                                </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fte-Z8-9l1">
+                                <rect key="frame" x="13" y="672" width="220" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="gSO-Ga-mBF"/>
+                                    <constraint firstAttribute="width" constant="220" id="n6t-CW-KSi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="20"/>
+                                <state key="normal" title="have an account? login">
+                                    <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBackToLogin:" destination="6Ax-u5-scq" eventType="touchUpInside" id="U2D-pi-ttc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="R8J-9S-f9H" firstAttribute="top" secondItem="Nv5-fY-fKG" secondAttribute="bottom" constant="18" id="6fW-Lg-PNg"/>
+                            <constraint firstItem="R8J-9S-f9H" firstAttribute="leading" secondItem="rHh-dK-4El" secondAttribute="leading" id="6tQ-Z5-BGp"/>
+                            <constraint firstItem="n6p-uH-6ah" firstAttribute="leading" secondItem="Qz6-0S-Fy5" secondAttribute="leading" id="GUQ-lH-Ce8"/>
+                            <constraint firstItem="Nv5-fY-fKG" firstAttribute="top" secondItem="9vb-dE-as9" secondAttribute="top" constant="-7" id="KgL-6F-MRE"/>
+                            <constraint firstItem="9NH-Ac-eKZ" firstAttribute="top" secondItem="oij-dp-FWE" secondAttribute="bottom" constant="60" id="NI0-90-cU6"/>
+                            <constraint firstItem="Qz6-0S-Fy5" firstAttribute="top" secondItem="n6p-uH-6ah" secondAttribute="bottom" constant="8" id="TpK-9M-O0b"/>
+                            <constraint firstItem="oij-dp-FWE" firstAttribute="centerX" secondItem="9vb-dE-as9" secondAttribute="centerX" id="YOx-ej-dHT"/>
+                            <constraint firstItem="Nv5-fY-fKG" firstAttribute="centerX" secondItem="RJV-4S-pns" secondAttribute="centerX" id="aMc-Vs-Ud9"/>
+                            <constraint firstItem="rHh-dK-4El" firstAttribute="centerX" secondItem="9vb-dE-as9" secondAttribute="centerX" id="ai0-ih-3VH"/>
+                            <constraint firstItem="9vb-dE-as9" firstAttribute="bottom" secondItem="fte-Z8-9l1" secondAttribute="bottom" constant="10" id="dcl-P3-zhr"/>
+                            <constraint firstItem="9NH-Ac-eKZ" firstAttribute="centerX" secondItem="9vb-dE-as9" secondAttribute="centerX" id="e0t-cC-Ml4"/>
+                            <constraint firstItem="3qJ-75-T3O" firstAttribute="top" secondItem="Qz6-0S-Fy5" secondAttribute="bottom" constant="46" id="g75-yt-3Oa"/>
+                            <constraint firstItem="n6p-uH-6ah" firstAttribute="top" secondItem="rHh-dK-4El" secondAttribute="bottom" constant="46" id="i0r-3E-r9q"/>
+                            <constraint firstItem="3qJ-75-T3O" firstAttribute="leading" secondItem="oij-dp-FWE" secondAttribute="leading" id="kY3-Ki-Rmo"/>
+                            <constraint firstItem="rHh-dK-4El" firstAttribute="top" secondItem="R8J-9S-f9H" secondAttribute="bottom" constant="1" id="pZg-9t-Kjo"/>
+                            <constraint firstItem="Qz6-0S-Fy5" firstAttribute="centerX" secondItem="9vb-dE-as9" secondAttribute="centerX" id="tFK-cb-CH1"/>
+                            <constraint firstItem="fte-Z8-9l1" firstAttribute="leading" secondItem="9vb-dE-as9" secondAttribute="leading" constant="13" id="vpG-wE-HwK"/>
+                            <constraint firstItem="oij-dp-FWE" firstAttribute="top" secondItem="3qJ-75-T3O" secondAttribute="bottom" constant="8" id="zyr-1t-V1K"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="9vb-dE-as9"/>
                     </view>
                     <navigationItem key="navigationItem" id="oMC-CH-SkS"/>
@@ -532,7 +607,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r8p-5q-4Pd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2736.231884057971" y="-621.19565217391312"/>
+            <point key="canvasLocation" x="2734.7826086956525" y="-621.19565217391312"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="y4Y-Wr-3ZN">
@@ -665,6 +740,11 @@
             <point key="canvasLocation" x="1039.1304347826087" y="-621.19565217391312"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ffr-Se-C58"/>
+        <segue reference="aqa-Aq-MLw"/>
+    </inferredMetricsTieBreakers>
+    <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
         <image name="ChartIcon" width="700" height="598"/>
         <image name="LoginTitle" width="920" height="267"/>
@@ -673,11 +753,6 @@
         <image name="RedDivider" width="781" height="17"/>
         <image name="ResourcesIcon" width="700" height="604"/>
         <image name="SettingsIcon" width="700" height="602"/>
-        <image name="plus.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="ffr-Se-C58"/>
-        <segue reference="jCp-ZC-EVB"/>
-    </inferredMetricsTieBreakers>
-    <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

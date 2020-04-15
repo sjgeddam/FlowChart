@@ -20,7 +20,7 @@ class UserViewController: UIViewController {
     @IBOutlet weak var signupConfirm: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController!.setNavigationBarHidden(true,animated:false)
         Auth.auth().addStateDidChangeListener() {
           auth, user in
             if user != nil {
@@ -31,6 +31,17 @@ class UserViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func goBackToLogin(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "LoginSegue" || segue.identifier == "SignupSegue" {
+            self.navigationController!.setNavigationBarHidden(false,animated:false)
+        }
+    }
+    
     @IBAction func loginAction(_ sender: Any) {
         guard let email = loginEmail.text,
               let password = loginPassword.text
@@ -54,6 +65,7 @@ class UserViewController: UIViewController {
             }
         }
     }
+    
 
     @IBAction func signupAction(_ sender: Any) {
         guard let emailField = signupEmail.text,
