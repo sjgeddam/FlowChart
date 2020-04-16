@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Jw-95-DIS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Jw-95-DIS">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -33,18 +33,24 @@
                                 </items>
                                 <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IdW-sh-ZzU">
-                                <rect key="frame" x="16" y="335" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IdW-sh-ZzU">
+                                <rect key="frame" x="10" y="335" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="LeI-ix-t96"/>
+                                    <constraint firstAttribute="height" constant="100.5" id="RA9-ge-htX"/>
+                                </constraints>
                                 <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" backgroundImage="paperplane.fill" catalog="system"/>
                                 <connections>
                                     <segue destination="GeL-37-4Pb" kind="show" identifier="NewsSegueIdentifier" id="cuh-Uf-USh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iwe-gM-piq">
-                                <rect key="frame" x="16" y="535" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iwe-gM-piq">
+                                <rect key="frame" x="10" y="535" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="102.5" id="dsP-Kb-gZe"/>
+                                    <constraint firstAttribute="width" constant="100" id="wDY-rQ-20X"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" backgroundImage="checkmark.rectangle.fill" catalog="system"/>
@@ -52,45 +58,60 @@
                                     <segue destination="8Wg-qG-dw8" kind="show" identifier="ChecklistSegueIdentifer" id="Bze-zk-KWc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVD-W2-ebc">
-                                <rect key="frame" x="16" y="135" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVD-W2-ebc">
+                                <rect key="frame" x="10" y="135" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="101" id="0fH-Am-79F"/>
+                                    <constraint firstAttribute="width" constant="100" id="YPW-bV-DY4"/>
+                                </constraints>
                                 <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" backgroundImage="map.fill" catalog="system"/>
                                 <connections>
                                     <segue destination="2vm-AR-0hP" kind="show" identifier="LocationSegueIdentifier" id="9GO-PO-SmR"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Resources" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ia1-PV-eSX">
-                                <rect key="frame" x="20" y="60" width="118" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Women in the News" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02W-Jq-FMs">
+                                <rect key="frame" x="125" y="362.5" width="242" height="45"/>
+                                <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Local Clinics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Arc-As-Bbq">
+                                <rect key="frame" x="125" y="162.5" width="149" height="45"/>
+                                <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checklist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZ3-VA-FfS">
+                                <rect key="frame" x="125" y="563" width="106" height="45"/>
+                                <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resources" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ia1-PV-eSX">
+                                <rect key="frame" x="10" y="44" width="118" height="45"/>
                                 <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="30"/>
                                 <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Women in the News" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02W-Jq-FMs">
-                                <rect key="frame" x="140" y="358" width="258" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="32"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Local Clinics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Arc-As-Bbq">
-                                <rect key="frame" x="140" y="161" width="159" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="32"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Checklist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZ3-VA-FfS">
-                                <rect key="frame" x="140" y="561" width="113" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="32"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ia1-PV-eSX" firstAttribute="top" secondItem="h3Q-Iy-qFS" secondAttribute="top" id="8B0-Io-IqW"/>
+                            <constraint firstItem="dVD-W2-ebc" firstAttribute="top" secondItem="ia1-PV-eSX" secondAttribute="bottom" constant="45.5" id="NKf-mY-eIb"/>
+                            <constraint firstItem="dVD-W2-ebc" firstAttribute="leading" secondItem="ia1-PV-eSX" secondAttribute="leading" id="Yf2-2M-IQZ"/>
+                            <constraint firstItem="02W-Jq-FMs" firstAttribute="centerY" secondItem="IdW-sh-ZzU" secondAttribute="centerY" id="aI8-Nb-hmU"/>
+                            <constraint firstItem="IdW-sh-ZzU" firstAttribute="leading" secondItem="dVD-W2-ebc" secondAttribute="leading" id="bvx-Zs-34Z"/>
+                            <constraint firstItem="02W-Jq-FMs" firstAttribute="leading" secondItem="IdW-sh-ZzU" secondAttribute="trailing" constant="15" id="hSr-cA-ATb"/>
+                            <constraint firstItem="RZ3-VA-FfS" firstAttribute="leading" secondItem="iwe-gM-piq" secondAttribute="trailing" constant="15" id="hdb-vq-q3A"/>
+                            <constraint firstItem="iwe-gM-piq" firstAttribute="top" secondItem="IdW-sh-ZzU" secondAttribute="bottom" constant="99" id="lbr-QK-zqj"/>
+                            <constraint firstItem="IdW-sh-ZzU" firstAttribute="top" secondItem="dVD-W2-ebc" secondAttribute="bottom" constant="99" id="mF9-WH-Hwu"/>
+                            <constraint firstItem="Arc-As-Bbq" firstAttribute="leading" secondItem="dVD-W2-ebc" secondAttribute="trailing" constant="15" id="oOb-bO-RgQ"/>
+                            <constraint firstItem="iwe-gM-piq" firstAttribute="leading" secondItem="IdW-sh-ZzU" secondAttribute="leading" id="tdD-sj-JKr"/>
+                            <constraint firstItem="Arc-As-Bbq" firstAttribute="centerY" secondItem="dVD-W2-ebc" secondAttribute="centerY" id="vbd-ko-R4v"/>
+                            <constraint firstItem="ia1-PV-eSX" firstAttribute="leading" secondItem="h3Q-Iy-qFS" secondAttribute="leading" constant="10" id="xvd-yO-txa"/>
+                            <constraint firstItem="RZ3-VA-FfS" firstAttribute="centerY" secondItem="iwe-gM-piq" secondAttribute="centerY" id="ycI-r0-MFu"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="h3Q-Iy-qFS"/>
                     </view>
                     <navigationItem key="navigationItem" id="Xpp-M8-ElP"/>
@@ -175,9 +196,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="197" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dOD-ga-dFK">
-                                <rect key="frame" x="0.0" y="150" width="414" height="601"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="197" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dOD-ga-dFK">
+                                <rect key="frame" x="0.0" y="125" width="414" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Article" rowHeight="197" id="wcx-UW-DOc" customClass="ArticleTableViewCell" customModule="FlowChart_iOSProject" customModuleProvider="target">
@@ -187,24 +207,31 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="197"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title " lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cDN-XX-Wgh">
-                                                    <rect key="frame" x="14" y="11" width="386" height="58"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title " lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cDN-XX-Wgh">
+                                                    <rect key="frame" x="14" y="11" width="386" height="62"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="62" id="4wF-U0-LAw"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Source" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7O-jM-t6t">
-                                                    <rect key="frame" x="14" y="77" width="386" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7O-jM-t6t">
+                                                    <rect key="frame" x="14" y="81" width="386" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="Nx2-mA-8mb"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbH-I7-UfM">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbH-I7-UfM">
                                                     <rect key="frame" x="335" y="131" width="65" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.97754532100000002" green="0.83238404990000003" blue="0.62976407999999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="65" id="0Ql-ht-toy"/>
+                                                        <constraint firstAttribute="height" constant="30" id="SEH-6f-Zyi"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="17"/>
                                                     <state key="normal" title="View">
                                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -218,14 +245,29 @@
                                                         <action selector="buttonPressed:" destination="wcx-UW-DOc" eventType="touchUpInside" id="FKF-CI-Qfo"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LRm-lI-YT3">
-                                                    <rect key="frame" x="14" y="106" width="313" height="80"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LRm-lI-YT3">
+                                                    <rect key="frame" x="14" y="110" width="298" height="80"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="80" id="uZt-Kp-s50"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="cDN-XX-Wgh" secondAttribute="trailing" constant="14" id="1zQ-1B-zLs"/>
+                                                <constraint firstItem="LRm-lI-YT3" firstAttribute="top" secondItem="u7O-jM-t6t" secondAttribute="bottom" constant="8" id="4Gc-Bf-6XA"/>
+                                                <constraint firstAttribute="bottom" secondItem="JbH-I7-UfM" secondAttribute="bottom" constant="36" id="EE8-c4-cae"/>
+                                                <constraint firstItem="cDN-XX-Wgh" firstAttribute="top" secondItem="SN0-f9-YmF" secondAttribute="top" constant="11" id="Mdy-7X-0D3"/>
+                                                <constraint firstItem="cDN-XX-Wgh" firstAttribute="leading" secondItem="SN0-f9-YmF" secondAttribute="leading" constant="14" id="S1R-kQ-6Pc"/>
+                                                <constraint firstItem="u7O-jM-t6t" firstAttribute="top" secondItem="cDN-XX-Wgh" secondAttribute="bottom" constant="8" id="Yhu-3K-Eu0"/>
+                                                <constraint firstItem="JbH-I7-UfM" firstAttribute="leading" secondItem="LRm-lI-YT3" secondAttribute="trailing" constant="23" id="eM4-Df-R7J"/>
+                                                <constraint firstAttribute="trailing" secondItem="JbH-I7-UfM" secondAttribute="trailing" constant="14" id="g1x-4t-M3S"/>
+                                                <constraint firstItem="u7O-jM-t6t" firstAttribute="leading" secondItem="SN0-f9-YmF" secondAttribute="leading" constant="14" id="iaa-Zv-LQz"/>
+                                                <constraint firstItem="LRm-lI-YT3" firstAttribute="leading" secondItem="SN0-f9-YmF" secondAttribute="leading" constant="14" id="thG-h4-Djh"/>
+                                                <constraint firstAttribute="trailing" secondItem="u7O-jM-t6t" secondAttribute="trailing" constant="14" id="zxl-ws-sAb"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="articleDescription" destination="LRm-lI-YT3" id="XxQ-3w-Fhs"/>
@@ -235,7 +277,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T5r-5U-khn">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="T5r-5U-khn">
                                 <rect key="frame" x="0.0" y="798" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -264,6 +306,13 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="T5r-5U-khn" firstAttribute="top" secondItem="dOD-ga-dFK" secondAttribute="bottom" id="BNH-tV-iq2"/>
+                            <constraint firstItem="dOD-ga-dFK" firstAttribute="centerX" secondItem="HRT-TR-SDh" secondAttribute="centerX" id="Zcj-9Q-h8F"/>
+                            <constraint firstItem="dOD-ga-dFK" firstAttribute="leading" secondItem="HRT-TR-SDh" secondAttribute="leading" id="fOp-WA-veZ"/>
+                            <constraint firstItem="dOD-ga-dFK" firstAttribute="top" secondItem="HRT-TR-SDh" secondAttribute="top" constant="125" id="i5f-Xf-wQs"/>
+                            <constraint firstItem="dOD-ga-dFK" firstAttribute="trailing" secondItem="HRT-TR-SDh" secondAttribute="trailing" id="pbS-8Q-z13"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="HRT-TR-SDh"/>
                     </view>
                     <navigationItem key="navigationItem" id="a4I-cE-Z5a"/>
@@ -283,33 +332,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Checklist" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1g-J2-ObP">
-                                <rect key="frame" x="20" y="36" width="106" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="30"/>
-                                <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9hl-IR-Svf">
-                                <rect key="frame" x="0.0" y="155" width="414" height="589"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9hl-IR-Svf">
+                                <rect key="frame" x="2" y="155" width="414" height="584"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Item" rowHeight="71" id="oFZ-CT-1VA" customClass="CheckableTableViewCell" customModule="FlowChart_iOSProject" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Item" rowHeight="71" translatesAutoresizingMaskIntoConstraints="NO" id="oFZ-CT-1VA" customClass="CheckableTableViewCell" customModule="FlowChart_iOSProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="71"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oFZ-CT-1VA" id="CGS-B6-Egk">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="71"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPL-2u-KwI">
-                                                    <rect key="frame" x="20" y="11" width="252" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPL-2u-KwI">
+                                                    <rect key="frame" x="20" y="11" width="374" height="49"/>
                                                     <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="QPL-2u-KwI" firstAttribute="leading" secondItem="CGS-B6-Egk" secondAttribute="leadingMargin" id="Gmj-Mt-bU8"/>
+                                                <constraint firstItem="QPL-2u-KwI" firstAttribute="top" secondItem="CGS-B6-Egk" secondAttribute="topMargin" id="N5T-lS-5cU"/>
+                                                <constraint firstItem="QPL-2u-KwI" firstAttribute="bottom" secondItem="CGS-B6-Egk" secondAttribute="bottomMargin" id="Vim-gM-lOH"/>
+                                                <constraint firstItem="QPL-2u-KwI" firstAttribute="trailing" secondItem="CGS-B6-Egk" secondAttribute="trailingMargin" id="dlE-O8-BoQ"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <accessibility key="accessibilityConfiguration" identifier="Item"/>
                                         <connections>
@@ -318,9 +364,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2M0-GN-16X">
-                                <rect key="frame" x="0.0" y="798" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2M0-GN-16X">
+                                <rect key="frame" x="0.0" y="793" width="414" height="49"/>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <barButtonItem title="Back" id="KIr-E1-Yus">
@@ -331,17 +376,39 @@
                                 </items>
                                 <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UfR-5O-jjQ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UfR-5O-jjQ">
                                 <rect key="frame" x="344" y="38" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="b9d-Tr-Qyy"/>
+                                    <constraint firstAttribute="width" constant="50" id="f0R-1X-vgN"/>
+                                </constraints>
                                 <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" backgroundImage="plus" catalog="system"/>
                                 <connections>
                                     <action selector="addItem:" destination="8Wg-qG-dw8" eventType="touchUpInside" id="Ucr-kY-dAE"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checklist" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1g-J2-ObP">
+                                <rect key="frame" x="20" y="40.5" width="106" height="45"/>
+                                <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="30"/>
+                                <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="2M0-GN-16X" secondAttribute="bottom" id="Ads-TU-dos"/>
+                            <constraint firstItem="9hl-IR-Svf" firstAttribute="leading" secondItem="4Yp-ho-X7E" secondAttribute="leading" constant="2" id="IYc-JI-zgU"/>
+                            <constraint firstItem="2M0-GN-16X" firstAttribute="leading" secondItem="4Yp-ho-X7E" secondAttribute="leading" id="Nkb-1R-0OA"/>
+                            <constraint firstItem="2M0-GN-16X" firstAttribute="top" secondItem="9hl-IR-Svf" secondAttribute="bottom" constant="54" id="Wx6-e1-LaV"/>
+                            <constraint firstItem="g1g-J2-ObP" firstAttribute="leading" secondItem="4Yp-ho-X7E" secondAttribute="leading" constant="20" id="XRf-TY-xSn"/>
+                            <constraint firstAttribute="trailing" secondItem="9hl-IR-Svf" secondAttribute="trailing" constant="-2" id="ZFc-g2-sJf"/>
+                            <constraint firstItem="g1g-J2-ObP" firstAttribute="centerY" secondItem="UfR-5O-jjQ" secondAttribute="centerY" id="bik-gR-cMY"/>
+                            <constraint firstItem="4Yp-ho-X7E" firstAttribute="trailing" secondItem="UfR-5O-jjQ" secondAttribute="trailing" constant="20" id="iG4-0j-cYc"/>
+                            <constraint firstItem="UfR-5O-jjQ" firstAttribute="top" secondItem="4Yp-ho-X7E" secondAttribute="top" constant="36" id="k52-Pl-lJt"/>
+                            <constraint firstItem="9hl-IR-Svf" firstAttribute="top" secondItem="UfR-5O-jjQ" secondAttribute="bottom" constant="65" id="o6K-WJ-bl2"/>
+                            <constraint firstItem="2M0-GN-16X" firstAttribute="trailing" secondItem="4Yp-ho-X7E" secondAttribute="trailing" id="qo1-Jv-3as"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="4Yp-ho-X7E"/>
                     </view>
                     <navigationItem key="navigationItem" id="a3a-BI-YuJ"/>
@@ -355,9 +422,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="checkmark.rectangle.fill" catalog="system" width="64" height="46"/>
-        <image name="map.fill" catalog="system" width="64" height="56"/>
-        <image name="paperplane.fill" catalog="system" width="64" height="60"/>
-        <image name="plus" catalog="system" width="64" height="56"/>
+        <image name="checkmark.rectangle.fill" catalog="system" width="128" height="93"/>
+        <image name="map.fill" catalog="system" width="128" height="113"/>
+        <image name="paperplane.fill" catalog="system" width="128" height="121"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
     </resources>
 </document>
