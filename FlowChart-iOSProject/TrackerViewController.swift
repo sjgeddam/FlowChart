@@ -21,6 +21,8 @@ protocol newSymptom {
 
 class TrackerViewController: UIViewController, UIPopoverPresentationControllerDelegate, UITableViewDelegate, UITableViewDataSource, newSymptom, todaysDate {
 
+    @IBOutlet weak var flowImage: UIImageView!
+    @IBOutlet weak var moodImage: UIImageView!
     let cellReuseIdentifier = "cell"
     let cellSpacingHeight: CGFloat = 5
     var customTableViewCellIdentifier = "symptomCell"

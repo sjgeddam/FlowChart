@@ -194,6 +194,8 @@
                     <navigationItem key="navigationItem" id="WY8-Iv-Zi5"/>
                     <connections>
                         <outlet property="date" destination="HdL-7x-E34" id="jQJ-zR-JPp"/>
+                        <outlet property="flowImage" destination="4hD-Q8-732" id="mpR-Et-xhU"/>
+                        <outlet property="moodImage" destination="48a-o0-oyo" id="FeV-kJ-lZq"/>
                         <outlet property="symptomsTable" destination="enJ-yV-R8a" id="sio-Ih-HBl"/>
                     </connections>
                 </viewController>

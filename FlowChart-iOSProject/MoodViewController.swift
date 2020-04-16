@@ -11,7 +11,10 @@ import CoreData
 import Firebase
 import FirebaseAuth
 
-class MoodViewController: UIViewController {
+
+class MoodViewController: UIViewController{
+
+    
     
     var delegate:todaysDate?
     var currdate: String = ""
