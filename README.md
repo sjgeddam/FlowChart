@@ -16,6 +16,12 @@
 * Worked with Abby to accurately update the display based on user core data 
 
 **Shannon Radey**
+* Calendar
+* Added functionality to the calendar story board to display icons for symptoms, ovulation, or periods as well as sliding to
+display the previous or next month as well as selecting a date to segue to tracker for that date.
+* Added design design aspects to tracker as well as appropriate segues  
+* Put in constraints on the calendar, tracker, login, settings, and resources pages so the displays can work on iPhones 8 through iPhone 11 Pro Max
+* Added minimal design aspects to symptoms storyboard
 
 **Soujanya Geddam**
 * Built storyboards for tracker screens including symptoms, mood, and flow 
