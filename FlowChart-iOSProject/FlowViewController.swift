@@ -157,26 +157,29 @@ class FlowViewController: UIViewController {
             }
             storeFlow(flowType: "light")
         }
-        if (mediumdata.isEqual(mediumfill)) {
+        else if (mediumdata.isEqual(mediumfill)) {
             if (lightSelected || heavySelected || spottingSelected) {
                 deleteFlow()
                 resetbools()
             }
             storeFlow(flowType: "medium")
         }
-        if (heavydata.isEqual(heavyfill)) {
+        else if (heavydata.isEqual(heavyfill)) {
             if (lightSelected || mediumSelected || spottingSelected) {
                 deleteFlow()
                 resetbools()
             }
             storeFlow(flowType: "heavy")
         }
-        if (spottingdata.isEqual(spottingfill)) {
+        else if (spottingdata.isEqual(spottingfill)) {
             if (lightSelected || mediumSelected || heavySelected) {
                 deleteFlow()
                 resetbools()
             }
             storeFlow(flowType: "spotting")
+        }
+        else {
+            deleteFlow()
         }
         self.navigationController?.popViewController(animated: true)
     }
@@ -323,6 +326,9 @@ class FlowViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let fetchedResults = retrieveFlow()
+        if fetchedResults.count == 0 {
+            return
+        }
         let item = fetchedResults[0]
         
         context.delete(item)

@@ -196,36 +196,37 @@ class MoodViewController: UIViewController{
             }
             storeMood(moodType: "smile")
         }
-        if (happydata.isEqual(happyfill)) {
+        else if (happydata.isEqual(happyfill)) {
             if (smileSelected || neutralSelected || sadSelected || upsetSelected) {
                 deleteMood()
                 resetbools()
             }
             storeMood(moodType: "happy")
         }
-        
-        if (neutraldata.isEqual(neutralfill)) {
+        else if (neutraldata.isEqual(neutralfill)) {
             if (smileSelected || happySelected || sadSelected || upsetSelected) {
                 deleteMood()
                 resetbools()
             }
             storeMood(moodType: "neutral")
         }
-        if (saddata.isEqual(sadfill)) {
+        else if (saddata.isEqual(sadfill)) {
             if (smileSelected || happySelected || neutralSelected || upsetSelected) {
                 deleteMood()
                 resetbools()
             }
             storeMood(moodType: "sad")
         }
-        if (upsetdata.isEqual(upsetfill)) {
+        else if (upsetdata.isEqual(upsetfill)) {
             if (smileSelected || happySelected || neutralSelected || sadSelected) {
                 deleteMood()
                 resetbools()
             }
             storeMood(moodType: "upset")
         }
-        
+        else {
+            deleteMood()
+        }
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -274,6 +275,9 @@ class MoodViewController: UIViewController{
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let fetchedResults = retrieveMood()
+        if fetchedResults.count == 0 {
+            return
+        }
         let item = fetchedResults[0]
         
         context.delete(item)
