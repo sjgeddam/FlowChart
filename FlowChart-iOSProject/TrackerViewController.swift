@@ -61,6 +61,30 @@ class TrackerViewController: UIViewController, UIPopoverPresentationControllerDe
          return cell
      }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            //print("delete")
+            deleteItem(index: indexPath.row)
+            symptomsTable.reloadData()
+        }
+    }
+    
+    func deleteItem(index: Int) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchedResults = retrieveSymptoms()
+        let item = fetchedResults[index]
+        
+        context.delete(item)
+        do {
+            try context.save()
+        } catch {
+            // If an error occurs
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+    }
     
     func addSymptom(newsymptom:String) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
