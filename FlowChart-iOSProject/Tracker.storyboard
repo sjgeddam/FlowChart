@@ -28,7 +28,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="hV9-Uz-Hxh"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="symptomCell" translatesAutoresizingMaskIntoConstraints="NO" id="UQ6-fb-dPt" userLabel="symptomCell" customClass="CustomTableViewCell" customModule="FlowChart_iOSProject" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="symptomCell" translatesAutoresizingMaskIntoConstraints="NO" id="UQ6-fb-dPt" userLabel="symptomCell" customClass="CustomTableViewCell" customModule="FlowChart_iOSProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="394" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UQ6-fb-dPt" id="jEr-d3-Mfk">
@@ -212,25 +212,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter a new symptom" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O2w-Yh-6pX">
-                                <rect key="frame" x="61" y="314" width="246" height="34"/>
-                                <color key="backgroundColor" red="0.97647058823529409" green="0.83137254901960778" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="61" y="425" width="246" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="wSa-fA-b7U"/>
                                     <constraint firstAttribute="width" constant="246" id="yin-9O-tYR"/>
                                 </constraints>
+                                <color key="textColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3RR-5b-BPh">
-                                <rect key="frame" x="61" y="69" width="292" height="33"/>
-                                <color key="backgroundColor" red="0.97647058823529409" green="0.83137254901960778" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="61" y="180" width="292" height="33"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="N8Z-ou-rHh"/>
                                     <constraint firstAttribute="width" constant="292" id="yKO-tg-Dbv"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="22"/>
+                                <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="24"/>
                                 <state key="normal" title="  mood swings">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -242,15 +244,15 @@
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36Y-a1-j2d">
-                                <rect key="frame" x="61" y="122" width="292" height="34"/>
-                                <color key="backgroundColor" red="0.97647058823529409" green="0.83137254901960778" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="61" y="233" width="292" height="34"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="292" id="td7-qp-IjU"/>
                                     <constraint firstAttribute="height" constant="34" id="xsS-3v-Ian"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="22"/>
+                                <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="24"/>
                                 <state key="normal" title="  cramping">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -262,15 +264,15 @@
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tQM-Pt-nPi">
-                                <rect key="frame" x="61" y="176" width="292" height="34"/>
-                                <color key="backgroundColor" red="0.97647058823529409" green="0.83137254901960778" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="61" y="287" width="292" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="292" id="2tE-2g-pHf"/>
                                     <constraint firstAttribute="height" constant="34" id="YLj-XD-V4D"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="22"/>
+                                <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="24"/>
                                 <state key="normal" title="  lower back pain">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -282,15 +284,15 @@
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9G-ec-Qyk">
-                                <rect key="frame" x="61" y="230" width="292" height="34"/>
-                                <color key="backgroundColor" red="0.97647058823529409" green="0.83137254901960778" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="61" y="341" width="292" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="292" id="Mja-Ee-6OY"/>
                                     <constraint firstAttribute="height" constant="34" id="xAj-Hr-jQg"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="22"/>
+                                <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="24"/>
                                 <state key="normal" title="  low energy">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -302,31 +304,51 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tde-ZS-Etv" customClass="pop">
-                                <rect key="frame" x="316" y="315" width="37" height="33"/>
+                                <rect key="frame" x="316" y="426" width="37" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="37" id="XO9-PK-MsB"/>
                                     <constraint firstAttribute="height" constant="34.329999999999998" id="x3Z-HX-lOi"/>
                                 </constraints>
-                                <color key="tintColor" red="0.96078431369999995" green="0.61568627450000002" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" backgroundImage="checkmark.circle" catalog="system"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" backgroundImage="checkmark.circle" catalog="system">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="onNewSymptom:" destination="VgA-Z6-ObZ" eventType="touchUpInside" id="Urw-eU-lX2"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="what are your" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UeB-my-nb0">
+                                <rect key="frame" x="30" y="39" width="194.66666666666666" height="52.666666666666657"/>
+                                <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="35"/>
+                                <color key="textColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="symptoms today?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1bq-Pz-ipg">
+                                <rect key="frame" x="30" y="67" width="301" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="42"/>
+                                <color key="textColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="3RR-5b-BPh" firstAttribute="centerX" secondItem="nkE-lr-EHt" secondAttribute="centerX" id="0nu-5L-Kof"/>
                             <constraint firstItem="tQM-Pt-nPi" firstAttribute="top" secondItem="36Y-a1-j2d" secondAttribute="bottom" constant="20" id="1Xe-cV-97U"/>
                             <constraint firstItem="O2w-Yh-6pX" firstAttribute="leading" secondItem="o9G-ec-Qyk" secondAttribute="leading" id="60g-4e-7t1"/>
+                            <constraint firstItem="1bq-Pz-ipg" firstAttribute="top" secondItem="UeB-my-nb0" secondAttribute="bottom" constant="-24.666666666666657" id="ExY-R3-Jb7"/>
+                            <constraint firstItem="3RR-5b-BPh" firstAttribute="top" secondItem="1bq-Pz-ipg" secondAttribute="bottom" constant="50" id="Gi1-zk-6nt"/>
                             <constraint firstItem="36Y-a1-j2d" firstAttribute="top" secondItem="3RR-5b-BPh" secondAttribute="bottom" constant="20" id="IWt-k3-6hv"/>
                             <constraint firstItem="O2w-Yh-6pX" firstAttribute="top" secondItem="o9G-ec-Qyk" secondAttribute="bottom" constant="50" id="JGz-LT-kqy"/>
                             <constraint firstItem="3RR-5b-BPh" firstAttribute="centerX" secondItem="nkE-lr-EHt" secondAttribute="centerX" id="KBF-1E-WuS"/>
+                            <constraint firstItem="1bq-Pz-ipg" firstAttribute="leading" secondItem="UeB-my-nb0" secondAttribute="leading" id="NDU-jJ-MXc"/>
                             <constraint firstItem="o9G-ec-Qyk" firstAttribute="top" secondItem="tQM-Pt-nPi" secondAttribute="bottom" constant="20" id="Rtu-JB-dr5"/>
-                            <constraint firstItem="3RR-5b-BPh" firstAttribute="top" secondItem="oh4-aK-FEW" secondAttribute="top" constant="69" id="bzl-nc-4iv"/>
                             <constraint firstItem="o9G-ec-Qyk" firstAttribute="centerX" secondItem="nkE-lr-EHt" secondAttribute="centerX" id="jwR-SA-mwE"/>
                             <constraint firstItem="tde-ZS-Etv" firstAttribute="centerY" secondItem="O2w-Yh-6pX" secondAttribute="centerY" id="qdg-89-IQU"/>
+                            <constraint firstItem="UeB-my-nb0" firstAttribute="top" secondItem="oh4-aK-FEW" secondAttribute="top" constant="20" id="rlp-hm-zMT"/>
                             <constraint firstItem="36Y-a1-j2d" firstAttribute="centerX" secondItem="nkE-lr-EHt" secondAttribute="centerX" id="sgN-8y-qKj"/>
+                            <constraint firstItem="UeB-my-nb0" firstAttribute="leading" secondItem="oh4-aK-FEW" secondAttribute="leading" constant="30" id="skX-kz-SeC"/>
                             <constraint firstItem="tde-ZS-Etv" firstAttribute="trailing" secondItem="o9G-ec-Qyk" secondAttribute="trailing" id="slR-dl-qJt"/>
                             <constraint firstItem="tQM-Pt-nPi" firstAttribute="centerX" secondItem="nkE-lr-EHt" secondAttribute="centerX" id="uJV-4m-35n"/>
                         </constraints>
