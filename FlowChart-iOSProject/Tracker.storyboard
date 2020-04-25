@@ -206,7 +206,7 @@
         <!--Popover View Controller-->
         <scene sceneID="qtB-8o-Kzz">
             <objects>
-                <viewController storyboardIdentifier="popoverVC" wantsFullScreenLayout="YES" id="VgA-Z6-ObZ" customClass="popoverViewController" customModule="FlowChart_iOSProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="popoverVC" modalPresentationStyle="overFullScreen" id="VgA-Z6-ObZ" customClass="popoverViewController" customModule="FlowChart_iOSProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="scrollView" id="nkE-lr-EHt" userLabel="scrollView" customClass="UIScrollView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="650"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -361,6 +361,7 @@
                         <viewLayoutGuide key="safeArea" id="oh4-aK-FEW"/>
                     </view>
                     <navigationItem key="navigationItem" id="mPK-sD-n9R"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <size key="freeformSize" width="414" height="670"/>
                     <connections>
                         <outlet property="scrollView" destination="nkE-lr-EHt" id="5pM-eL-jq2"/>

@@ -56,6 +56,9 @@ class popoverViewController: UIViewController {
     
     // make textfield visible when keyboard is there
     @IBAction func textFieldEditingDidBegin(_ sender: Any) {
+        if symptomTF.text == "Enter a new symptom" {
+            symptomTF.text = ""
+        }
         self.scrollView.setContentOffset(CGPoint.init(x: 0, y: symptomTF.frame.maxY - self.view.frame.height * 0.55 ), animated: true)
     }
     
@@ -69,6 +72,9 @@ class popoverViewController: UIViewController {
     @objc func tapRecognized() {
         self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         view.endEditing(true)
+        if symptomTF.text == "" {
+            symptomTF.text = "Enter a new symptom"
+        }
     }
     /*
     // MARK: - Navigation
