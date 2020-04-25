@@ -206,8 +206,8 @@
         <!--Popover View Controller-->
         <scene sceneID="qtB-8o-Kzz">
             <objects>
-                <viewController storyboardIdentifier="popoverVC" id="VgA-Z6-ObZ" customClass="popoverViewController" customModule="FlowChart_iOSProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="nkE-lr-EHt">
+                <viewController storyboardIdentifier="popoverVC" wantsFullScreenLayout="YES" id="VgA-Z6-ObZ" customClass="popoverViewController" customModule="FlowChart_iOSProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="scrollView" id="nkE-lr-EHt" userLabel="scrollView" customClass="UIScrollView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="650"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -221,6 +221,9 @@
                                 <color key="textColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="ReemKufi-Regular" family="Reem Kufi" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldEditingDidBegin:" destination="VgA-Z6-ObZ" eventType="editingDidBegin" id="FLT-gS-2xN"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3RR-5b-BPh">
                                 <rect key="frame" x="61" y="180" width="292" height="33"/>
@@ -333,6 +336,9 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <accessibility key="accessibilityConfiguration" identifier="scrollView">
+                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                        </accessibility>
                         <constraints>
                             <constraint firstItem="3RR-5b-BPh" firstAttribute="centerX" secondItem="nkE-lr-EHt" secondAttribute="centerX" id="0nu-5L-Kof"/>
                             <constraint firstItem="tQM-Pt-nPi" firstAttribute="top" secondItem="36Y-a1-j2d" secondAttribute="bottom" constant="20" id="1Xe-cV-97U"/>
@@ -346,7 +352,7 @@
                             <constraint firstItem="o9G-ec-Qyk" firstAttribute="top" secondItem="tQM-Pt-nPi" secondAttribute="bottom" constant="20" id="Rtu-JB-dr5"/>
                             <constraint firstItem="o9G-ec-Qyk" firstAttribute="centerX" secondItem="nkE-lr-EHt" secondAttribute="centerX" id="jwR-SA-mwE"/>
                             <constraint firstItem="tde-ZS-Etv" firstAttribute="centerY" secondItem="O2w-Yh-6pX" secondAttribute="centerY" id="qdg-89-IQU"/>
-                            <constraint firstItem="UeB-my-nb0" firstAttribute="top" secondItem="oh4-aK-FEW" secondAttribute="top" constant="20" id="rlp-hm-zMT"/>
+                            <constraint firstItem="UeB-my-nb0" firstAttribute="top" relation="lessThanOrEqual" secondItem="oh4-aK-FEW" secondAttribute="top" constant="20" id="rlp-hm-zMT"/>
                             <constraint firstItem="36Y-a1-j2d" firstAttribute="centerX" secondItem="nkE-lr-EHt" secondAttribute="centerX" id="sgN-8y-qKj"/>
                             <constraint firstItem="UeB-my-nb0" firstAttribute="leading" secondItem="oh4-aK-FEW" secondAttribute="leading" constant="30" id="skX-kz-SeC"/>
                             <constraint firstItem="tde-ZS-Etv" firstAttribute="trailing" secondItem="o9G-ec-Qyk" secondAttribute="trailing" id="slR-dl-qJt"/>
@@ -354,8 +360,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oh4-aK-FEW"/>
                     </view>
+                    <navigationItem key="navigationItem" id="mPK-sD-n9R"/>
                     <size key="freeformSize" width="414" height="670"/>
                     <connections>
+                        <outlet property="scrollView" destination="nkE-lr-EHt" id="5pM-eL-jq2"/>
                         <outlet property="symptomTF" destination="O2w-Yh-6pX" id="c9p-Is-X3t"/>
                     </connections>
                 </viewController>

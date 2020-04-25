@@ -10,6 +10,7 @@ import UIKit
 
 class popoverViewController: UIViewController {
     
+    @IBOutlet var scrollView: UIScrollView!
     var delegate:newSymptom?
     var symptom:String?
     
@@ -46,10 +47,29 @@ class popoverViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+        let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(popoverViewController.tapRecognized))
+        singleTapGestureRecognizer.numberOfTapsRequired = 1
+        singleTapGestureRecognizer.isEnabled = true
+        singleTapGestureRecognizer.cancelsTouchesInView = false
+        scrollView.addGestureRecognizer(singleTapGestureRecognizer)
     }
     
+    // make textfield visible when keyboard is there
+    @IBAction func textFieldEditingDidBegin(_ sender: Any) {
+        self.scrollView.setContentOffset(CGPoint.init(x: 0, y: symptomTF.frame.maxY - self.view.frame.height * 0.55 ), animated: true)
+    }
+    
+    // code to dismiss keyboard when user clicks on background
+
+    func textFieldShouldReturn(textField:UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    @objc func tapRecognized() {
+        self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+        view.endEditing(true)
+    }
     /*
     // MARK: - Navigation
 
