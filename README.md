@@ -1,4 +1,4 @@
-# FlowChart README
+# FlowChart (Group 2) README
 ## Contributions
 **Aparna Krishnan** (Release 25%, Overall 25%)
 * Location-based resources screen using MapKit and CoreLocation, dynamically uses location to provide Apple recommended clinics. 

@@ -27,39 +27,8 @@ class LocationViewController: UIViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
-        
         // Do any additional setup after loading the view.
     }
-    
-    func plotClinicPoints() {
-        var count = 0
-        let request = MKLocalSearch.Request()
-        request.naturalLanguageQuery = "Women Clinic"
-        request.region = mapKit.region
-        
-        let search = MKLocalSearch(request: request)
-        search.start { response, error in
-            guard let response = response else {
-                return
-            }
-            for item in response.mapItems.prefix(3) {
-                let label = UILabel(frame: CGRect(x: 20, y: 160 + count * 40, width: 375, height: 35))
-                label.textAlignment = .left
-                label.font = UIFont (name: "ReemKufi-Regular", size: 25)
-                label.text = item.name
-                self.view.addSubview(label)
-                count += 1
-                let placemark = item.placemark
-                let lat = placemark.location?.coordinate.latitude
-                let lon = placemark.location?.coordinate.longitude
-                let annotation = MKPointAnnotation()
-                annotation.title = item.name
-                annotation.coordinate = CLLocationCoordinate2D(latitude: lat!, longitude: lon!)
-                self.mapKit.addAnnotation(annotation)
-            }
-        }
-    }
-    
 
 }
 
@@ -77,10 +46,14 @@ extension LocationViewController : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         let location = locations.first
+        let request = MKLocalSearch.Request()
+        
+        print(location!.coordinate)
         if location != nil {
-            let span = MKCoordinateSpan.init(latitudeDelta: 0.5, longitudeDelta: 0.5)
+            let span = MKCoordinateSpan.init(latitudeDelta: 0.06, longitudeDelta: 0.06)
             let region = MKCoordinateRegion.init(center: location!.coordinate, span: span)
             mapKit.setRegion(region, animated: true)
+            request.region = region
         }
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(location!) { (placemarksArray, error) in
@@ -89,6 +62,31 @@ extension LocationViewController : CLLocationManagerDelegate {
                 self.locationLabel.text = placemark?.locality
             }
         }
-        plotClinicPoints()
+        var count = 0
+        
+        request.naturalLanguageQuery = "Women's Health"
+        
+        let search = MKLocalSearch(request: request)
+        search.start { response, error in
+            guard let response = response else {
+                return
+            }
+            for item in response.mapItems.prefix(3) {
+                let label = UILabel(frame: CGRect(x: 20, y: 130 + count * 40, width: 375, height: 35))
+                label.textAlignment = .left
+                label.font = UIFont (name: "ReemKufi-Regular", size: 25)
+                label.text = item.name
+                self.view.addSubview(label)
+                count += 1
+                let placemark = item.placemark
+                let lat = placemark.location?.coordinate.latitude
+                let lon = placemark.location?.coordinate.longitude
+                let annotation = MKPointAnnotation()
+                annotation.title = item.name
+                annotation.coordinate = CLLocationCoordinate2D(latitude: lat!, longitude: lon!)
+                self.mapKit.addAnnotation(annotation)
+            }
+        }
+        
     }
 }
