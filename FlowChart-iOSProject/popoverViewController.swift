@@ -59,7 +59,10 @@ class popoverViewController: UIViewController {
         if symptomTF.text == "Enter a new symptom" {
             symptomTF.text = ""
         }
-        self.scrollView.setContentOffset(CGPoint.init(x: 0, y: symptomTF.frame.maxY - self.view.frame.height * 0.55 ), animated: true)
+        let point = CGPoint.init(x: 0, y: symptomTF.frame.maxY - self.view.frame.height * 0.55)
+        if point.y > 10 {
+            self.scrollView.setContentOffset(point, animated: true)
+        }
     }
     
     // code to dismiss keyboard when user clicks on background
