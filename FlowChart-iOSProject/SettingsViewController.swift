@@ -14,6 +14,8 @@ class SettingsViewController: UIViewController {
 
     @IBOutlet weak var notificationDays: UISlider!
     @IBOutlet weak var notifLabel: UILabel!
+    var delegate: UIViewController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,6 +29,8 @@ class SettingsViewController: UIViewController {
     @IBAction func sliderValueChanged(_ sender: UISlider) {
         sender.setValue(Float(roundf(sender.value)), animated: false)
         notifLabel.text = "notify me \(sender.value) days before my predicted cycle"
+        let otherVC = delegate as! NotifDaysChanger
+        otherVC.setNotifDates(days: Int(sender.value))
     }
     
     @IBAction func logout(_ sender: Any) {

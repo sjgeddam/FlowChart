@@ -10,13 +10,19 @@ import UIKit
 import CoreData
 import Firebase
 import FirebaseAuth
+import UserNotifications
 
 // global flags, will probably need to be stored in core data and/or firebase
 var startDate:Date = Date()
 var endDate:Date = Date()
 var alreadyMoved:Bool = false
 
-class MainViewController: UIViewController {
+protocol NotifDaysChanger {
+    func setNotifDates(days: Int)
+}
+class MainViewController: UIViewController, UNUserNotificationCenterDelegate, NotifDaysChanger {
+    
+    
     
     // UI variables
     @IBOutlet weak var homeBackgroundView: UIView!
@@ -51,6 +57,7 @@ class MainViewController: UIViewController {
     // date variables
     let dateFormatter = DateFormatter()
     let today = Date()
+    var notifDays = 3
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -137,33 +144,10 @@ class MainViewController: UIViewController {
         menuTrackerButtonLabel.titleLabel?.font = UIFont (name: "ReemKufi-Regular", size: 24)
         menuResourcesButton.layer.cornerRadius = 40
         menuResourcesButtonLabel.titleLabel?.font = UIFont (name: "ReemKufi-Regular", size: 24)
+        UNUserNotificationCenter.current().delegate = self
     }
     
-//    func retrieveFlow() -> [NSManagedObject] {
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        let context = appDelegate.persistentContainer.viewContext
-//        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Flow")
-//        var fetchedResults:[NSManagedObject]? = nil
-//
-//        let user = Auth.auth().currentUser
-//        if ((user) != nil) {
-//            let predicate = NSPredicate(format: "userID == %@", user!.uid)
-//            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate])
-//            do {
-//                try fetchedResults = context.fetch(request) as? [NSManagedObject]
-//            } catch {
-//                // If an error occurs
-//                let nserror = error as NSError
-//                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-//                abort()
-//            }
-//            return(fetchedResults)!
-//        } else {
-//            print("no results")
-//            return []
-//        }
-//    }
-//
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         let day = Calendar.current.component(.day, from: NSDate() as Date)
@@ -240,13 +224,106 @@ class MainViewController: UIViewController {
         }
         if (!onPeriod && (today <= startDate || Calendar.current.isDateInToday(startDate))) {
             periodWaiting()
+            scheduleNotification(type: "WAITING")
         }
         else if (!onPeriod) {
             periodLate()
+            scheduleNotification(type: "LATE")
         }
         else {
             periodStarted()
+            scheduleNotification(type: "ONPERIOD")
         }
+    }
+    func setNotifDates(days: Int) {
+        notifDays = days
+    }
+    func scheduleNotification(type: String) {
+        let center = UNUserNotificationCenter.current()
+        var currentNotif:UNNotificationRequest? = nil
+        // finding the current pending notification
+        center.getPendingNotificationRequests { (notifications) in
+            for notif in notifications {
+                currentNotif = notif
+            }
+        }
+        // schedules 3 types of notifications -
+        // one that prompts you a certain number of days before
+        // one that reminds you to log your period ending
+        // one that reminds you that you were late/asks for confirmation
+        let notification = UNMutableNotificationContent()
+        // preventing a double add
+        if type == "WAITING" && !(currentNotif != nil && currentNotif?.identifier == "WAITING") {
+            // get rid of old pending notifs if status changed
+            center.removePendingNotificationRequests(withIdentifiers: ["LATE", "ONPERIOD"])
+            notification.title = "Period Prediction"
+            notification.subtitle = "Did your period start?"
+            notification.body = "Your period is predicted to start in " + String(notifDays) + " days."
+            // scheduling the notification to show up this notif days before
+            var dayComponent = DateComponents()
+            dayComponent.day = notifDays * -1
+            
+            var nextDate = Calendar.current.date(byAdding: dayComponent, to: startDate) ?? Date()
+            var component = Calendar.current.dateComponents([.year, .month, .day], from: nextDate)
+            component.hour = 10
+            // if its too little days before setting, show the notif in 2 hours
+            if nextDate < Date() {
+                nextDate = Date()
+                let hoursFromNow = (Calendar.current.component(.hour, from: Date()) + 2) % 24
+                component.hour = hoursFromNow
+                let daysUntilStart = Calendar.current.dateComponents([.day], from: today, to: startDate).day!
+                notification.body = "Your period is predicted to start in " + String(daysUntilStart) + " days."
+            }
+            
+            let trigger = UNCalendarNotificationTrigger(dateMatching: component, repeats: false)
+            let request = UNNotificationRequest(identifier: type,
+            content: notification,
+            trigger: trigger)
+            
+            center.add(request) { (error) in}
+        }
+        // preventing a double add
+        else if type == "ONPERIOD" && !(currentNotif != nil && currentNotif?.identifier == "ONPERIOD") {
+            // get rid of old pending notifs if status changed
+            center.removePendingNotificationRequests(withIdentifiers: ["LATE", "WAITING"])
+            
+            notification.title = "Period Prediction"
+            notification.subtitle = "Did your period end?"
+            notification.body = "Your period was predicted to end today. Log the end in FlowChart"
+            
+            var component = Calendar.current.dateComponents([.year, .month, .day], from: endDate)
+            component.hour = 10
+            let trigger = UNCalendarNotificationTrigger(dateMatching: component, repeats: false)
+            let request = UNNotificationRequest(identifier: type,
+            content: notification,
+            trigger: trigger)
+            
+            center.add(request) { (error) in}
+
+        }
+        // preventing a double add
+        else if type == "LATE" && !(currentNotif != nil && currentNotif?.identifier == "LATE") {
+            // get rid of old pending notifs if status changed
+            center.removePendingNotificationRequests(withIdentifiers: ["ONPERIOD", "WAITING"])
+            
+            notification.title = "Period Prediction"
+            notification.subtitle = "Did your period start?"
+            var dayComponent = DateComponents()
+            dayComponent.day = notifDays
+            let nextDate = Calendar.current.date(byAdding: dayComponent, to: Date()) ?? Date()
+            let dayDifference = Calendar.current.dateComponents([.day], from: startDate, to: today).day!
+            notification.body = "Last time you logged in your period was " + String(dayDifference) + " days late."
+            var component = Calendar.current.dateComponents([.year, .month, .day], from: nextDate)
+            component.hour = 10
+            let trigger = UNCalendarNotificationTrigger(dateMatching: component, repeats: false)
+            let request = UNNotificationRequest(identifier: type,
+            content: notification,
+            trigger: trigger)
+            
+            center.add(request) { (error) in}
+        }
+        
+        
     }
     // period has not yet started
     func periodWaiting () {
@@ -446,6 +523,10 @@ class MainViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToTracker" {
             let nextVC = segue.destination as? TrackerViewController
+            nextVC?.delegate = self
+        }
+        if segue.identifier == "segueToSettings" {
+            let nextVC = segue.destination as? SettingsViewController
             nextVC?.delegate = self
         }
     }

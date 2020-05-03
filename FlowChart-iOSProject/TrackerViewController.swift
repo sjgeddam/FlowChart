@@ -136,7 +136,6 @@ class TrackerViewController: UIViewController, UIPopoverPresentationControllerDe
     }
     
     func retrieveSymptoms() -> [NSManagedObject] {
-        print("in retrieveing data!!!!")
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Symptom")
@@ -156,10 +155,8 @@ class TrackerViewController: UIViewController, UIPopoverPresentationControllerDe
                 NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
                 abort()
             }
-            print("before returning fetched results")
             return(fetchedResults)!
         } else {
-            print("no results")
             return []
         }
     }
