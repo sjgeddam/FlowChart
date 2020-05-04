@@ -245,6 +245,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, No
         center.getPendingNotificationRequests { (notifications) in
             for notif in notifications {
                 currentNotif = notif
+                print(notif.content.body)
             }
         }
         // schedules 3 types of notifications -
@@ -258,7 +259,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, No
             center.removePendingNotificationRequests(withIdentifiers: ["LATE", "ONPERIOD"])
             notification.title = "Period Prediction"
             notification.subtitle = "Did your period start?"
-            notification.body = "Your period is predicted to start in " + String(notifDays) + " days."
+            notification.body = "Your period is predicted to start in " + String(notifDays) + " day(s)."
             // scheduling the notification to show up this notif days before
             var dayComponent = DateComponents()
             dayComponent.day = notifDays * -1

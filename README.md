@@ -1,4 +1,44 @@
-# FlowChart (Group 2) README
+# FlowChart README
+Group number: 2
+Team members: Aparna Krishnan, Madeline Huang, Shannon Radey, Soujanya Geddam
+Name of project: FlowChart
+Dependencies: Xcode 10.2, Swift 4
+
+Special Instructions:
+
+| Feature                                | Description                                                         | Release Planned | Deviations (if any) | Who/Percentage worked on  |
+|----------------------------------------|---------------------------------------------------------------------|-----------------|---------------------|---------------------------|
+| Login                                  | Allows user to create account and login using Firebase              |                 |                     | Abby 100%                 |
+| Main View                              |                                                                     |                 |                     |                           |
+| Tracker View                           |                                                                     |                 |                     |                           |
+| Symptoms/Mood                          |                                                                     |                 |                     |                           |
+| Calendar                               |                                                                     |                 |                     |                           |
+| Calendar + Symptom sync                |                                                                     |                 |                     |                           |
+| Data persistence - CoreData + Firebase |                                                                     |                 |                     |                           |
+| Settings                               | Change notification frequency Logout/create a new account           |                 |                     | Abby 100%                 |
+| Resources (Location, News, Checklist)  | Resources screens Clinic finder relevant news pages, and checklist  |                 |                     | Abby 100%                 |
+| Notifications                          | Local notifications  for the 3 modes  (on period, late, waiting)    |                 |                     | Abby 100%                 |
+| Design                                 | Color schemes, fonts,  coordinating common  look for buttons, etc.  |                 |                     | Abby 10%                  |
+| Constraints                            |                                                                     |                 |                     |                           |
+| Etc.                                   |                                                                     |                 |                     |                           |
+| Etc.                                   |                                                                     |                 |                     |                           |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Contributions
 **Aparna Krishnan** (Release 25%, Overall 25%)
 * Location-based resources screen using MapKit and CoreLocation, dynamically uses location to provide Apple recommended clinics. 
