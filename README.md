@@ -11,15 +11,16 @@ Special Instructions:
 | Login                                  | Allows user to create account and login using Firebase              |                 |                     | Abby 100%                 |
 | Main View                              |                                                                     |                 |                     |                           |
 | Tracker View                           |                                                                     |                 |                     |                           |
-| Symptoms/Mood                          |                                                                     |                 |                     |                           |
-| Calendar                               |                                                                     |                 |                     |                           |
+| Symptoms View                          | Allows user to add symptoms and see on tracker page                 | Alpha           | None                | Shannon 50%               |
+| Mood View                              |                                                                     |                 |                     |                           |
+| Calendar                               | Displays user information, allows users to go to any day's tracker  | Alpha           | None                | Shannon 100%              |
 | Calendar + Symptom sync                |                                                                     |                 |                     |                           |
 | Data persistence - CoreData + Firebase |                                                                     |                 |                     |                           |
 | Settings                               | Change notification frequency Logout/create a new account           |                 |                     | Abby 100%                 |
 | Resources (Location, News, Checklist)  | Resources screens Clinic finder relevant news pages, and checklist  |                 |                     | Abby 100%                 |
 | Notifications                          | Local notifications  for the 3 modes  (on period, late, waiting)    |                 |                     | Abby 100%                 |
-| Design                                 | Color schemes, fonts,  coordinating common  look for buttons, etc.  |                 |                     | Abby 10%                  |
-| Constraints                            |                                                                     |                 |                     |                           |
+| Design                                 | Color schemes, fonts,  coordinating common look for buttons, etc.   |                 |                     | Abby 10%                  |
+| Constraints                            | Set auto-layouts so design is maintained on every device            | Final           | None                | Shannon 50%               |
 | Etc.                                   |                                                                     |                 |                     |                           |
 | Etc.                                   |                                                                     |                 |                     |                           |
 
