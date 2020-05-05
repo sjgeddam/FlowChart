@@ -8,20 +8,18 @@ Special Instructions:
 
 | Feature                                | Description                                                         | Release Planned | Deviations (if any) | Who/Percentage worked on  |
 |----------------------------------------|---------------------------------------------------------------------|-----------------|---------------------|---------------------------|
-| Login                                  | Allows user to create account and login using Firebase              |                 |                     | Abby 100%                 |
+| Login                                  | Allows user to create account and login using Firebase              | Alpha           | None                | Abby 100%                 |
 | Main View                              |                                                                     |                 |                     |                           |
 | Tracker View                           |                                                                     |                 |                     |                           |
 | Symptoms View                          | Allows user to add symptoms and see on tracker page                 | Alpha           | None                | Shannon 50%               |
 | Mood View                              |                                                                     |                 |                     |                           |
 | Calendar                               | Displays user information, allows users to go to any day's tracker  | Alpha           | None                | Shannon 100%              |
-| Calendar + Symptom sync                |                                                                     |                 |                     |                           |
-| Data persistence - CoreData + Firebase |                                                                     |                 |                     |                           |
+| Data persistence - CoreData + Firebase |                                                                     |                 |                     | Abby 25%, Soujanya 75%    |
 | Settings                               | Change notification frequency Logout/create a new account           |                 |                     | Abby 100%                 |
-| Resources (Location, News, Checklist)  | Resources screens Clinic finder relevant news pages, and checklist  |                 |                     | Abby 100%                 |
-| Notifications                          | Local notifications  for the 3 modes  (on period, late, waiting)    |                 |                     | Abby 100%                 |
-| Design                                 | Color schemes, fonts,  coordinating common look for buttons, etc.   |                 |                     | Abby 10%                  |
+| Resources (Location, News, Checklist)  | Resources screens Clinic finder relevant news pages, and checklist  | Beta            | None                | Abby 100%                 |
+| Notifications                          | Local notifications  for the 3 modes  (on period, late, waiting)    | Beta            | Final               | Abby 100%                 |
+| Design                                 | Color schemes, fonts,  coordinating common look for buttons, etc.   |                 |                     | Evenly split              |
 | Constraints                            | Set auto-layouts so design is maintained on every device            | Final           | None                | Shannon 50%               |
-| Etc.                                   |                                                                     |                 |                     |                           |
 | Etc.                                   |                                                                     |                 |                     |                           |
 
 
