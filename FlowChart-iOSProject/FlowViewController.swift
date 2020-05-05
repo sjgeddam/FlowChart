@@ -248,7 +248,183 @@ class FlowViewController: UIViewController {
             flow.setValue(user?.uid, forKey: "userID")
             flow.setValue(currdate, forKey: "date")
             flow.setValue(flowType, forKey: "flowtype")
+            addCycle(date: currdate)
             
+            // Commit the changes
+            do {
+                try context.save()
+            } catch {
+                // If an error occurs
+                let nserror = error as NSError
+                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+                abort()
+            }
+        }
+    }
+    
+    func addCycle(date: String) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM dd, yyyy"
+        let d:Date = dateFormatter.date(from: date )!
+        
+        let cycle = PeriodData.retrieveItems(item: "Cycle").sorted(by: { ($0.value(forKey: "start") as! Date).compare($1.value(forKey: "start") as! Date) == .orderedDescending })
+//        var lastEnd:Date? = nil
+        
+        var addedToDatabase = false
+        for entry in cycle {
+            let start:Date = entry.value(forKey: "start") as! Date
+            let end:Date = entry.value(forKey: "end") as! Date
+            
+            
+            // check if date added is before current start
+            var dateDifference = Calendar.current.dateComponents([.day], from: d, to: start).day!
+            if dateDifference == 1 {
+                addedToDatabase = true
+                fixCycle(oldStart: start, newStart: d, newEnd: end)
+                mergeDates()
+            }
+            // check if date added is after current end
+            dateDifference = Calendar.current.dateComponents([.day], from: end, to: d).day!
+            if dateDifference == 1 {
+                addedToDatabase = true
+                fixCycle(oldStart: start, newStart: start, newEnd: d)
+                mergeDates()
+            }
+        }
+        if !addedToDatabase {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName:"Cycle")
+            var fetchedResults:[NSManagedObject]? = nil
+            let user =  Auth.auth().currentUser
+            
+            if ((user) != nil) {
+                let predicate = NSPredicate(format: "userID == %@", user!.uid)
+                let secondpredicate = NSPredicate(format: "start == %@", d as NSDate)
+                request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate, secondpredicate])
+                do {
+                    try fetchedResults = context.fetch(request) as? [NSManagedObject]
+                } catch {
+                    // If an error occurs
+                    let nserror = error as NSError
+                    NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+                    abort()
+                }
+                if fetchedResults!.count == 0 {
+                    print("adding lone date. start & end \(d)")
+                    storeCycle(start: d, end: d)
+                }
+                else {
+                    print("date \(d) already exists")
+                }
+            }
+        }
+    }
+    
+    func fixCycle(oldStart:Date, newStart:Date, newEnd:Date) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName:"Cycle")
+        var fetchedResults:[NSManagedObject]? = nil
+        let user =  Auth.auth().currentUser
+        
+        if ((user) != nil) {
+            let predicate = NSPredicate(format: "userID == %@", user!.uid)
+            let secondpredicate = NSPredicate(format: "start == %@", oldStart as NSDate)
+            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate, secondpredicate])
+            do {
+                try fetchedResults = context.fetch(request) as? [NSManagedObject]
+            } catch {
+                // If an error occurs
+                let nserror = error as NSError
+                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+                abort()
+            }
+            
+            // update old entry
+            let entry = fetchedResults![0]
+            entry.setValue(newStart, forKey: "start")
+            entry.setValue(newEnd, forKey: "end")
+            print("fixing cycle. old start \(oldStart), old end \(entry.value(forKey: "end")) - new start \(newStart), new end \(newEnd)")
+//            for entry in fetchedResults! {
+//                if entry.value(forKey: "start") as! Date == oldStart {
+//                    entry.setValue(newStart, forKey: "start")
+//                    entry.setValue(oldStart, forKey: "end")
+//                    break
+//                }
+//            }
+            do {
+                try context.save()
+            } catch {
+                // If an error occurs
+                let nserror = error as NSError
+                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+                abort()
+            }
+        }
+    }
+    
+    func mergeDates() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName:"Cycle")
+        var fetchedResults:[NSManagedObject]? = nil
+        let user =  Auth.auth().currentUser
+       
+        if ((user) != nil) {
+           let predicate = NSPredicate(format: "userID == %@", user!.uid)
+           request.predicate = predicate
+           do {
+               try fetchedResults = context.fetch(request) as? [NSManagedObject]
+           } catch {
+               // If an error occurs
+               let nserror = error as NSError
+               NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+               abort()
+           }
+           
+            // see if any entries need to be merged
+            fetchedResults = fetchedResults!.sorted(by: { ($0.value(forKey: "start") as! Date).compare($1.value(forKey: "start") as! Date) == .orderedAscending })
+            var lastEndDate = Date()
+            for (index, entry) in (fetchedResults?.enumerated())! {
+                let start = entry.value(forKey: "start") as! Date
+                let end = entry.value(forKey: "end") as! Date
+                if index != 0 {
+                    if lastEndDate == start {       // found a merge
+                        print("merging date \(start)")
+                        let oldEntry = fetchedResults![index-1]
+                        oldEntry.setValue(end, forKey: "end")
+                        context.delete(entry)
+                        break
+                    }
+                }
+                lastEndDate = end
+            }
+            
+            do {
+                try context.save()
+            } catch {
+                // If an error occurs
+                let nserror = error as NSError
+                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+                abort()
+            }
+        }
+    }
+    
+    func storeCycle(start:Date, end:Date) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let cycle = NSEntityDescription.insertNewObject(forEntityName: "Cycle", into: context)
+
+        let user = Auth.auth().currentUser
+
+        if ((user) != nil) {
+            cycle.setValue(user?.uid, forKey: "userID")
+            cycle.setValue(start, forKey: "start")
+            cycle.setValue(end, forKey: "end")
+            print("creating new cycle start \(start), end \(end)")
+
             // Commit the changes
             do {
                 try context.save()
@@ -330,8 +506,65 @@ class FlowViewController: UIViewController {
             return
         }
         let item = fetchedResults[0]
+        let start = item.value(forKey: "date")
         
         context.delete(item)
+        do {
+            try context.save()
+            deleteCycle(datestring: start as! String)
+        } catch {
+            // If an error occurs
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+        
+    }
+    
+    func deleteCycle(datestring: String) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM dd, yyyy"
+        let date:Date = dateFormatter.date(from: datestring )!
+
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let cycle = PeriodData.retrieveItems(item: "Cycle")
+        
+        if cycle.count == 0 {
+            return
+        }
+        
+        var start = Date()
+        var end = Date()
+        for entry in cycle {
+            start = entry.value(forKey: "start") as! Date
+            end = entry.value(forKey: "end") as! Date
+            if start > end {
+                let temp = end
+                end = start
+                start = temp
+            }
+            if (start ... end).contains(date) {
+                if start < date {
+                    fixCycle(oldStart: start, newStart: start, newEnd: Calendar.current.date(byAdding: .day, value: -1, to: date)!)
+                }
+                if end > date {
+                    storeCycle(start: Calendar.current.date(byAdding: .day, value: 1, to: date)!, end: end)
+                }
+                if start.compare(end) == .orderedSame {
+                    print("deleting same date entry")
+                    context.delete(entry)
+                }
+    
+            }
+//            if entry.value(forKey: "start") as! Date == date {
+//                start = entry.value(forKey: "start") as! Date
+//                end = entry.value(forKey: "end") as! Date
+//                context.delete(entry)
+//                break
+//            }
+        }
+        
         do {
             try context.save()
         } catch {

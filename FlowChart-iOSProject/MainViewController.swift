@@ -58,6 +58,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, No
     let dateFormatter = DateFormatter()
     let today = Date()
     var notifDays = 3
+    var lastStart:Date = Date()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -176,7 +177,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, No
 
         let ready = convertedArray.sorted(by: { $0.compare($1) == .orderedDescending })
         var lastEnd = Date()
-        var lastStart = Date()
+        lastStart = Date()
         var index = 0
         var max = -1
         while index + 1 < ready.count {
@@ -205,14 +206,56 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, No
             lastEnd = ready[0]
         }
 
+        var cycle:[NSManagedObject] = PeriodData.retrieveItems(item: "Cycle")
+        cycle = cycle.sorted(by: { ($0.value(forKey: "start") as! Date).compare($1.value(forKey: "start") as! Date) == .orderedAscending })
+        var lastEndDate = Date()
         if !onPeriod {
-            startDate = Calendar.current.date(byAdding: .day, value: 30, to: lastStart) ?? Date()
+            // calculate average between cycles
+            var avg = 30
+            var count = 1
+            var sum = 0
+            if (cycle.count > 1) {
+                for (index, entry) in (cycle.enumerated()) {
+                    let start = entry.value(forKey: "start") as! Date
+                    let end = entry.value(forKey: "end") as! Date
+                    print("start is \(start), end is \(end)")
+                    if index != 0 {
+                        count += 1
+                        let dateDifference = Calendar.current.dateComponents([.day], from: lastEndDate, to: start).day!
+                        sum += dateDifference
+                    }
+                    lastEndDate = end
+                }
+            }
+            if sum > 0 {
+                avg = Int(round(Double(sum)/Double(count)))
+                print("avg cycle wait time is \(avg) = (\(sum)/\(count))")
+            }
+            startDate = Calendar.current.date(byAdding: .day, value: avg, to: lastEnd) ?? Date()
             endDate = lastEnd
 
         }
         else {
+            // calculate average cycle length
+            var avg = 7
+            var count = 0
+            var sum = 0
+            if (cycle.count > 1) {
+                for entry in cycle {
+                    count += 1
+                    let start = entry.value(forKey: "start") as! Date
+                    let end = entry.value(forKey: "end") as! Date
+                    print("start is \(start), end is \(end)")
+                    let dateDifference = Calendar.current.dateComponents([.day], from: start, to: end).day!
+                    sum += dateDifference
+                }
+            }
+            if sum > 0 {
+                avg = Int(round(Double(sum)/Double(count)))
+                print("avg cycle length is \(avg) = (\(sum)/\(count))")
+            }
             startDate = lastStart
-            endDate = Calendar.current.date(byAdding: .day, value: 7, to: lastStart) ?? Date()
+            endDate = Calendar.current.date(byAdding: .day, value: avg, to: lastStart) ?? Date()
         }
         
         
@@ -328,6 +371,16 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, No
     }
     // period has not yet started
     func periodWaiting () {
+        // check if the past cycle needs to be logged
+        let cycle:[NSManagedObject] = PeriodData.retrieveItems(item: "Cycle")
+        var endDates:[Date] = []
+        for date in cycle {
+            endDates.append(date.value(forKey: "end") as! Date)
+        }
+        if (!endDates.contains(endDate) && PeriodData.retrieveItems(item: "Flow").count != 0) {
+            storeCycle(start: lastStart, end: endDate)
+        }
+        
         let dateDifference = Calendar.current.dateComponents([.day], from: today, to: startDate).day!
         
         homeTopLabel.text = "projected start in"
@@ -529,6 +582,30 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, No
         if segue.identifier == "segueToSettings" {
             let nextVC = segue.destination as? SettingsViewController
             nextVC?.delegate = self
+        }
+    }
+    
+    func storeCycle(start:Date, end:Date) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let cycle = NSEntityDescription.insertNewObject(forEntityName: "Cycle", into: context)
+
+        let user = Auth.auth().currentUser
+
+        if ((user) != nil) {
+            cycle.setValue(user?.uid, forKey: "userID")
+            cycle.setValue(start, forKey: "start")
+            cycle.setValue(end, forKey: "end")
+
+            // Commit the changes
+            do {
+                try context.save()
+            } catch {
+                // If an error occurs
+                let nserror = error as NSError
+                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+                abort()
+            }
         }
     }
     

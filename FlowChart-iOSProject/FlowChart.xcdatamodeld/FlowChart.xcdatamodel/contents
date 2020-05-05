@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="ChecklistItem" representedClassName="ChecklistItem" syncable="YES" codeGenerationType="class">
         <attribute name="isChecked" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="userID" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Cycle" representedClassName="Cycle" syncable="YES" codeGenerationType="class">
+        <attribute name="end" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="start" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="userID" optional="YES" attributeType="String"/>
     </entity>
     <entity name="Flow" representedClassName="Flow" syncable="YES" codeGenerationType="class">
@@ -26,5 +31,6 @@
         <element name="Flow" positionX="-63" positionY="9" width="128" height="88"/>
         <element name="Mood" positionX="-54" positionY="27" width="128" height="103"/>
         <element name="Symptom" positionX="-36" positionY="54" width="128" height="88"/>
+        <element name="Cycle" positionX="-36" positionY="54" width="128" height="88"/>
     </elements>
 </model>
