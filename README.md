@@ -17,9 +17,9 @@ Special Instructions:
 | Mood View                              | Allows user to add mood and see on tracker page                             |                 |                     |                           |
 | Calendar                               | Displays user information, allows users to go to any day's tracker          | Alpha           | None                | Shannon 80%, Abby 20%     |
 | Data persistence - CoreData + Firebase | Correctly saving and retrieving all user data                               |                 |                     | Madeline 10%, Abby 40%, Soujanya 50% |
-| Settings                               | Change notification frequency Logout/create a new account                   | Beta            | None                | Abby 100%                 |
-| Resources (Location, News, Checklist)  | Resources screens Clinic finder relevant news pages, and checklist          |                 |                     | Abby 100%                 |
-| Notifications                          | Local notifications  for the 3 modes  (on period, late, waiting)            |                 |                     | Abby 100%                 |
+| Settings                               | Change notification frequency Logout/create a new account                   | Alpha           | None                | Abby 100%                 |
+| Resources (Location, News, Checklist)  | Resources screens Clinic finder relevant news pages, and checklist          | Beta            | None                | Abby 100%                 |
+| Notifications                          | Local notifications  for the 3 modes  (on period, late, waiting)            | Beta            | Final, local no push| Abby 100%                 |
 | Design                                 | Color schemes, fonts,  coordinating common look for buttons, etc.           | Alpha           |                     | Abby 10%, Madeline 40%    |
 | Constraints                            | Set auto-layouts so design is maintained on every device                    | Final           | None                | Shannon 50%, Madeline 20% |
 | Menu Interactivity + Design            | Menu slides open from the main view and connects to the other views         | Alpha           | None                | Madeline 100%             |
