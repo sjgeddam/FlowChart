@@ -241,9 +241,6 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, No
             }
             else { // reset to 30 if no entries
                 avgWaitTime = 30
-                avg = Int(round(Double(sum)/Double(count)))
-                averagePeriodLen = avg
-                print("avg cycle wait time is \(avg) = (\(sum)/\(count))")
             }
             startDate = Calendar.current.date(byAdding: .day, value: avgWaitTime, to: lastEnd) ?? Date()
             endDate = lastEnd
