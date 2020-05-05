@@ -12,9 +12,10 @@ import Firebase
 
 let reuseIdentifier = "Cell"
 var dates = [[Int]]()
-var markedDates:[[(period: Bool, ovulation: Bool, symptoms: Bool)]] = []
+var markedDates:[[(period: Bool, ovulation: Bool, symptoms: Bool, prediction: Bool)]] = []
 
 var monthDict = ["none", "january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
+
 
 var realMonth = 1
 var realYear = 2020
@@ -33,6 +34,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     
     var collectionViewItemSpacing = CGFloat(0.0)
     var collectionViewLineSpacing = CGFloat(0.0)
+    var delegate: MainViewController!
     
     func fillDates() {
         dates.removeAll()
@@ -86,7 +88,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
             curDate = true
         }
         let markedDay = markedDates[indexPath.section][indexPath.row]
-        cell.setDate(date: "\(dates[indexPath.section][indexPath.row])", currentDate: curDate, period: markedDay.period, ovulation: markedDay.ovulation, symptom: markedDay.symptoms)
+        cell.setDate(date: "\(dates[indexPath.section][indexPath.row])", currentDate: curDate, period: markedDay.period, ovulation: markedDay.ovulation, symptom: markedDay.symptoms, prediction: markedDay.prediction)
         return cell
     }
     
@@ -146,6 +148,22 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         var symptomDates:[Int] = []
         var flowDates:[Int] = []
         var nextMonthFlowDates:[Int] = []
+        var predictionDates:[Int] = []
+        
+        var date = startDate
+        
+        if predictedDate {
+            print("averagePeriodLen = {}", averagePeriodLen)
+            for _ in 1...averagePeriodLen {
+                let predictMonth = Calendar.current.component(.month, from: date)
+                let predictYear = Calendar.current.component(.year, from: date)
+                let predictDay = Calendar.current.component(.day, from: date)
+                if (predictYear == curYear && predictMonth == curMonth) {
+                    predictionDates.append(predictDay)
+                }
+                date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
+            }
+        }
         
         for f in flow {
             let monthString = f.value(forKey:"date") as? String ?? ""
@@ -182,9 +200,13 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         
         //var markedDates:[[(period: Bool, ovulation: Bool, symptoms: Bool)]] = []
         for week in 0...5 {
-            var row:[(period: Bool, ovulation: Bool, symptoms: Bool)] = []
+            var row:[(period: Bool, ovulation: Bool, symptoms: Bool, prediction: Bool)] = []
             for day in 0...6 {
-                var markedDay = (period: false, ovulation: false, symptoms: false)
+                var markedDay = (period: false, ovulation: false, symptoms: false, prediction: false)
+                
+                if predictionDates.contains(dates[week][day]) {
+                    markedDay.prediction = true
+                }
                 if flowDates.contains(dates[week][day]) {
                     markedDay.period = true
                 }
@@ -236,8 +258,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         realMonth = curMonth
         realYear = curYear
         realDay = Calendar.current.component(.day, from: NSDate() as Date)
-        
-        
         
         collectionView.delegate = self
         collectionView.dataSource = self

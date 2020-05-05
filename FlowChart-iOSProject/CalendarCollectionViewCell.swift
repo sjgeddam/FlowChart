@@ -24,9 +24,10 @@ class CalendarCollectionViewCell: UICollectionViewCell {
     let periodDateColor = UIColor(red: 248/255, green: 10/255, blue: 10/255, alpha: 0.7)
     let ovulationDateColor = UIColor(red: 245/255, green: 157/255, blue:53/255, alpha: 1.0)
     let symptomDateColor = UIColor(red: 243/255, green: 248/255, blue: 10/255, alpha: 1.0)
+    let predictDateColor = UIColor(red: 248/255, green: 10/255, blue: 10/255, alpha: 0.3)
 
     
-    func setDate(date: String, currentDate: Bool, period: Bool, ovulation: Bool, symptom: Bool) {
+    func setDate(date: String, currentDate: Bool, period: Bool, ovulation: Bool, symptom: Bool, prediction: Bool) {
         if date != "0" {
             dateLabel.text = date
             button.isEnabled = true
@@ -35,22 +36,24 @@ class CalendarCollectionViewCell: UICollectionViewCell {
             button.isEnabled = false
             dateLabel.text = " "
         }
-        if (currentDate == true) {
+        if currentDate {
             markDate.tintColor = curDateColor
         } else {
             markDate.tintColor = .clear
         }
         topRect.tintColor = .clear
         bottomRect.tintColor = .clear
-        if period == true {
+        if period {
             topRect.tintColor = periodDateColor
-        } else if ovulation == true {
+        } else if prediction {
+            topRect.tintColor = predictDateColor
+        } else if ovulation {
             topRect.tintColor = ovulationDateColor
-        } else if symptom == true {
+        } else if symptom {
             topRect.tintColor = symptomDateColor
             return
         }
-        if symptom == true {
+        if symptom {
             bottomRect.tintColor = symptomDateColor
         }
         
