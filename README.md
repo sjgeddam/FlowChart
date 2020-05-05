@@ -9,8 +9,8 @@ Special Instructions:
 | Feature                                | Description                                                                 | Release Planned | Deviations (if any) | Who/Percentage worked on  |
 |----------------------------------------|-----------------------------------------------------------------------------|-----------------|---------------------|---------------------------|
 | Login                                  | Allows user to create account and login using Firebase                      |                 |                     | Abby 100%                 |
-| Main View                              | Displays user's predicted start/end days through relative/absolute dates    |                 |                     | Madeline 100%             |
-| Main View - changing scenarios         | Main screen updates (waiting, late, on period) via user's inputs            |                 |                     | Abby 30%, Madeline 70%    |
+| Main View                              | Displays user's predicted start/end days through relative/absolute dates    | Alpha           | None                | Madeline 100%             |
+| Main View - changing scenarios         | Main screen updates (waiting, late, on period) via user's inputs            | Beta            | None                | Abby 30%, Madeline 70%    |
 | Tracker View                           |                                                                             |                 |                     |                           |
 | Symptoms View                          | Allows user to add symptoms and see on tracker page                         | Alpha           | None                | Shannon 50%               |
 | Mood View                              |                                                                             |                 |                     |                           |
@@ -20,11 +20,12 @@ Special Instructions:
 | Settings                               | Change notification frequency Logout/create a new account                   |                 |                     | Abby 100%                 |
 | Resources (Location, News, Checklist)  | Resources screens Clinic finder relevant news pages, and checklist          |                 |                     | Abby 100%                 |
 | Notifications                          | Local notifications  for the 3 modes  (on period, late, waiting)            |                 |                     | Abby 100%                 |
-| Design                                 | Color schemes, fonts,  coordinating common look for buttons, etc.           |                 |                     | Abby 10%, Madeline 50%    |
+| Design                                 | Color schemes, fonts,  coordinating common look for buttons, etc.           | Alpha           |                     | Abby 10%, Madeline 40%    |
 | Constraints                            | Set auto-layouts so design is maintained on every device                    | Final           | None                | Shannon 50%, Madeline 20% |
-| Menu Interactivity + Design            | Slides open from the main view and connects to the other views              |                 |                     | Madeline 100%             |
-| Cycle Predictions                      | Predictions for period length and time between periods based off past inputs|                 | None                | Madeline 100%             |
-| Splash screen                          | Splash screen designed                                                      |                 | Random facts removed| Madeline 100%             |
+| Menu Interactivity + Design            | Menu slides open from the main view and connects to the other views         | Alpha           | None                | Madeline 100%             |
+| Cycle Predictions                      | Predictions for period length and time between periods based off past inputs| Beta            | Final Release       | Madeline 100%             |
+| Splash screen                          | Splash screen designed                                                      | Alpha           | Random facts removed| Madeline 100%             |
+| Etc.                                   |                                                                             |                 |                     |                           |
 | Etc.                                   |                                                                             |                 |                     |                           |
 
 
