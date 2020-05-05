@@ -18,7 +18,6 @@ var startDate:Date = Date()
 var endDate:Date = Date()
 var alreadyMoved:Bool = false
 var avgWaitTime = 30
-var avgPeriodTime = 7
 var onPeriod:Bool = false
 var averagePeriodLen = 5
 
@@ -266,14 +265,14 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, No
                 }
             }
             if sum > 0 {
-                avgPeriodTime = Int(round(Double(sum)/Double(count)))
-                print("avg cycle length is \(avgPeriodTime) = (\(sum)/\(count))")
+                averagePeriodLen = Int(round(Double(sum)/Double(count)))
+                print("avg cycle length is \(averagePeriodLen) = (\(sum)/\(count))")
             }
-            else { // reset to 7 if no entries
-                avgPeriodTime = 7
+            else { // reset to 5 if no entries
+                averagePeriodLen = 5
             }
             startDate = lastStart
-            endDate = Calendar.current.date(byAdding: .day, value: avgPeriodTime, to: lastStart) ?? Date()
+            endDate = Calendar.current.date(byAdding: .day, value: averagePeriodLen, to: lastStart) ?? Date()
         }
         
         
