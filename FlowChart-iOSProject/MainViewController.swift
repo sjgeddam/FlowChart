@@ -436,6 +436,16 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, No
         homeCalendarButton.setImage(UIImage(systemName: "plus.circle.fill")!, for: [])
         homeNumberLabel.attributedText = NSAttributedString(string: homeNumberLabel.text!, attributes:
         [NSAttributedString.Key.underlineStyle: 0])
+        // change square size
+        homeSquareHeight.constant = 344
+        // change bottom label's distance to the top
+        homeBottomTop.constant = 350
+//        if alreadyMoved {
+//            homeBottomTop.constant -= 50
+//            // change middle number
+////            homeNumberCenterY.constant += 20
+//            alreadyMoved = false
+//        }
     }
     
     // period has began
@@ -472,12 +482,13 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, No
         // change square size
         homeSquareHeight.constant = 280
         // change bottom label's distance to the top
-        if !alreadyMoved {
-            homeBottomTop.constant += 50
-            // change middle number
-//            homeNumberCenterY.constant += 20
-            alreadyMoved = true
-        }
+        homeBottomTop.constant = 400
+//        if !alreadyMoved {
+//            homeBottomTop.constant += 50
+//            // change middle number
+////            homeNumberCenterY.constant += 20
+//            alreadyMoved = true
+//        }
         homeNumberLabel.layer.borderWidth = 0.0
         homeNumberLabel.attributedText = NSAttributedString(string: homeNumberLabel.text!, attributes:
             [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue])
