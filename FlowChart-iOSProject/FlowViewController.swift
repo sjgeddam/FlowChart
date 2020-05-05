@@ -544,6 +544,9 @@ class FlowViewController: UIViewController {
                 end = start
                 start = temp
             }
+            if Calendar.current.isDateInToday(date) {
+                onPeriod = false
+            }
             if (start ... end).contains(date) {
                 if start < date {
                     fixCycle(oldStart: start, newStart: start, newEnd: Calendar.current.date(byAdding: .day, value: -1, to: date)!)

@@ -16,6 +16,9 @@ import UserNotifications
 var startDate:Date = Date()
 var endDate:Date = Date()
 var alreadyMoved:Bool = false
+var avgWaitTime = 30
+var avgPeriodTime = 7
+var onPeriod:Bool = false
 
 protocol NotifDaysChanger {
     func setNotifDates(days: Int)
@@ -157,7 +160,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, No
         
         let dateStr = "\(monthDict[month]) \(day), \(year)"
         let flow = PeriodData.retrieveItems(item: "Flow")
-        var onPeriod:Bool = false
+        onPeriod = false
 
 
         let df = DateFormatter()
@@ -205,13 +208,16 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, No
             lastStart = ready[0]
             lastEnd = ready[0]
         }
+        
+//        if endDate != nil && endDate >= today {
+//            onPeriod = true
+//        }
 
         var cycle:[NSManagedObject] = PeriodData.retrieveItems(item: "Cycle")
         cycle = cycle.sorted(by: { ($0.value(forKey: "start") as! Date).compare($1.value(forKey: "start") as! Date) == .orderedAscending })
         var lastEndDate = Date()
         if !onPeriod {
             // calculate average between cycles
-            var avg = 30
             var count = 1
             var sum = 0
             if (cycle.count > 1) {
@@ -228,16 +234,18 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, No
                 }
             }
             if sum > 0 {
-                avg = Int(round(Double(sum)/Double(count)))
-                print("avg cycle wait time is \(avg) = (\(sum)/\(count))")
+                avgWaitTime = Int(round(Double(sum)/Double(count)))
+                print("avg cycle wait time is \(avgWaitTime) = (\(sum)/\(count))")
             }
-            startDate = Calendar.current.date(byAdding: .day, value: avg, to: lastEnd) ?? Date()
+            else { // reset to 30 if no entries
+                avgWaitTime = 30
+            }
+            startDate = Calendar.current.date(byAdding: .day, value: avgWaitTime, to: lastEnd) ?? Date()
             endDate = lastEnd
 
         }
         else {
             // calculate average cycle length
-            var avg = 7
             var count = 0
             var sum = 0
             if (cycle.count > 1) {
@@ -251,11 +259,14 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, No
                 }
             }
             if sum > 0 {
-                avg = Int(round(Double(sum)/Double(count)))
-                print("avg cycle length is \(avg) = (\(sum)/\(count))")
+                avgPeriodTime = Int(round(Double(sum)/Double(count)))
+                print("avg cycle length is \(avgPeriodTime) = (\(sum)/\(count))")
+            }
+            else { // reset to 7 if no entries
+                avgPeriodTime = 7
             }
             startDate = lastStart
-            endDate = Calendar.current.date(byAdding: .day, value: avg, to: lastStart) ?? Date()
+            endDate = Calendar.current.date(byAdding: .day, value: avgPeriodTime, to: lastStart) ?? Date()
         }
         
         
@@ -266,6 +277,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, No
             periodWaiting()
         }
         if (!onPeriod && (today <= startDate || Calendar.current.isDateInToday(startDate))) {
+            print("waiting for period. end date was \(endDate)")
             periodWaiting()
             scheduleNotification(type: "WAITING")
         }
@@ -274,6 +286,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, No
             scheduleNotification(type: "LATE")
         }
         else {
+            print("on period. end date is \(endDate)")
             periodStarted()
             scheduleNotification(type: "ONPERIOD")
         }
@@ -414,6 +427,12 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, No
         homeNumberLabel.layer.borderColor = UIColor(red: 0xfb/255, green: 0xd4/255, blue: 0xa1/255, alpha: 1).cgColor
         homeNumberLabel.layer.cornerRadius = homeNumberLabel.frame.width/2
         homeBottomLabel.textColor = UIColor(red: 0xf4/255, green: 0x9a/255, blue: 0x5a/255, alpha: 1)
+        
+        // undo periodStarted changes
+        homeCycleStartedLabel.text = "cycle just started"
+        homeCalendarButton.setImage(UIImage(systemName: "plus.circle.fill")!, for: [])
+        homeNumberLabel.attributedText = NSAttributedString(string: homeNumberLabel.text!, attributes:
+        [NSAttributedString.Key.underlineStyle: 0])
     }
     
     // period has began
