@@ -43,7 +43,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="Cell" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="Cell" translatesAutoresizingMaskIntoConstraints="NO" id="lOD-A3-Na7" userLabel="Cell" customClass="CalendarCollectionViewCell" customModule="FlowChart_iOSProject" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="Cell" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="Cell" translatesAutoresizingMaskIntoConstraints="NO" id="lOD-A3-Na7" userLabel="Cell" customClass="CalendarCollectionViewCell" customModule="FlowChart_iOSProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="43" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Vjr-vP-Gad">
@@ -287,21 +287,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hDx-cV-uwQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2738" y="443"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="nJx-xQ-gM2">
-            <objects>
-                <viewController id="CZY-AH-TQG" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="64T-Wv-i3b">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="LV5-NY-idF"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kHx-oW-nMv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1083" y="-383"/>
         </scene>
     </scenes>
     <resources>

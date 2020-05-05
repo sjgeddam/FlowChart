@@ -12,6 +12,7 @@ import Firebase
 import FirebaseAuth
 import UserNotifications
 
+var predictedDate = false
 // global flags, will probably need to be stored in core data and/or firebase
 var startDate:Date = Date()
 var endDate:Date = Date()
@@ -19,6 +20,7 @@ var alreadyMoved:Bool = false
 var avgWaitTime = 30
 var avgPeriodTime = 7
 var onPeriod:Bool = false
+var averagePeriodLen = 5
 
 protocol NotifDaysChanger {
     func setNotifDates(days: Int)
@@ -54,7 +56,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, No
     @IBOutlet weak var menuCalendarButtonLabel: UIButton!
     @IBOutlet weak var menuTrackerButtonLabel: UIButton!
     @IBOutlet weak var menuResourcesButtonLabel: UIButton!
-    
+
     var menuHidden = true
     
     // date variables
@@ -233,15 +235,20 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, No
                     lastEndDate = end
                 }
             }
+            print("SUMMMMMM = {}", sum)
             if sum > 0 {
                 avgWaitTime = Int(round(Double(sum)/Double(count)))
                 print("avg cycle wait time is \(avgWaitTime) = (\(sum)/\(count))")
             }
             else { // reset to 30 if no entries
                 avgWaitTime = 30
+                avg = Int(round(Double(sum)/Double(count)))
+                averagePeriodLen = avg
+                print("avg cycle wait time is \(avg) = (\(sum)/\(count))")
             }
             startDate = Calendar.current.date(byAdding: .day, value: avgWaitTime, to: lastEnd) ?? Date()
             endDate = lastEnd
+            predictedDate = true
 
         }
         else {
@@ -600,6 +607,10 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, No
         }
         if segue.identifier == "segueToSettings" {
             let nextVC = segue.destination as? SettingsViewController
+            nextVC?.delegate = self
+        }
+        if segue.identifier == "segueToCalendar" {
+            let nextVC = segue.destination as? CalendarViewController
             nextVC?.delegate = self
         }
     }
