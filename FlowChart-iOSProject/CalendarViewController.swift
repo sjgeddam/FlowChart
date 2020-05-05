@@ -153,7 +153,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         var date = startDate
         
         if predictedDate {
-            print("averagePeriodLen = {}", averagePeriodLen)
             for _ in 1...averagePeriodLen {
                 let predictMonth = Calendar.current.component(.month, from: date)
                 let predictYear = Calendar.current.component(.year, from: date)
