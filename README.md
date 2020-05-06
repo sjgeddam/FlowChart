@@ -17,9 +17,9 @@ where the podfile is located
 | Login                                  | Allows user to create account and login using Firebase                      | Alpha           | None                | Abby 100%                 |
 | Main View                              | Displays user's predicted start/end days through relative/absolute dates    | Alpha           | None                | Madeline 100%             |
 | Main View - changing scenarios         | Main screen updates (waiting, late, on period) via user's inputs            | Beta            | None                | Abby 30%, Madeline 70%    |
-| Tracker View                           | Tracker details screen for specific day                                     |                 |                     |                           |
-| Symptoms View                          | Allows user to add symptoms and see on tracker page                         | Alpha           | None                | Shannon 50%               |
-| Mood View                              | Allows user to add mood and see on tracker page                             |                 |                     |                           |
+| Tracker View                           | Tracker details screen for specific day                                     |                 |                                        |Soujanya 100% |
+| Symptoms View                          | Allows user to add symptoms and see on tracker page                         | Alpha           | None                | Shannon 50%, Soujanya 50% |
+| Mood View                              | Allows user to add mood and see on tracker page                             |                 |                                        |Soujanya 100% |
 | Calendar                               | Displays user information, allows users to go to any day's tracker          | Alpha           | None                | Shannon 80%, Abby 20%     |
 | Data persistence - CoreData + Firebase | Correctly saving and retrieving all user data                               |                 |                     | Madeline 10%, Abby 40%, Soujanya 50% |
 | Settings                               | Change notification frequency Logout/create a new account                   | Alpha           | None                | Abby 100%                 |
