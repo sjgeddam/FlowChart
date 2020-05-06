@@ -5,6 +5,11 @@ Name of project: FlowChart
 Dependencies: Xcode 10.2, Swift 4
 
 Special Instructions:
+• You have to open the file FlowChart-iOSProject.xcworkspace (as opposed to the file
+FlowChart-iOSProject.xcodeprog).
+• Use an iPhone 8+ Simulator
+o Before running the app, run "pod install" inside the FlowChart folder
+where the podfile is located
 
 =======
 | Feature                                | Description                                                                 | Release Planned | Deviations (if any) | Who/Percentage worked on  |
