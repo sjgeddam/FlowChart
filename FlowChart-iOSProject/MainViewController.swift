@@ -225,7 +225,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, No
                 for (index, entry) in (cycle.enumerated()) {
                     let start = entry.value(forKey: "start") as! Date
                     let end = entry.value(forKey: "end") as! Date
-                    print("start is \(start), end is \(end)")
+//                    print("start is \(start), end is \(end)")
                     if index != 0 {
                         count += 1
                         let dateDifference = Calendar.current.dateComponents([.day], from: lastEndDate, to: start).day!
@@ -234,10 +234,10 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, No
                     lastEndDate = end
                 }
             }
-            print("SUMMMMMM = {}", sum)
+//            print("SUMMMMMM = {}", sum)
             if sum > 0 {
                 avgWaitTime = Int(round(Double(sum)/Double(count)))
-                print("avg cycle wait time is \(avgWaitTime) = (\(sum)/\(count))")
+//                print("avg cycle wait time is \(avgWaitTime) = (\(sum)/\(count))")
             }
             else { // reset to 30 if no entries
                 avgWaitTime = 30
@@ -256,14 +256,14 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, No
                     count += 1
                     let start = entry.value(forKey: "start") as! Date
                     let end = entry.value(forKey: "end") as! Date
-                    print("start is \(start), end is \(end)")
+//                    print("start is \(start), end is \(end)")
                     let dateDifference = Calendar.current.dateComponents([.day], from: start, to: end).day!
                     sum += dateDifference
                 }
             }
             if sum > 0 {
                 averagePeriodLen = Int(round(Double(sum)/Double(count)))
-                print("avg cycle length is \(averagePeriodLen) = (\(sum)/\(count))")
+//                print("avg cycle length is \(averagePeriodLen) = (\(sum)/\(count))")
             }
             else { // reset to 5 if no entries
                 averagePeriodLen = 5
@@ -280,7 +280,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, No
             periodWaiting()
         }
         if (!onPeriod && (today <= startDate || Calendar.current.isDateInToday(startDate))) {
-            print("waiting for period. end date was \(endDate)")
+//            print("waiting for period. end date was \(endDate)")
             periodWaiting()
             scheduleNotification(type: "WAITING")
         }
@@ -289,7 +289,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, No
             scheduleNotification(type: "LATE")
         }
         else {
-            print("on period. end date is \(endDate)")
+//            print("on period. end date is \(endDate)")
             periodStarted()
             scheduleNotification(type: "ONPERIOD")
         }
@@ -304,7 +304,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, No
         center.getPendingNotificationRequests { (notifications) in
             for notif in notifications {
                 currentNotif = notif
-                print(notif.content.body)
+//                print(notif.content.body)
             }
         }
         // schedules 3 types of notifications -
@@ -659,7 +659,7 @@ class MainViewController: UIViewController, UNUserNotificationCenterDelegate, No
             try fetchedResults = context.fetch(request) as! [NSManagedObject]
             if fetchedResults.count > 0 {
                 for result:AnyObject in fetchedResults {
-                    context.delete(result as! NSManagedObject)
+//                    context.delete(result as! NSManagedObject)
                     print("\(result.value(forKey: "flowtype")!) has been Deleted")
                 }
             }
